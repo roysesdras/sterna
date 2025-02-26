@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteBase /
+
+# Réécrire l'URL pour les actualités
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^actualite/([0-9]+)/?$ actualite/actualite_detail.php?id=$1 [L,QSA]
+
+#Réécrire l'URL pour les evenements
+RewriteRule ^evenement/([0-9]+)/?$ evenement/mission_detail.php?id=$1 [L,QSA]
+
+#Réécrire l'URL pour les interviews
+RewriteRule ^interview$ /interview.php [L,QSA]
+
+#Réécrire l'URL pour les temoignages
+RewriteRule ^temoignage/([0-9]+)$ /pages/temoignage_detail.php?id=$1 [L,QSA]
+
