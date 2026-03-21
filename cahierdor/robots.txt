@@ -1,0 +1,25 @@
+# Bots IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Bing AI
+User-agent: Bingbot
+Allow: /
+User-agent: BingPreview
+Allow: /
+
+# Tous les autres
+User-agent: *
+Allow: /
+
+# Sitemap pour le sous-domaine
+Sitemap: https://cahierdor.sternaafrica.org/sitemap.xml

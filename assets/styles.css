@@ -1,0 +1,546 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playwrite+DE+Grund:wght@100..400&family=Playwrite+NG+Modern:wght@100..400&display=swap);
+
+/* body {
+  background: #faf9f9eb;
+} */
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  color: white;
+}
+
+/* Style du menu principal */
+.dropdown-menu {
+  background-color: #ffffff;
+  padding: 5px 0;
+  margin: 0;
+  min-width: unset;
+  /* Enlève la largeur minimale forcée */
+  max-width: unset;
+  /* Enlève la largeur maximale */
+  width: auto;
+  /* Permet au menu de s'adapter au texte */
+  white-space: nowrap;
+  /* Empêche le texte de passer à la ligne */
+  overflow: visible;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  /* Ajouté pour éviter le clignotement */
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+  position: absolute;
+  z-index: 1000;
+}
+
+/* Position des sous-menus */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-left: 5px;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  /* Ajouté pour éviter les sous-menus affichés par défaut */
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+}
+
+/* Style de l'élément qui contient le sous-menu */
+.dropdown-submenu > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Effet au survol */
+.dropdown-item:hover {
+  background: rgb(3, 65, 127) !important;
+  color: white !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown.show .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-icon {
+  color: rgb(3, 65, 127);
+}
+
+/* sidebare */
+
+/* Styles pour la sidebar mobile */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  /* Cachée par défaut */
+  width: 250px;
+  height: 100vh;
+  background: #fffdfdf1;
+  color: #faf9f9eb;
+  overflow-y: auto;
+  padding: 15px;
+  transition: left 0.3s ease-in-out;
+  z-index: 2000;
+  /* Augmenté pour être au-dessus de la navbar */
+}
+
+.mobile-sidebar.open {
+  left: 0;
+  /* Affichée */
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  background: #333;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar-menu a:hover {
+  background: #444;
+}
+
+.submenu-items {
+  list-style: none;
+  padding-left: 15px;
+  margin: 0;
+  display: none;
+  /* Caché par défaut */
+}
+
+.submenu-items a {
+  padding: 3px;
+  min-width: unset;
+  max-width: unset;
+  width: auto;
+  white-space: nowrap;
+}
+
+.submenu.open > .submenu-items {
+  display: block;
+  /* Affiché lorsqu'ouvert */
+}
+
+.submenu > a i {
+  transition: transform 0.3s ease;
+  color: rgb(242, 245, 247);
+}
+
+.submenu.open > a i {
+  transform: rotate(180deg);
+}
+
+/* Overlay pour assombrir l'écran */
+/* Overlay Amélioré : Voile sombre avec flou */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Couleur sombre semi-transparente */
+  background: rgba(15, 23, 42, 0.5);
+  /* EFFET MIELLEUX : Floute tout ce qui est derrière la sidebar */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  z-index: 1500;
+  /* Transition pour une apparition douce */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* CSS OVERLAY MOBILE */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.sidebar.open ~ .sidebar-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.search-icon:hover {
+  color: rgba(165, 122, 4, 0.762);
+}
+
+.search-input {
+  display: none;
+  width: 180px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  position: absolute;
+  right: 30px;
+}
+
+/* Style pour les résultats de recherche */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 250px; /* Limiter la hauteur des résultats */
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none; /* Par défaut caché */
+}
+
+.search-results .dropdown-item {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.search-results .dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search-results .dropdown-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.search-results .dropdown-item strong {
+  font-size: 16px;
+}
+
+.search-results .dropdown-item small {
+  font-size: 12px;
+  color: #777;
+}
+
+.comic-neue-bold,
+.comic-neue-regular {
+  font-family: "Comic Neue", cursive;
+  font-style: normal;
+}
+.comic-neue-bold {
+  font-weight: 700;
+}
+.comic-neue-regular {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.ratio-16x9 {
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  overflow: hidden;
+}
+.ratio-16x9 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ul a,
+div .download a,
+div .news a,
+div a {
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Footer css */
+
+.footer-section {
+  background-color: #141421;
+  padding: 30px 0;
+}
+
+.footer-column {
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #305196;
+}
+
+.footer-column p,
+.footer-column a {
+  color: #e3deded1;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Icônes Réseaux Sociaux */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-link {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .footer-column {
+    text-align: left;
+  }
+
+  .social-icons {
+    justify-content: left;
+  }
+}
+
+/* newsletter succes or css */
+
+.description {
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.message {
+  margin-top: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* titre customiser */
+
+.sterna-title-modern {
+  display: inline-block;
+  padding: 10px 30px;
+  font-family: "Comic Neue", cursive;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffffff;
+
+  /* Fond : Dégradé sombre avec une touche de bleu Sterna */
+  background: linear-gradient(135deg, #143272 0%, #0a0f14 100%);
+
+  /* Bordure : On garde ton jaune mais en mode "Néon" */
+
+  border-radius: 0 15px 15px 0;
+
+  /* Effets visuels */
+  box-shadow: 10px 0px 30px rgba(20, 50, 114, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Petit effet de reflet qui passe sur le titre au survol */
+.sterna-title-modern:hover {
+  transform: translateX(10px);
+  box-shadow: 15px 0px 40px rgba(244, 181, 5, 0.2);
+  border-left-width: 10px;
+}
+
+/* La petite touche finale : un point brillant à la fin */
+.sterna-title-modern::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  background: #f4b505;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px #f4b505;
+}
+
+/* Effet coup de pinceau */
+.custom-title::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 120%;
+  height: 120%;
+  z-index: -1;
+  transform: rotate(-2deg);
+}
+
+.custom-title-one::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 120%;
+  height: 120%;
+  z-index: -1;
+  transform: rotate(-2deg);
+}
+
+/* Style pour la section des partenaires */
+.partner-section {
+  background: white !important;
+  overflow-x: auto;
+  /* Barre de défilement horizontale */
+  white-space: nowrap;
+  /* Forcer tout le contenu à s'afficher sur une seule ligne */
+  scroll-behavior: smooth;
+  /* Permet un défilement fluide */
+}
+
+/* Style pour les images */
+.partner-section img {
+  display: inline-block;
+  width: 150px;
+  /* Ajustez la taille des images selon vos besoins */
+  margin-right: 20px;
+  /* Espace entre les images */
+}
+
+/* Cachez la barre de défilement si vous voulez la cacher (facultatif) */
+.partner-section::-webkit-scrollbar {
+  display: none;
+}
+
+.partner-section {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.bg-sterna-dark {
+  background-color: #0a0f14 !important; /* Le noir profond Sterna */
+  color: #ffffff; /* Force le texte en blanc par défaut */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 100vh; /* Optionnel : pour que le fond couvre toute la hauteur de l'écran */
+  transition: background 0.5s ease;
+}
+
+/* On s'assure que les paragraphes et titres standards héritent de la bonne couleur */
+.bg-sterna-dark p,
+.bg-sterna-dark h1,
+.bg-sterna-dark h2,
+.bg-sterna-dark h3 {
+  color: #ffffff;
+}
+
+/* Optionnel : Ajoute un léger dégradé pour donner de la profondeur */
+/* .bg-sterna-dark {
+  background: radial-gradient(circle at top right, #1a1f25 0%, #0a0f14 100%);
+} */

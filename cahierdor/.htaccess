@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /
+
+# ✨ Redirection propre des pages
+RewriteRule ^connexion$ connexion.php [L,QSA]
+RewriteRule ^raconte-ta-journee$ entries.php [L,QSA]
+
+# ✅ Rediriger /index.php vers la racine /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.php [NC]
+RewriteRule ^index\.php$ / [R=301,L]
+
+# 🔄 Supprimer l’extension .php pour les autres pages si besoin
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L,QSA]

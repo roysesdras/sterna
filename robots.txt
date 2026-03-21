@@ -1,0 +1,37 @@
+# --------------------------
+# Autorisations pour les IA
+# --------------------------
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Bing AI (Copilot + Chat)
+User-agent: Bingbot
+Allow: /
+User-agent: BingPreview
+Allow: /
+
+# --------------------------
+# Règle générale (autres bots)
+# --------------------------
+User-agent: *
+Allow: /
+
+# --------------------------
+# Sitemaps
+# --------------------------
+Sitemap: https://sternaafrica.org/sitemap.xml
+Sitemap: https://cahierdor.sternaafrica.org/index.php
+Sitemap: https://sternaafrica.org/rss.php
+

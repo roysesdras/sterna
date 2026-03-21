@@ -1,0 +1,29 @@
+
+
+#forImage{
+  border-radius: 10px;
+  float: left;
+  margin: 10px;
+  max-width: 50px;
+}
+
+#cardImag{
+  border-radius: 10px;
+  float: left;
+  margin: 10px;
+  width: 360px;
+}
+
+@media (max-width: 483px) {
+    #imgimgFloat {
+        max-width: 100%;
+    }
+}
+
+#block1{
+  border-width: 1px;
+  border-style: solid;
+  border-color: red;
+}
+
+

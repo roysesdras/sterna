@@ -1,0 +1,198 @@
+/* Variables globales */
+:root {
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --secondary: #2563eb;
+  --dark-100: #0f0f14;
+  --dark-200: #1a1a22;
+  --dark-300: #252530;
+  --dark-400: #35353f;
+  --glass-bg: rgba(26, 26, 34, 0.85);
+  --glass-border: rgba(124, 58, 237, 0.2);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f14 0%, #1a1a22 100%);
+  min-height: 100vh;
+}
+
+/* Glass Effect amélioré */
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-border {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* FAQ */
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 1rem;
+}
+
+/* Scrollbar personnalisée */
+#listeCategories {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124, 58, 237, 0.5) transparent;
+}
+
+#listeCategories::-webkit-scrollbar {
+  width: 6px;
+}
+
+#listeCategories::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#listeCategories::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.5);
+  border-radius: 10px;
+}
+
+#listeCategories::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.7);
+}
+
+/* Bouton flottant mobile */
+#iconButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.5);
+  transition: all 0.3s;
+}
+
+#iconButton:hover,
+#iconButton:active {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.6);
+}
+
+#iconButton i {
+  font-size: 24px;
+}
+
+/* Catégorie active */
+.categorie-btn {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.categorie-btn.active {
+  background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);
+  color: #ffffff;
+  box-shadow:
+    0 0 0 2px rgba(124, 58, 237, 0.3),
+    0 8px 20px rgba(124, 58, 237, 0.4);
+  transform: translateX(4px);
+}
+
+.categorie-btn.active::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(180deg, #fff 0%, #a855f7 100%);
+  border-radius: 0 2px 2px 0;
+}
+
+.categorie-btn.active:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  transform: translateX(6px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Navigation améliorée */
+nav {
+  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons de lancement */
+.lancer-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+.lancer-btn:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.5);
+  transform: translateY(-1px);
+}
+
+.lancer-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Cartes de joueurs */
+#joueursConnectes > div {
+  transition: all 0.2s;
+}
+
+#joueursConnectes > div:hover {
+  background: rgba(63, 63, 70, 0.5);
+  transform: translateX(4px);
+}
