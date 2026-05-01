@@ -99,7 +99,7 @@ while ($row = $res_r->fetch_assoc()) {
 ?>
 
 <!DOCTYPE html>
-<html lang="fr" class="bg-[#0A0F14]">
+<html lang="fr" class="bg-gray-200">
 
 <head>
     <meta charset="UTF-8">
@@ -115,17 +115,17 @@ while ($row = $res_r->fetch_assoc()) {
         } */
 
         .glass-effect {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased">
+<body class="text-gray-800 antialiased">
 
     <nav class="p-6">
-        <a href="javascript:history.back()" class="text-yellow-500 hover:text-white transition flex items-center gap-2 font-bold">
+        <a href="javascript:history.back()" class="text-yellow-600 hover:text-black transition flex items-center gap-2 font-bold">
             <i class="fas fa-arrow-left"></i> RETOUR
         </a>
     </nav>
@@ -133,16 +133,16 @@ while ($row = $res_r->fetch_assoc()) {
     <main class="container mx-auto px-4 max-w-4xl pb-20">
 
         <header class="mb-12 text-center">
-            <span class="bg-blue-600/20 text-blue-400 px-4 py-1 rounded-full text-xs font-black tracking-widest uppercase">
+            <span class="bg-blue-600/20 text-blue-600 px-4 py-1 rounded-full text-xs font-black tracking-widest uppercase">
                 Témoignage Volontaire
             </span>
-            <h1 class="comic-neue text-4xl md:text-5xl font-bold mt-6 mb-4 text-white">
+            <h1 class="comic-neue text-4xl md:text-5xl font-bold mt-6 mb-4 text-gray-900">
                 <?php echo htmlspecialchars($temoignage['nom']); ?>
             </h1>
-            <p class="text-yellow-500 text-xl comic-neue italic">
+            <p class="text-yellow-600 text-xl comic-neue italic">
                 « <?php echo htmlspecialchars($mission_title); ?> »
             </p>
-            <div class="flex justify-center items-center gap-4 mt-8 text-slate-400 text-sm">
+            <div class="flex justify-center items-center gap-4 mt-8 text-gray-600 text-sm">
                 <span class="flex items-center gap-2">
                     <i class="far fa-calendar-alt"></i>
                     Publié le <?php echo date("d M Y", strtotime($temoignage['date_submis'])); ?>
@@ -150,32 +150,32 @@ while ($row = $res_r->fetch_assoc()) {
             </div>
         </header>
 
-        <div class="relative w-full mb-16 rounded-3xl overflow-hidden shadow-2xl bg-black/40 flex items-center justify-center min-h-[400px]">
+        <div class="relative w-full mb-16 rounded-3xl overflow-hidden shadow-2xl bg-white flex items-center justify-center min-h-[400px]">
             <img src="<?php echo $photoPath; ?>" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110">
 
             <img src="<?php echo $photoPath; ?>"
                 class="relative z-10 w-auto max-w-full h-auto max-h-[80vh] shadow-2xl">
 
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0A0F14] via-transparent to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-200 via-transparent to-transparent z-20 pointer-events-none"></div>
         </div>
 
         <div class="grid grid-cols-1 gap-12">
             <?php foreach ($questions as $question): ?>
-                <section class="glass-effect p-4 rounded-3xl shadow-lg hover:border-yellow-500/50 transition-colors duration-500">
-                    <h2 class="comic-neue text-lg font-bold text-blue-400 mb-6 flex items-start gap-3">
-                        <span class="text-yellow-500">Q.</span>
+                <section class="glass-effect p-6 rounded-3xl shadow-md hover:border-yellow-500/50 transition-colors duration-500">
+                    <h2 class="comic-neue text-lg font-bold text-blue-600 mb-6 flex items-start gap-3">
+                        <span class="text-yellow-600">Q.</span>
                         <?php echo htmlspecialchars($question['question_text']); ?>
                     </h2>
-                    <div class="comic-neue text-md leading-relaxed text-slate-300 pl-8 border-l-2 border-slate-800">
+                    <div class="comic-neue text-md leading-relaxed text-gray-700 pl-8 border-l-2 border-gray-300">
                         <?php echo nl2br(htmlspecialchars($reponses[$question['id']] ?? "L'émotion est là, mais les mots manquent pour l'instant.")); ?>
                     </div>
                 </section>
             <?php endforeach; ?>
         </div>
 
-        <div class="mt-20 p-10 rounded-3xl bg-gradient-to-br from-blue-900/40 to-yellow-900/20 text-center border border-white/5">
-            <h3 class="comic-neue text-2xl font-bold text-white mb-4">Vous aussi, vivez l'aventure Sterna</h3>
-            <p class="text-slate-400 mb-8">Chaque témoignage commence par un premier pas. Et si le prochain était le vôtre ?</p>
+        <div class="mt-20 p-10 rounded-3xl bg-gradient-to-br from-blue-50 to-yellow-50 text-center border border-gray-200 shadow-md">
+            <h3 class="comic-neue text-2xl font-bold text-gray-900 mb-4">Vous aussi, vivez l'aventure Sterna</h3>
+            <p class="text-gray-600 mb-8">Chaque témoignage commence par un premier pas. Et si le prochain était le vôtre ?</p>
             <a href="/recrutement" class="bg-yellow-500 hover:bg-yellow-400 text-black font-black py-4 px-10 rounded-full transition-all hover:scale-105 inline-block">
                 DEVENIR VOLONTAIRE
             </a>

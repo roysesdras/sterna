@@ -24,7 +24,7 @@ $classes = [
 ?>
 
 <div class="mt-16 mb-12">
-    <h3 class="font-comic text-xl font-bold text-white mb-6 flex items-center gap-2">
+    <h3 class="font-comic text-xl font-bold text-orange-500 mb-6 flex items-center gap-2">
         <i class="fi fi-rr- Ter-actualite text-sternaYellow"></i> Vous pourriez aussi aimer
     </h3>
 
@@ -46,7 +46,7 @@ $classes = [
                     <div class="relative h-40 rounded-2xl overflow-hidden mb-3 border border-white/5 shadow-lg group-hover:border-sternaYellow/50 transition-all duration-500">
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             src="../images/<?php echo $actualite['image']; ?>"
-                            alt="<?php echo htmlspecialchars($actualite['title']); ?>">
+                            alt="<?php echo html_entity_decode($actualite['title'], ENT_QUOTES, 'UTF-8'); ?>">
 
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
@@ -55,10 +55,10 @@ $classes = [
                         </span>
                     </div>
 
-                    <h4 class="font-comic text-sm font-bold text-slate-200 leading-snug group-hover:text-sternaYellow transition-colors line-clamp-2">
-                        <?php echo htmlspecialchars($short_title); ?>
+                    <h4 class="text-sm font-bold text-gray-800 leading-snug group-hover:text-sternaYellow transition-colors line-clamp-2">
+                        <?php echo html_entity_decode($short_title, ENT_QUOTES, 'UTF-8'); ?>
                     </h4>
-                    <p class="text-[10px] text-slate-500 mt-1 uppercase tracking-widest font-bold">
+                    <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest font-bold">
                         <?= date('M Y', strtotime($actualite['start_date'])) ?>
                     </p>
                 </a>

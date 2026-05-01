@@ -109,189 +109,164 @@ if (!function_exists('time_elapsed_string')) {
 }
 ?>
 
-<style>
-    .temoignages-container {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 10px;
-        scrollbar-width: thin;
-    }
+<section class="py-15 mt-20 overflow-hidden" id="stories">
+    <div class="max-w-7xl mx-auto px-6 mb-2 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+            <h2 class="text-4xl font-black text-sterna-blue uppercase tracking-tighter border-l-8 border-sterna-orange pl-6">
+                Récits de <span class="text-sterna-orange">Solidarité</span>
+            </h2>
+            
+        </div>
+        
+        <div class="hidden md:flex gap-4">
+            <button onclick="document.querySelector('.testimonial-scroll-area').scrollBy({left: -350, behavior: 'smooth'})" class="nav-btn">
+                <i class="fi fi-rr-arrow-small-left"></i>
+            </button>
+            <button onclick="document.querySelector('.testimonial-scroll-area').scrollBy({left: 350, behavior: 'smooth'})" class="nav-btn">
+                <i class="fi fi-rr-arrow-small-right"></i>
+            </button>
+        </div>
+    </div>
 
-    .temoignages-container .card {
-        min-width: 280px;
-        max-width: 280px;
-        margin-right: 20px;
-        transition: all 0.3s ease;
-    }
+    <div class="testimonial-scroll-area">
+        <div class="testimonial-track">
+            <?php foreach ($temoignages as $temoignage): ?>
+                <?php
+                $photoPath = "../assets/img/avatar-default.jpg";
+                if (!empty($temoignage['is_volontaire']) && !empty($temoignage['volontaire_avatar'])) {
+                    $fileName = basename(trim($temoignage['volontaire_avatar']));
+                    $photoPath = "https://monespacevolontaire.sternaafrica.org/uploads/" . $fileName;
+                } elseif (!empty($temoignage['photo'])) {
+                    $photoPath = "../uploads/" . basename(trim($temoignage['photo']));
+                }
+                ?>
 
-    .temoignages-container .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    }
+                <div class="testimonial-card group" onclick="window.location.href='../temoignage/<?= $temoignage['id']; ?>'">
+                    <div class="card-inner">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="avatar-wrapper">
+                                    <img src="<?= $photoPath; ?>" alt="Avatar" class="avatar-img">
+                                </div>
+                                <div>
+                                    <h4 class="text-[15px] font-black text-sterna-blue uppercase leading-none mb-1">
+                                        <?= htmlspecialchars($temoignage['nom']); ?>
+                                    </h4>
+                                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                                        <?= time_elapsed_string($temoignage['date_submis']); ?>
+                                    </span>
+                                </div>
+                            </div>
+                            <i class="fi fi-rr-quote-right text-3xl text-gray-100 group-hover:text-urunani-rose/20 transition-colors"></i>
+                        </div>
 
-    .temoignages-container::-webkit-scrollbar {
-        height: 8px;
-    }
+                        <div class="testimonial-content">
+                            <p class="text-gray-600 text-md leading-relaxed italic mb-4">
+                                <?php
+                                if (!empty($temoignage['reponse'])) {
+                                    echo '"' . htmlspecialchars(substr($temoignage['reponse'], 0, 130)) . '..."';
+                                } else {
+                                    echo "Un moment de solidarité inoubliable avec Sterna Africa, riche en émotions et en partages.";
+                                }
+                                ?>
+                            </p>
+                        </div>
 
-    .temoignages-container::-webkit-scrollbar-thumb {
-        background-color: #333;
-        border-radius: 10px;
-    }
-
-    .card-img-top {
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-</style>
-
-<div class="container-fluid testimonial-scroll-area">
-    <div class="testimonial-track">
-        <?php foreach ($temoignages as $temoignage): ?>
-            <?php
-            // Gestion de l'image (Ta logique actuelle)
-            $photoPath = "../assets/img/avatar-default.jpg";
-            if (!empty($temoignage['is_volontaire']) && !empty($temoignage['volontaire_avatar'])) {
-                $fileName = basename(trim($temoignage['volontaire_avatar']));
-                $photoPath = "https://monespacevolontaire.sternaafrica.org/uploads/" . $fileName;
-            } elseif (!empty($temoignage['photo'])) {
-                $photoPath = "../uploads/" . basename(trim($temoignage['photo']));
-            }
-            ?>
-
-            <div class="testimonial-bubble" onclick="window.location.href='../temoignage/<?= $temoignage['id']; ?>'">
-                <div class="bubble-header">
-                    <div class="user-info">
-                        <img src="<?= $photoPath; ?>" class="user-avatar" alt="Avatar">
-                        <div class="user-meta">
-                            <span class="user-name"><?= htmlspecialchars($temoignage['nom']); ?></span>
-                            <small class="time-ago"><?= time_elapsed_string($temoignage['date_submis']); ?></small>
+                        <div class="pt-2 border-t border-slate-200 flex items-center justify-between">
+                            <span class="text-[11px] font-black text-urunani-orange uppercase tracking-wider group-hover:translate-x-2 transition-transform duration-300">
+                                Lire le récit <i class="fi fi-rr-arrow-small-right ml-1"></i>
+                            </span>
                         </div>
                     </div>
-                    <i class="fi fi-rr-quote-right quote-icon"></i>
                 </div>
-
-                <div class="bubble-content">
-                    <p class="comic-neue-regular">
-                        <?php
-                        if (!empty($temoignage['reponse'])) {
-                            echo '"' . htmlspecialchars(substr($temoignage['reponse'], 0, 110)) . '..."';
-                        } else {
-                            echo "Un moment de solidarité inoubliable avec Sterna Africa.";
-                        }
-                        ?>
-                    </p>
-                    <span class="read-more-btn">Lire le récit <i class="fi fi-rr-arrow-small-right"></i></span>
-                </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
+</section>
 
 <style>
-    /* Container de défilement */
-    .testimonial-scroll-area {
-        overflow-x: auto;
-        scrollbar-width: none;
-        padding: 40px 15px;
+    /* Navigation boutons */
+    .nav-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 15px;
+        background: white;
+        color: #0f277e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        border: 1px solid #f1f5f9;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+        background: #ea7d0fff;
+        color: white;
+        border-color: #ea7d0fff;
+        transform: translateY(-2px);
     }
 
+    /* Scroll Area */
+    .testimonial-scroll-area {
+        overflow-x: auto;
+        padding: 20px 6% 60px 6%;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
     .testimonial-scroll-area::-webkit-scrollbar {
-        display: none;
+        display: none; /* Chrome/Safari */
     }
 
     .testimonial-track {
         display: flex;
-        gap: 25px;
+        gap: 30px;
         width: max-content;
     }
 
-    /* La Bulle de Témoignage */
-    .testimonial-bubble {
+    /* La Carte */
+    .testimonial-card {
         flex: 0 0 auto;
-        width: 320px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 30px;
+        width: 340px;
+        background: white;
+        border-radius: 20px;
         padding: 15px;
         cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        backdrop-filter: blur(12px);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .testimonial-bubble:hover {
-        transform: translateY(-12px) scale(1.02);
-        background: rgba(255, 255, 255, 0.08);
-        border-color: #f5b904;
-        /* Jaune Sterna au survol */
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    .testimonial-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 30px 60px rgba(15, 39, 126, 0.1);
+        border-color: #ea7d0fff;
     }
 
-    /* Header de la bulle */
-    .bubble-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 20px;
+    /* Avatar Design */
+    .avatar-wrapper {
+        position: relative;
+        width: 55px;
+        height: 55px;
     }
-
-    .user-info {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .user-avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+    .avatar-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
         object-fit: cover;
-        border: 2px solid #305196;
-        /* Bleu Sterna */
+        
     }
 
-    .user-name {
-        display: block;
-        font-weight: 800;
-        color: #fff;
-        font-size: 15px;
+    /* Content */
+    .testimonial-content p {
+        position: relative;
+        z-index: 2;
     }
 
-    .time-ago {
-        color: #94a3b8;
-        font-size: 11px;
-    }
-
-    .quote-icon {
-        color: rgba(245, 185, 4, 0.3);
-        font-size: 24px;
-    }
-
-    /* Contenu */
-    .bubble-content p {
-        color: #cbd5e1;
-        font-style: italic;
-        line-height: 1.5;
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-
-    .read-more-btn {
-        font-size: 12px;
-        color: #f5b904;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .testimonial-bubble:hover .read-more-btn {
-        gap: 10px;
+    @media (max-width: 768px) {
+        .testimonial-card {
+            width: 290px;
+            padding: 20px;
+        }
     }
 </style>

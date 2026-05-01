@@ -139,12 +139,6 @@ $conn->close();
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-center justify-content-between mb-2 bg-light p-2 rounded border">
-                        <span class="small fw-bold text-secondary"><i class="fas fa-magic"></i> Besoin de reformuler ?</span>
-                        <button type="button" id="btn-ia-update-teaser" class="btn btn-outline-primary btn-sm">
-                            ✨ Optimiser l'annonce
-                        </button>
-                    </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label comic-neue-regular">Description :</label>
@@ -181,60 +175,7 @@ $conn->close();
                 ]
             });
 
-            // Logique de l'Assistant IA pour la Modification
-            document.getElementById('btn-ia-update-teaser')?.addEventListener('click', async function() {
-                const btn = this;
-                const currentContent = $('#description').summernote('code');
-                const title = document.getElementById('title').value;
-                const lieu = document.getElementById('lieu').value;
 
-                if ($('#description').summernote('isEmpty')) {
-                    alert("Rédigez au moins quelques mots pour que l'IA puisse les optimiser.");
-                    return;
-                }
-
-                btn.disabled = true;
-                btn.innerHTML = "⏳ Optimisation...";
-
-                const formData = new FormData();
-                formData.append('action', 'generer_blog');
-
-                const promptUpdate = `
-                En tant que rédacteur pour l'ONG Sterna Africa, améliore cette annonce courte.
-                TITRE : "${title}"
-                LIEU : ${lieu}
-                TEXTE ACTUEL : "${currentContent}"
-
-                CONSIGNES :
-                1. Reste sous les 150-200 caractères.
-                2. Rends le texte plus mobilisateur et professionnel.
-                3. Garde la structure avec des puces (ul/li) si possible.
-                4. Ton : Enthousiaste et clair.
-            `;
-
-                formData.append('sujet_article', promptUpdate);
-
-                try {
-                    const response = await fetch('https://rebonly.com/ai_gateway.php', {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    let data = await response.json();
-                    if (Array.isArray(data)) data = data[0];
-
-                    const optimized = data.contenu || data.description;
-                    if (optimized) {
-                        $('#description').summernote('code', optimized);
-                    }
-                } catch (error) {
-                    console.error("Erreur IA Sterna Update:", error);
-                    alert("Erreur de connexion avec l'IA.");
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = "✨ Optimiser l'annonce";
-                }
-            });
         });
     </script>
 

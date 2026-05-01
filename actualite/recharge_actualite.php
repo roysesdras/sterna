@@ -37,7 +37,7 @@ if ($result_actualites && $result_actualites->num_rows > 0):
         $title = htmlspecialchars($row['title']);
         $display_title = (mb_strlen($title) > 60) ? mb_substr($title, 0, 60) . '...' : $title;
 ?>
-        <div class="group relative bg-[#0F172A]/40 border border-white/5 rounded-[2rem] overflow-hidden hover:border-yellow-500/50 transition-all duration-500 shadow-xl fade-in-card">
+        <div class="group relative bg-white border border-gray-100 rounded-[2rem] overflow-hidden hover:border-[#ea750fff]/50 transition-all duration-500 shadow-md hover:shadow-xl fade-in-card">
 
             <div class="relative h-56 overflow-hidden">
                 <span class="absolute top-4 left-4 z-20 <?php echo $classe_bg; ?> text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
@@ -54,17 +54,17 @@ if ($result_actualites && $result_actualites->num_rows > 0):
 
             <div class="p-6 flex flex-col justify-between h-[calc(100%-14rem)]">
                 <div>
-                    <span class="text-slate-500 text-xs flex items-center gap-2 mb-3 comic-neue">
-                        <i class="far fa-calendar-alt text-yellow-500"></i>
+                    <span class="text-gray-500 text-xs flex items-center gap-2 mb-3 comic-neue">
+                        <i class="far fa-calendar-alt text-[#ea750fff]"></i>
                         <?= date('d M Y', strtotime($row['end_date'])) ?>
                     </span>
-                    <h5 class="comic-neue text-white text-lg font-bold leading-tight mb-6 group-hover:text-yellow-500 transition-colors">
+                    <h5 class="comic-neue text-[#0f277e] text-lg font-bold leading-tight mb-6 group-hover:text-[#ea750fff] transition-colors">
                         <?php echo $display_title; ?>
                     </h5>
                 </div>
 
                 <a href="./actualite_detail.php?id=<?php echo $row['id']; ?>"
-                    class="inline-flex items-center gap-2 text-[#305196] hover:text-yellow-500 font-black text-xs uppercase tracking-widest transition-all group/link">
+                    class="inline-flex items-center gap-2 text-[#305196] hover:text-[#ea750fff] font-black text-xs uppercase tracking-widest transition-all group/link">
                     Lire l'article
                     <i class="fas fa-chevron-right text-[10px] transform group-hover/link:translate-x-2 transition-transform"></i>
                 </a>

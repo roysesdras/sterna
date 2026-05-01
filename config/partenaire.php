@@ -1,105 +1,52 @@
-<section class="partners-dark-wrap py-5">
-    <div class="partner-carousel">
-        <div class="partner-track">
-            <div class="partner-logos">
-                <img src="https://i.ibb.co/NKRx7N1/logos-1.png" alt="Logo 1">
-                <img src="https://ethique-sur-etiquette.org/images/logo.png" alt="Logo 5">
-                <img src="https://sgdf.fr/wp-content/themes/sgdf/assets/images/logos/SGDF_logo_CMJN_horizontal.png" alt="Logo 29">
-                <img src="https://i.ibb.co/N2Z9H006/logo-ASA.png" alt="Logo 14">
-                <img src="https://i.ibb.co/Vx8181M/logos-16.png" alt="Logo 16">
-                <img src="https://i.ibb.co/KpXspt49/uranani-removebg-preview.png" alt="Logo 17">
-                <img src="https://i.ibb.co/zQ3fDLN/logos-18.png" alt="Logo 18">
-                <img src="https://i.ibb.co/dwYkf6bx/embassade-removebg-preview.png" alt="Logo 19">
-                <img src="https://iteco.be/squelettes/style/images/logoIteco.png" alt="Logo 20">
-                <img src="https://culturekonnect.com/wp-content/uploads/2024/05/Culture-Konnect-Couleurs-transparant.png" alt="Logo 26">
-                <img src="https://scd.asso.fr/wp-content/themes/theme-scd/images/logo-scd.png" alt="Logo 35">
+<section class="bg-white" id="partenaires">
+    <div class="text-center">
+        
+        <!-- <div class="mb-16">
+            <h2 class="text-3xl font-black text-urunani-blue uppercase tracking-tighter">
+                Ils nous font <br><span class="text-urunani-orange">Confiance</span>
+            </h2>
+            <p class="mt-4 text-gray-400 font-bold text-xs uppercase tracking-[0.3em]">Partenaires institutionnels & opérationnels</p>
+            <div class="w-16 h-1 bg-gray-100 mx-auto mt-6 rounded-full"></div>
+        </div> -->
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 items-center">
+            
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://i.ibb.co/NKRx7N1/logos-1.png" alt="Partenaire" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
-            <div class="partner-logos">
-                <img src="https://i.ibb.co/NKRx7N1/logos-1.png" alt="Logo 1">
-                <img src="https://ethique-sur-etiquette.org/images/logo.png" alt="Logo 5">
-                <img src="https://sgdf.fr/wp-content/themes/sgdf/assets/images/logos/SGDF_logo_CMJN_horizontal.png" alt="Logo 29">
-                <img src="https://i.ibb.co/N2Z9H006/logo-ASA.png" alt="Logo 14">
-                <img src="https://i.ibb.co/Vx8181M/logos-16.png" alt="Logo 16">
-                <img src="https://i.ibb.co/KpXspt49/uranani-removebg-preview.png" alt="Logo 17">
-                <img src="https://i.ibb.co/zQ3fDLN/logos-18.png" alt="Logo 18">
-                <img src="https://i.ibb.co/dwYkf6bx/embassade-removebg-preview.png" alt="Logo 19">
-                <img src="https://iteco.be/squelettes/style/images/logoIteco.png" alt="Logo 20">
-                <img src="https://culturekonnect.com/wp-content/uploads/2024/05/Culture-Konnect-Couleurs-transparant.png" alt="Logo 26">
-                <img src="https://scd.asso.fr/wp-content/themes/theme-scd/images/logo-scd.png" alt="Logo 35">
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://ethique-sur-etiquette.org/images/logo.png" alt="Éthique sur étiquette" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://sgdf.fr/wp-content/themes/sgdf/assets/images/logos/SGDF_logo_CMJN_horizontal.png" alt="SGDF" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://i.ibb.co/N2Z9H006/logo-ASA.png" alt="Logo ASA" class="max-h-36 md:max-h-40 scale-110 w-auto object-contain group-hover:scale-125 transition-transform">
+            </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://i.ibb.co/KpXspt49/uranani-removebg-preview.png" alt="Urunani" class="max-h-36 md:max-h-40 scale-125 w-auto object-contain group-hover:scale-150 transition-transform">
+            </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://i.ibb.co/dwYkf6bx/embassade-removebg-preview.png" alt="Ambassade" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://iteco.be/squelettes/style/images/logoIteco.png" alt="Iteco" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://culturekonnect.com/wp-content/uploads/2024/05/Culture-Konnect-Couleurs-transparant.png" alt="Culture Konnect" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+                <img src="https://scd.asso.fr/wp-content/themes/theme-scd/images/logo-scd.png" alt="SCD" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
         </div>
     </div>
 </section>
-
-<style>
-    .partners-dark-wrap {
-        background: #0A0F14;
-        padding: 20px 0;
-        overflow: hidden;
-    }
-
-    .partner-carousel {
-        position: relative;
-        width: 100%;
-        /* Masquage dégradé sur les côtés pour l'effet de disparition */
-        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    }
-
-    .partner-track {
-        display: flex;
-        width: max-content;
-        animation: scrollLogos 40s linear infinite;
-    }
-
-    .partner-logos {
-        display: flex;
-        align-items: center;
-    }
-
-    .partner-logos img {
-        height: 65px;
-        /* Taille un peu plus subtile et élégante */
-        width: auto;
-        margin: 0 40px;
-        object-fit: contain;
-        /* L'effet magique : logos en gris clair par défaut */
-        filter: grayscale(100%) brightness(1.5) opacity(0.6);
-        transition: all 0.4s ease;
-    }
-
-    /* Au survol d'un logo précis */
-    .partner-logos img:hover {
-        filter: grayscale(0%) brightness(1) opacity(1);
-        transform: scale(1.1);
-    }
-
-    /* Animation de scroll */
-    @keyframes scrollLogos {
-        from {
-            transform: translateX(0);
-        }
-
-        to {
-            transform: translateX(-50%);
-        }
-    }
-
-    /* Pause au survol du rail complet */
-    .partner-track:hover {
-        animation-play-state: paused;
-    }
-
-    /* Adaptation Mobile */
-    @media (max-width: 768px) {
-        .partner-logos img {
-            height: 45px;
-            margin: 0 20px;
-        }
-
-        .partner-track {
-            animation-duration: 25s;
-            /* Un peu plus rapide sur petit écran */
-        }
-    }
-</style>

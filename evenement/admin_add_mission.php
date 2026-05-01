@@ -83,26 +83,14 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <?php // include_once ('../inclusion/mode_theme.php'); 
-    ?>
+   
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <h2 class="comic-neue-bold mb-4">Ajouter une Nouvelle Activité</h2>
                 <form action="" method="post" enctype="multipart/form-data">
-                    <div class="card border-info mb-3 shadow-sm">
-                        <div class="card-body p-3">
-                            <h6 class="text-info fw-bold mb-2">📢 Générateur d'Annonce Événement</h6>
-                            <div class="input-group">
-                                <input type="text" id="ai-teaser-notes" class="form-control form-control-sm" placeholder="Ex: Campagne de reboisement avec les jeunes...">
-                                <button type="button" id="btn-ia-teaser" class="btn btn-sm btn-info text-white">
-                                    ✨ Créer l'annonce
-                                </button>
-                            </div>
-                            <small id="ia-teaser-status" class="text-muted italic" style="font-size: 0.8rem;"></small>
-                        </div>
-                    </div>
+
                     <div class="row mb-3">
 
                         <div class="col-md-4">
@@ -149,13 +137,10 @@ if (isset($_POST['submit'])) {
     </div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- le script pour l'IA Sterna Africa (génération d'annonce à partir de notes) est dans le fichier ai_gateway.php pour centraliser les appels à Gemini et éviter les redondances. Voici le prompt utilisé pour la création : -->
-
-
     <script>
         $(document).ready(function() {
             $('#description').summernote({
-                placeholder: '✍️ Rédigez votre annonce ici (l\'IA peut vous aider au-dessus)...',
+                placeholder: '✍️ Rédigez votre annonce ici...',
                 tabsize: 2,
                 height: 450,
                 // Configuration de la barre d'outils
@@ -184,65 +169,6 @@ if (isset($_POST['submit'])) {
             });
         });
 
-        // --- LOGIQUE BOUTON IA STERNA (Annonce Courte) ---
-        document.getElementById('btn-ia-teaser')?.addEventListener('click', async function() {
-            const notes = document.getElementById('ai-teaser-notes').value;
-            const btn = this;
-            const status = document.getElementById('ia-teaser-status');
-            const title = document.getElementById('title').value;
-            const lieu = document.getElementById('lieu').value;
-            const startDate = document.getElementById('start_date').value;
-
-            if (!notes && !title) {
-                alert("Veuillez donner au moins un titre ou quelques notes sur l'événement.");
-                return;
-            }
-
-            status.innerText = "Rédaction de l'annonce (150 car. max)... ⏳";
-            btn.disabled = true;
-
-            const formData = new FormData();
-            formData.append('action', 'generer_blog');
-
-            const promptTeaser = `
-            Agis pour l'ONG Sterna Africa. Rédige une annonce d'événement ultra-courte.
-            SUJET : "${notes || title}"
-            LIEU : ${lieu}
-            DATE : ${startDate}
-            
-            STRUCTURE :
-            1. Une accroche courte.
-            2. Une liste à puces (max 2 points).
-            3. Un appel à l'action.
-            
-            CONTRAINTES :
-            - Longueur : Strictement moins de 150 caractères.
-            - Format : Utilise les balises <p>, <ul> et <li>.
-        `;
-
-            formData.append('sujet_article', promptTeaser);
-
-            try {
-                const response = await fetch('https://rebonly.com/ai_gateway.php', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                let data = await response.json();
-                if (Array.isArray(data)) data = data[0];
-
-                // Injection dans Summernote
-                const content = data.contenu || data.description;
-                $('#description').summernote('code', content);
-
-                status.innerText = "✅ Prêt !";
-            } catch (error) {
-                console.error("Erreur IA Sterna:", error);
-                status.innerText = "❌ Erreur.";
-            } finally {
-                btn.disabled = false;
-            }
-        });
     </script>
 
     <?php require_once('../config/footer_2.php'); ?>

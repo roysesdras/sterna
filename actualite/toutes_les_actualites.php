@@ -3,7 +3,7 @@
 $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
 ?>
 <!DOCTYPE html>
-<html lang="fr" class="bg-[#05070A]">
+<html lang="fr" class="bg-gray-200">
 
 <head>
     <meta charset="UTF-8">
@@ -18,10 +18,7 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        .comic-neue {
-            font-family: 'Comic Neue', cursive;
-        }
-
+        
         /* Smooth transition pour l'apparition des nouvelles cartes */
         .fade-in-card {
             animation: fadeIn 0.6s ease-out forwards;
@@ -45,26 +42,26 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
         }
 
         ::-webkit-scrollbar-track {
-            background: #05070A;
+            background: #e2e8f0;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #1e293b;
+            background: #94a3b8;
             border-radius: 10px;
         }
     </style>
 </head>
 
-<body class="text-slate-300 antialiased">
-    <?php include_once('../config/navbar.php'); ?>
+<body class="text-gray-700 antialiased">
+    <?php include_once('../config/nav.php'); ?>
 
     <main class="container mx-auto px-4 pt-5 pb-20">
-        <div class="mb-12 border-l-4 border-yellow-500 pl-6">
-            <h1 class="comic-neue text-4xl md:text-5xl font-bold text-white mb-2">
-                JOURNAL DE <span class="text-yellow-500">BORD</span>
+        <div class="mb-12 border-l-4 border-[#ea750fff] pl-6">
+            <h1 class="comic-neue text-4xl md:text-5xl font-bold text-[#0f277e] mb-2">
+                JOURNAL DE <span class="text-[#ea750fff]">BORD</span>
             </h1>
-            <p class="text-slate-500 max-w-xl">
-                Suivez nos missions, nos victoires et le quotidien de nos volontaires sur le terrain. 🚀🌍
+            <p class="text-gray-600 max-w-xl">
+                Suivez nos missions, nos victoires et le quotidien de nos volontaires sur le terrain.
             </p>
         </div>
 
@@ -72,9 +69,9 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
         </div>
 
         <div class="text-center mt-16">
-            <button id="load-more" class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 bg-slate-800 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-slate-700">
+            <button id="load-more" class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 bg-[#0f277e] hover:bg-blue-900 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0f277e]">
                 <span class="flex items-center gap-2">
-                    <i class="fas fa-plus-circle text-yellow-500 group-hover:rotate-180 transition-transform duration-500"></i>
+                    <i class="fas fa-plus-circle text-[#ea750fff] group-hover:rotate-180 transition-transform duration-500"></i>
                     Afficher plus d'actualités
                 </span>
             </button>
@@ -107,7 +104,7 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
                         const $newItems = $(data).addClass('fade-in-card');
                         $("#actualites-container").append($newItems);
                         offset += limit;
-                        btn.removeClass('opacity-50 cursor-not-allowed').html('<span class="flex items-center gap-2"><i class="fas fa-plus-circle text-yellow-500"></i> Afficher plus d\'actualités</span>');
+                        btn.removeClass('opacity-50 cursor-not-allowed').html('<span class="flex items-center gap-2"><i class="fas fa-plus-circle text-[#ea750fff]"></i> Afficher plus d\'actualités</span>');
                     }
                 }
             });

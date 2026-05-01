@@ -187,15 +187,12 @@ if ($result->num_rows > 0) {
         <style type="text/tailwindcss">
             @layer base {
                 body {
-                    @apply bg-darkBg text-slate-300 antialiased selection:bg-sternaYellow/30;
+                    @apply bg-gray-200 text-gray-800 antialiased selection:bg-[#ea750fff]/30;
                 }
-                /* h1, h2, h3, h4, .comic-neue {
-                    @apply font-comic;
-                } */
             }
             @layer components {
                 .glass-card {
-                    @apply bg-darkCard/40 border border-white/5 backdrop-blur-md rounded-[2rem];
+                    @apply bg-white border border-gray-200 shadow-sm rounded-[2rem];
                 }
             }
    
@@ -237,24 +234,24 @@ if ($result->num_rows > 0) {
         });
     </script>
 
-    <body class="bg-[#05070A] text-slate-300 antialiased selection:bg-yellow-500/30">
+    <body class="bg-gray-200 text-gray-800 antialiased selection:bg-[#ea750fff]/30">
         <main class="container mx-auto px-4 pt-05 pb-12">
-            <?php // require_once('../config/navbar.php'); 
+            <?php // require_once('../config/nav.php'); 
             ?>
             <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
 
                 <aside class="lg:w-16 order-2 lg:order-1">
-                    <div class="lg:sticky lg:top-32 flex lg:flex-col justify-center gap-4 bg-slate-900/50 p-4 rounded-3xl border border-white/5 backdrop-blur-md">
-                        <button id="copyLinkButton" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-yellow-500 hover:text-black transition-all" title="Copier le lien">
+                    <div class="lg:sticky lg:top-32 flex lg:flex-col justify-center gap-4 bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
+                        <button id="copyLinkButton" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 text-gray-500 hover:bg-[#ea750fff] hover:text-white transition-all" title="Copier le lien">
                             <i class="fas fa-link"></i>
                         </button>
-                        <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 text-green-500 hover:bg-green-500 hover:text-white transition-all">
+                        <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 text-green-600 hover:bg-green-600 hover:text-white transition-all">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url=..." target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 text-blue-400 hover:bg-blue-400 hover:text-white transition-all">
+                        <a href="https://twitter.com/intent/tweet?url=..." target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 text-blue-500 hover:bg-blue-500 hover:text-white transition-all">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=..." target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 text-blue-700 hover:bg-blue-700 hover:text-white transition-all">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=..." target="_blank" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 text-blue-800 hover:bg-blue-800 hover:text-white transition-all">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -262,34 +259,34 @@ if ($result->num_rows > 0) {
 
                 <article class="flex-1 order-1 lg:order-2">
                     <header class="mb-8">
-                        <h1 class="comic-neue text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+                        <h1 class="comic-neue text-3xl md:text-5xl font-extrabold text-[#0f277e] leading-tight mb-6">
                             <?php echo htmlspecialchars_decode($title); ?>
                         </h1>
-                        <div class="flex items-center gap-4 text-slate-500 text-sm italic">
-                            <span class="flex items-center gap-2"><i class="far fa-calendar-alt text-yellow-500"></i> <?= date('d M Y', strtotime($end_date)); ?></span>
-                            <span class="w-1 h-1 bg-slate-700 rounded-full"></span>
+                        <div class="flex items-center gap-4 text-gray-500 text-sm italic">
+                            <span class="flex items-center gap-2"><i class="far fa-calendar-alt text-[#ea750fff]"></i> <?= date('d M Y', strtotime($end_date)); ?></span>
+                            <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
                             <span class="flex items-center gap-2"><i class="far fa-eye"></i> <?= $views; ?> lectures</span>
                         </div>
                     </header>
 
-                    <div class="rounded-[1rem] overflow-hidden shadow-2xl mb-10 ring-1 ring-white/10">
+                    <div class="rounded-[1rem] overflow-hidden shadow-xl mb-10 ring-1 ring-gray-200">
                         <img src="../images/<?php echo $image; ?>" class="w-full h-auto object-cover" alt="<?php echo $title; ?>">
                     </div>
 
-                    <div class="prose prose-invert prose-yellow max-w-none comic-neue text-lg leading-relaxed text-slate-300">
+                    <div class="prose max-w-none comic-neue text-lg leading-relaxed text-gray-800">
                         <?php echo html_entity_decode($description); ?>
                     </div>
                 </article>
             </div>
 
             <div class="max-w-4xl mx-auto mt-10">
-                <hr class="border-white/5 mb-10">
+                <hr class="border-gray-300 mb-10">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
 
                     <section>
-                        <h3 class="font-comic text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                            <i class="bi bi-chat-dots text-sternaYellow"></i> Discussions
+                        <h3 class="font-comic text-2xl font-bold text-[#0f277e] mb-8 flex items-center gap-3">
+                            <i class="bi bi-chat-dots text-[#ea750fff]"></i> Discussions
                         </h3>
 
                         <div class="space-y-6 mb-10 max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
@@ -310,16 +307,16 @@ if ($result->num_rows > 0) {
                                     $comment_text = nl2br(htmlspecialchars($comment_clean, ENT_QUOTES, 'UTF-8'));
                                     $date_comment = $row_comment['created_at'];
                             ?>
-                                    <div class="bg-darkCard/40 p-5 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                                    <div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-[#ea750fff]/50 transition-colors shadow-sm">
                                         <div class="flex justify-between items-start mb-2">
-                                            <span class="text-blue-400 font-bold text-sm">
+                                            <span class="text-[#0f277e] font-bold text-sm">
                                                 <i class="bi bi-person-circle me-1"></i> <?php echo $user_name; ?>
                                             </span>
-                                            <small class="text-slate-600 text-xs">
+                                            <small class="text-gray-400 text-xs">
                                                 <?php echo time_elapsed_string($date_comment); ?>
                                             </small>
                                         </div>
-                                        <p class="text-slate-400 text-sm leading-relaxed">
+                                        <p class="text-gray-600 text-sm leading-relaxed">
                                             <?php echo $comment_text; ?>
                                         </p>
                                     </div>
@@ -327,26 +324,26 @@ if ($result->num_rows > 0) {
                                 endwhile;
                             else:
                                 ?>
-                                <div class="text-center py-10 border-2 border-dashed border-white/5 rounded-3xl">
-                                    <i class="bi bi-chat-square-text text-3xl text-slate-700 mb-3 block"></i>
-                                    <p class="text-slate-500 text-sm">Aucun commentaire pour le moment.<br>Soyez le premier à réagir !</p>
+                                <div class="text-center py-10 border-2 border-dashed border-gray-300 rounded-3xl bg-gray-50">
+                                    <i class="bi bi-chat-square-text text-3xl text-gray-400 mb-3 block"></i>
+                                    <p class="text-gray-500 text-sm">Aucun commentaire pour le moment.<br>Soyez le premier à réagir !</p>
                                 </div>
                             <?php endif; ?>
                         </div>
 
-                        <form action="commentaire.php" method="POST" class="bg-white/5 p-6 rounded-[2rem] border border-white/10">
+                        <form action="commentaire.php" method="POST" class="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm">
                             <input type="hidden" name="actualite_id" value="<?php echo $actualite_id; ?>">
                             <div class="space-y-4">
                                 <input type="text" name="user_name"
-                                    class="w-full bg-black/40 border border-white/10 rounded-xl p-3 text-white placeholder:text-slate-600 focus:border-sternaYellow focus:ring-1 focus:ring-sternaYellow outline-none transition-all"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-800 placeholder:text-gray-400 focus:border-[#ea750fff] focus:ring-1 focus:ring-[#ea750fff] outline-none transition-all"
                                     placeholder="Votre Pseudo" required>
 
                                 <textarea name="comment"
-                                    class="w-full bg-black/40 border border-white/10 rounded-xl p-3 text-white placeholder:text-slate-600 focus:border-sternaYellow focus:ring-1 focus:ring-sternaYellow outline-none transition-all"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-800 placeholder:text-gray-400 focus:border-[#ea750fff] focus:ring-1 focus:ring-[#ea750fff] outline-none transition-all"
                                     rows="3" placeholder="Votre message..." required></textarea>
 
                                 <button type="submit"
-                                    class="w-full bg-sternaYellow hover:bg-yellow-400 text-black font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg shadow-yellow-900/10">
+                                    class="w-full bg-[#ea750fff] hover:bg-orange-600 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg shadow-orange-900/20">
                                     PARTAGER MON AVIS
                                 </button>
                             </div>
@@ -354,8 +351,8 @@ if ($result->num_rows > 0) {
                     </section>
 
                     <section>
-                        <h3 class="font-comic text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                            <i class="fi fi-rr-heart text-blue-500"></i> Échos du terrain
+                        <h3 class="font-comic text-2xl font-bold text-[#0f277e] mb-8 flex items-center gap-3">
+                            <i class="fi fi-rr-heart text-[#ea750fff]"></i> Échos du terrain
                         </h3>
 
                         <div class="flex flex-col gap-6">
@@ -412,27 +409,27 @@ if ($result->num_rows > 0) {
                                     $lien_externe = "../temoignage/" . $temoignage['id'];
                             ?>
                                     <div onclick="window.location='<?= $lien_externe ?>'"
-                                        class="group bg-blue-900/10 border border-blue-500/10 p-6 rounded-[2rem] hover:bg-blue-900/20 hover:border-blue-500/30 transition-all duration-300 cursor-pointer relative overflow-hidden">
+                                        class="group bg-white border border-gray-200 p-6 rounded-[2rem] hover:shadow-lg hover:border-[#ea750fff]/30 transition-all duration-300 cursor-pointer relative overflow-hidden">
 
-                                        <i class="fas fa-quote-right absolute top-4 right-6 text-blue-500/5 text-4xl group-hover:text-blue-500/10 transition-colors"></i>
+                                        <i class="fas fa-quote-right absolute top-4 right-6 text-gray-100 text-4xl transition-colors"></i>
 
-                                        <p class="font-comic text-slate-300 italic mb-6 leading-relaxed relative z-10">
+                                        <p class="font-comic text-gray-600 italic mb-6 leading-relaxed relative z-10">
                                             "<?= htmlspecialchars($excerpt) ?>"
-                                            <span class="text-blue-400 font-bold ml-1 hover:underline">Lire la suite</span>
+                                            <span class="text-[#0f277e] font-bold ml-1 hover:underline">Lire la suite</span>
                                         </p>
 
-                                        <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center justify-between mt-auto relative z-10">
                                             <div class="flex items-center gap-3">
-                                                <div class="w-10 h-10 rounded-full border-2 border-blue-500/30 overflow-hidden shadow-lg">
+                                                <div class="w-10 h-10 rounded-full border-2 border-gray-200 overflow-hidden shadow-sm">
                                                     <img src="<?= $photo_path ?>" alt="<?= $nom ?>" class="w-full h-full object-cover">
                                                 </div>
                                                 <div class="flex flex-col">
-                                                    <span class="text-white font-bold text-sm leading-none"><?= $nom ?></span>
-                                                    <span class="text-[10px] text-blue-400 font-black uppercase tracking-widest mt-1">Participant.e</span>
+                                                    <span class="text-[#0f277e] font-bold text-sm leading-none"><?= $nom ?></span>
+                                                    <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest mt-1">Participant.e</span>
                                                 </div>
                                             </div>
 
-                                            <div class="bg-blue-500/10 p-2 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-all text-blue-500">
+                                            <div class="bg-gray-100 p-2 rounded-lg group-hover:bg-[#ea750fff] group-hover:text-white transition-all text-gray-500">
                                                 <i class="fas fa-arrow-right text-[10px]"></i>
                                             </div>
                                         </div>
@@ -442,8 +439,8 @@ if ($result->num_rows > 0) {
                                 endwhile;
                             else:
                                 ?>
-                                <div class="p-8 text-center border border-dashed border-white/5 rounded-[2rem]">
-                                    <p class="text-slate-500 italic text-sm font-comic">Aucun témoignage trouvé pour cette mission.</p>
+                                <div class="p-8 text-center bg-gray-50 border border-dashed border-gray-300 rounded-[2rem]">
+                                    <p class="text-gray-500 italic text-sm font-comic">Aucun témoignage trouvé pour cette mission.</p>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -458,11 +455,6 @@ if ($result->num_rows > 0) {
             <?php include 'formulaire_newsletter_popup.php'; ?>
         </main>
         <?php include_once('../config/footer_2.php'); ?>
-
-        <!-- AI Sidebar -->
-        <?php // require_once('../ai.php');
-        ?>
-
         <script>
 window.addEventListener('load', function () {
     if (typeof DigiStats === 'undefined') return;

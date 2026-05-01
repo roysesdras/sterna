@@ -124,23 +124,50 @@ $actualites = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/assets/styles.css">
 
-    <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/495fc865e66d221c0516bda6/script.js"></script> <!-- End cookieyes banner -->
-
 </head>
 
 <body>
-    <?php
-    require_once('config/navbar.php');
-    ?>
+
+<?php
+$antennes_nav = [];
+if (isset($conn)) {
+    $res_nav = $conn->query("SELECT nom FROM antennes ORDER BY nom ASC");
+    if ($res_nav) {
+        while ($row_nav = $res_nav->fetch_assoc()) {
+            $antennes_nav[] = $row_nav['nom'];
+        }
+    }
+}
+?>
+
+<div class="container-fluid pt-3 pb-2" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef; position: sticky; top: 0; z-index: 1050; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            
+            <a href="/index.php" class="btn btn-sm btn-outline-primary fw-bold" style="border-color: #0f277e; color: #0f277e; border-radius: 20px; padding: 5px 15px;">
+                <i class="fas fa-home me-1"></i> Retour à l'accueil
+            </a>
+            
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <?php foreach($antennes_nav as $ant): ?>
+                    <?php $isActive = ($ant === $antenne['nom']); ?>
+                    <a href="/antenne.php?nom=<?= urlencode($ant) ?>" class="btn btn-sm <?= $isActive ? 'text-white shadow-sm' : 'btn-light' ?> fw-bold transition-all" style="border-radius: 20px; padding: 5px 15px; <?= $isActive ? 'background-color: #ea750f; border-color: #ea750f;' : 'border: 1px solid #dee2e6; color: #6c757d;' ?>">
+                        <?= htmlspecialchars($ant) ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+            
+        </div>
+    </div>
+</div>
 
     <div class="container-fluid custom-padding-top mb-2">
         <h3 class="custom-title">
-            Antenne : <?= !empty($antenne['nom']) ? htmlspecialchars($antenne['nom']) : "Antenne inconnue"; ?>
+            Antenne : <span class="text-[#0f277e]" > <?= !empty($antenne['nom']) ? htmlspecialchars($antenne['nom']) : "Antenne inconnue"; ?></span>
         </h3>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
 
         <?php
         // Définition des couleurs de fond par pays
@@ -251,8 +278,22 @@ $actualites = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
+    <!-- Petit Footer -->
+    <footer class="mt-5 py-4" style="background-color: #0f277e; border-top: 5px solid #ea750f;">
+        <div class="container text-center">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mb-3">
+                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Africa" style="height: 30px; filter: brightness(0) invert(1); opacity: 0.9;">
+                <span class="fw-bold text-uppercase d-none d-md-inline" style="color: rgba(255,255,255,0.2);">|</span>
+                <span class="fw-bold text-uppercase" style="letter-spacing: 1.5px; font-size: 12px; color: rgba(255, 255, 255, 0.9);">
+                    Sterna Africa — Antenne <?= !empty($antenne['nom']) ? htmlspecialchars($antenne['nom']) : ''; ?>
+                </span>
+            </div>
+            <p class="mb-0 fw-bold" style="font-size: 10px; letter-spacing: 1.5px; color: rgba(255, 255, 255, 0.4);">
+                &copy; <?= date('Y') ?> STERNA AFRICA. TOUS DROITS RÉSERVÉS.
+            </p>
+        </div>
+    </footer>
 
-    <?php require_once('./config/footer_2.php'); ?>
 </body>
 
 </html>

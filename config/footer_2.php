@@ -1,16 +1,16 @@
-<footer class="sterna-footer-minimal mt-auto py-6 border-t border-white/5 bg-[#05070A]">
+<footer class="mt-auto py-6 border-t border-white/5 bg-gray-100">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
 
             <div class="text-slate-500 text-sm comic-neue tracking-wide">
                 &copy; <span id="year"></span>
-                <span class="text-white font-bold ml-1 uppercase">Sterna Africa International</span>
+                <span class="text-gray-600 font-bold ml-1 uppercase">Sterna Africa International</span>
                 <span class="mx-2 text-slate-700">|</span>
-                <span class="text-blue-500/80 italic">Wherever Needed</span>
+                <span class="text-orange-500/80 italic">Wherever Needed</span>
             </div>
 
             <div class="flex items-center gap-6">
-                <a href="https://twitter.com/AfricaSterna" class="text-slate-500 hover:text-white transition-colors">
+                <a href="https://twitter.com/AfricaSterna" class="text-slate-500 hover:text-gray-600 transition-colors">
                     <i class="fi fi-brands-twitter-alt text-lg"></i>
                 </a>
                 <a href="https://www.instagram.com/associationsterna/" class="text-slate-500 hover:text-pink-500 transition-colors">
@@ -20,7 +20,6 @@
                     <i class="fab fa-linkedin text-lg"></i>
                 </a>
             </div>
-
         </div>
     </div>
 </footer>
@@ -44,11 +43,6 @@
     .container {
         flex-grow: 1;
         /* Pousse le footer vers le bas */
-    }
-
-    .sterna-footer-minimal {
-        /* Petite lueur de fond pour séparer du contenu */
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
     }
 
     /* .comic-neue {
