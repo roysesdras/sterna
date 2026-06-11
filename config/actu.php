@@ -1,6 +1,6 @@
 <div class="lg:col-span-2">
     <h2 class="text-3xl font-black text-sterna-blue mb-10 border-l-8 border-sterna-orange pl-6 inline-block uppercase tracking-tight">
-        Actualités du Réseau
+        Nos Actualités
     </h2>
 
     <div class="space-y-12">

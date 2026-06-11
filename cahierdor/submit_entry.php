@@ -27,10 +27,18 @@ if (empty($_POST['content']) || !is_array($_POST['content'])) {
     exit();
 }
 
+// Migration automatique pour s'assurer que la colonne 'mood' existe dans la table 'entries'
+try {
+    $pdo->exec("ALTER TABLE entries ADD COLUMN mood VARCHAR(50) NULL");
+} catch (Exception $e) {
+    // La colonne existe déjà probablement, on ignore
+}
+
 // Créer l’entrée principale
 $project_id = $_POST['project_id'] ?? null;
-$stmt = $pdo->prepare("INSERT INTO entries (project_id, user_id, entry_date) VALUES (?, ?, ?)");
-$stmt->execute([$project_id, $user_id, $date_today]);
+$mood = trim($_POST['mood'] ?? '');
+$stmt = $pdo->prepare("INSERT INTO entries (project_id, user_id, entry_date, mood) VALUES (?, ?, ?, ?)");
+$stmt->execute([$project_id, $user_id, $date_today, $mood]);
 $entry_id = $pdo->lastInsertId();
 
 // Préparer l’upload
@@ -44,15 +52,21 @@ foreach ($_POST['content'] as $index => $text) {
     $text = trim($text);
     $image_path = null;
 
-    if (!empty($_FILES['image']['name'][$index])) {
-        $type = $_FILES['image']['type'][$index];
-        if (in_array($type, ['image/jpeg', 'image/png', 'image/jpg'])) {
-            $ext = pathinfo($_FILES['image']['name'][$index], PATHINFO_EXTENSION);
-            $new_name = uniqid('block_', true) . '.' . $ext;
-            $destination = $upload_dir . $new_name;
+    if (!empty($_FILES['image']['name'][$index]) && $_FILES['image']['error'][$index] === UPLOAD_ERR_OK) {
+        $tmp_name = $_FILES['image']['tmp_name'][$index];
+        $ext = strtolower(pathinfo($_FILES['image']['name'][$index], PATHINFO_EXTENSION));
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 
-            if (move_uploaded_file($_FILES['image']['tmp_name'][$index], $destination)) {
-                $image_path = $new_name;
+        if (in_array($ext, $allowed_extensions)) {
+            // Vérification de sécurité supplémentaire (vérifie les en-têtes réels de l'image)
+            $check_image = getimagesize($tmp_name);
+            if ($check_image !== false) {
+                $new_name = uniqid('block_', true) . '.' . $ext;
+                $destination = $upload_dir . $new_name;
+
+                if (move_uploaded_file($tmp_name, $destination)) {
+                    $image_path = $new_name;
+                }
             }
         }
     }
@@ -61,6 +75,47 @@ foreach ($_POST['content'] as $index => $text) {
         $stmt = $pdo->prepare("INSERT INTO entry_blocks (entry_id, text, image) VALUES (?, ?, ?)");
         $stmt->execute([$entry_id, $text, $image_path]);
     }
+}
+
+// Envoyer une notification par e-mail aux abonnés
+try {
+    $stmtSubscribers = $pdo->query("SELECT email FROM subscribers");
+    $subscribers = $stmtSubscribers->fetchAll(PDO::FETCH_COLUMN);
+
+    if (!empty($subscribers)) {
+        $author_name = $_SESSION['name'] ?? 'Un bénévole';
+        $subject = "Nouveau récit publié sur le Livre d'Or de Sterna Africa 🌟";
+        
+        $message = "Bonjour,\n\n$author_name vient de publier un nouveau récit sur le Livre d'Or du chantier CSI de Sterna Africa !\n\n";
+        $message .= "Découvrez son témoignage et ses photos en cliquant ici :\n";
+        $message .= "https://cahierdor.sternaafrica.org/\n\n";
+        $message .= "Merci de nous suivre,\nL'équipe Sterna Africa";
+        
+        $headers = "From: Sterna Africa <sternaafrica@gmail.com>\r\n";
+        $headers .= "Reply-To: sternaafrica@gmail.com\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        
+        // Envoyer en BCC pour protéger la vie privée des abonnés et envoyer en un seul mail
+        $bcc_list = implode(', ', $subscribers);
+        $headers .= "Bcc: $bcc_list\r\n";
+        
+        @mail("sternaafrica@gmail.com", $subject, $message, $headers);
+    }
+} catch (Exception $e) {
+    // Éviter de bloquer l'utilisateur si l'envoi d'e-mail échoue
+    error_log("Erreur envoi notifications e-mail : " . $e->getMessage());
+}
+
+// Envoyer les notifications push aux abonnés Google Firebase
+try {
+    require_once 'send_notification.php';
+    $author_name = $_SESSION['name'] ?? 'Un bénévole';
+    sendPushNotification(
+        "Nouveau récit publié ! 🌟",
+        "$author_name vient de publier sa journée du CSI. Cliquez pour lire !"
+    );
+} catch (Exception $e) {
+    error_log("Erreur envoi notifications push : " . $e->getMessage());
 }
 
 $_SESSION['success'] = "Ton récit du jour est publié 🎉";

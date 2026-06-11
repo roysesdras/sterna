@@ -1,11 +1,11 @@
-const cacheName = 'livredor-v1';
+const cacheName = 'livredor-v4';
 const assets = [
-  '/',
-  '/index.php',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/offline.html'
+  './',
+  'index.php',
+  'manifest.json',
+  'favicon/web-app-manifest-192x192.png',
+  'favicon/web-app-manifest-512x512.png',
+  'offline.html'
 ];
 
 // INSTALLATION : mise en cache initiale
@@ -54,5 +54,52 @@ self.addEventListener('fetch', (e) => {
           return cachedRes || caches.match('/offline.html');
         });
       })
+  );
+});
+
+// === PUSH NOTIFICATION LISTENERS ===
+self.addEventListener('push', (event) => {
+  if (event.data) {
+    try {
+      const data = event.data.json();
+      const title = data.title || "Livre d'Or";
+      const options = {
+        body: data.body,
+        icon: data.icon || 'favicon/web-app-manifest-192x192.png',
+        badge: 'favicon/favicon-96x96.png',
+        data: {
+          url: data.url || '/'
+        }
+      };
+      event.waitUntil(
+        self.registration.showNotification(title, options)
+      );
+    } catch (e) {
+      const text = event.data.text();
+      event.waitUntil(
+        self.registration.showNotification("Livre d'Or", {
+          body: text,
+          icon: 'favicon/web-app-manifest-192x192.png',
+          badge: 'favicon/favicon-96x96.png'
+        })
+      );
+    }
+  }
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      const targetUrl = event.notification.data?.url || '/';
+      for (const client of clientList) {
+        if (client.url.includes(targetUrl) && 'focus' in client) {
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(targetUrl);
+      }
+    })
   );
 });

@@ -4,5 +4,5 @@
     <script>
         document.write(new Date().getFullYear());
     </script>
-    <span> - CSI | Sterna Africa | Mobil'</span>
+    <span> - CSI | Sterna Africa</span>
 </footer>

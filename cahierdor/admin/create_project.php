@@ -54,7 +54,7 @@ $pays_disponibles = $antennes;
 <body class="bg-gray-900 text-white font-sans min-h-screen py-10 px-4 flex flex-col">
 
     <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold text-yellow-400 mb-8 text-center">🎛️ Tableau de bord Admin</h1>
+        <h1 class="text-3xl font-bold text-yellow-400 mb-8 text-center">Tableau de bord Admin</h1>
 
         <?php if (!empty($success)): ?>
             <div class="bg-green-700/20 text-green-400 p-4 mb-4 rounded border border-green-600">
@@ -67,7 +67,7 @@ $pays_disponibles = $antennes;
         <?php endif; ?>
 
         <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 mb-10">
-            <h2 class="text-xl font-semibold text-yellow-300 mb-4">✨ Créer un nouveau chantier</h2>
+            <h2 class="text-xl font-semibold text-yellow-300 mb-4">Créer un nouveau chantier</h2>
             <form method="post" class="space-y-4">
                 <input type="text" name="title" placeholder="Titre du projet (ex: CSI Côte d'Ivoire 2025)"
                     class="w-full bg-gray-700 border border-gray-600 p-3 rounded text-white placeholder-gray-400">
@@ -88,13 +88,13 @@ $pays_disponibles = $antennes;
 
                 <button type="submit"
                     class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold py-2 px-6 rounded-lg transition duration-200">
-                    ➕ Créer
+                    Créer
                 </button>
             </form>
         </div>
 
         <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
-            <h2 class="text-xl font-semibold text-yellow-300 mb-4">🏗️ Chantiers existants</h2>
+            <h2 class="text-xl font-semibold text-yellow-300 mb-4">Chantiers existants</h2>
             <ul class="divide-y divide-gray-700">
                 <?php foreach ($projects as $p): ?>
                     <li class="py-3">

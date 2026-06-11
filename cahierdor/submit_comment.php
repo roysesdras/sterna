@@ -34,8 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'], $_POST['com
 
         if ($result) {
             // LOGGING dans un fichier local
+            $log_dir = __DIR__ . '/logs';
+            if (!is_dir($log_dir)) {
+                mkdir($log_dir, 0755, true);
+            }
             file_put_contents(
-                __DIR__ . '/logs/comment_log.txt',
+                $log_dir . '/comment_log.txt',
                 "[" . date('Y-m-d H:i:s') . "] New comment on entry #$entry_id by $pseudo: " . strip_tags($comment) . "\n",
                 FILE_APPEND
             );
