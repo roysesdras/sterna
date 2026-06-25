@@ -9,19 +9,58 @@ $stmt = $pdo->query("
     ORDER BY e.entry_date ASC, e.id DESC
 ");  //Si tu veux inverser l'ordre (du plus ancien au plus récent) Il suffit de changer ce DESC en ASC : ORDER BY e.entry_date ASC, e.id ASC
 
-$entries_by_date = [];
+$entries_by_project = [];
 while ($entry = $stmt->fetch()) {
     $date = $entry['entry_date'];
-    if (!isset($entries_by_date[$date])) {
-        $entries_by_date[$date] = [];
+    $proj_id = $entry['project_id'] ?? 'unknown';
+    
+    if (!isset($entries_by_project[$proj_id])) {
+        $entries_by_project[$proj_id] = [];
     }
-    $entries_by_date[$date][] = $entry;
+    if (!isset($entries_by_project[$proj_id][$date])) {
+        $entries_by_project[$proj_id][$date] = [];
+    }
+    $entries_by_project[$proj_id][$date][] = $entry;
 }
 
-// Récupérer tous les projets
+// Récupérer tous les projets (ordre descendant)
 $projects = $pdo->query("SELECT * FROM projects ORDER BY year DESC, title ASC")->fetchAll(PDO::FETCH_ASSOC);
 
 $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
+
+// === GESTION DYNAMIQUE DES VIGNETTES POUR LES RÉSEAUX SOCIAUX ===
+$og_title = "Livre d'Or | Sterna Africa";
+$og_description = "Découvrez les récits des bénévoles de Sterna Africa sur nos chantiers de solidarité internationale !";
+$og_image = "https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png"; // Image par défaut
+$og_url = "https://cahierdor.sternaafrica.org/";
+
+if (!empty($_GET['jour'])) {
+    $share_param = $_GET['jour']; // Format attendu : {proj_id}-{date}
+    $og_url = "https://cahierdor.sternaafrica.org/?jour=" . htmlspecialchars($share_param);
+
+    $parts = explode('-', $share_param, 2);
+    if (count($parts) === 2) {
+        $share_proj = $parts[0];
+        $share_date = $parts[1];
+        
+        $stmt_og = $pdo->prepare("SELECT e.*, u.name FROM entries e JOIN users u ON e.user_id = u.id WHERE e.project_id = ? AND e.entry_date = ? LIMIT 1");
+        $stmt_og->execute([$share_proj, $share_date]);
+        if ($og_entry = $stmt_og->fetch()) {
+            $og_title = "Récit de {$og_entry['name']} - Livre d'Or Sterna Africa";
+            // On cherche la première image du récit pour la vignette
+            $stmt_img = $pdo->prepare("SELECT image, text FROM entry_blocks WHERE entry_id = ? AND image IS NOT NULL LIMIT 1");
+            $stmt_img->execute([$og_entry['id']]);
+            if ($og_block = $stmt_img->fetch()) {
+                if (!empty($og_block['image'])) {
+                    $og_image = "https://cahierdor.sternaafrica.org/uploads/" . $og_block['image'];
+                }
+                if (!empty($og_block['text'])) {
+                    $og_description = mb_substr(strip_tags($og_block['text']), 0, 150) . '...';
+                }
+            }
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,10 +76,19 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
     <meta name="robots" content="follow">
 
     <meta name="description" content="Le Livre d'Or des volontaires du CSI : un espace où chaque jour de chantier devient un récit personnel, un témoignage précieux et partagé." />
-
-    <meta property="og:title" content="Sternaafrica" />
-
-    <meta name="description" content="Le Livre d'Or des volontaires du CSI : un espace où chaque jour de chantier devient un récit personnel, un témoignage précieux et partagé." />
+    
+    <!-- Meta Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:title" content="<?= htmlspecialchars($og_title) ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($og_description) ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($og_image) ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($og_url) ?>">
+    <meta property="og:type" content="website">
+    
+    <!-- Meta Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= htmlspecialchars($og_title) ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($og_description) ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($og_image) ?>">
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
@@ -49,16 +97,7 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 
     <!-- Canonical URL (pour le SEO) -->
-    <link rel="canonical" href="https://cahierdor.sternaafrica.org/" /> 
-    <!-- meta for og.graph -->
-    <meta property="og:image" content="https://i.postimg.cc/QdXTXZdD/Design-sans-titre-1.png" />
-    <meta property="og:url" content="https://cahierdor.sternaafrica.org/" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="sternaafrica" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:url" content="https://cahierdor.sternaafrica.org/" />
-    <meta name="twitter:image" content="https://i.postimg.cc/QdXTXZdD/Design-sans-titre-1.png" />
+    <link rel="canonical" href="https://cahierdor.sternaafrica.org/" />
 
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#111827">
@@ -67,70 +106,61 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 
 <body class="bg-gray-900 text-gray-100 min-h-screen font-sans py-2  md:px-0 flex flex-col">
     <div class="max-w-4xl mx-auto md:p-0">
-        <?php foreach ($projects as $project): ?>
-            <h1 class="text-xl md:text-3xl font-bold text-yellow-400 mb-4 text-center">💫 Livre d'Or CSI <?= htmlspecialchars($project['country'] ?? 'Projet sans pays') ?> (<?= htmlspecialchars($project['year']) ?>)</h1>
-        <?php endforeach; ?>
 
-        <!-- Section Abonnement Newsletter -->
-        <!-- <div class="bg-gray-800/80 backdrop-blur-md border border-gray-700/50 p-6 rounded-2xl shadow-xl max-w-xl mx-auto mb-8 text-center transition-all duration-300 hover:border-yellow-500/50">
-            <h2 class="text-lg md:text-xl font-bold text-yellow-300 mb-2">Suivez nos aventures au quotidien ✉️</h2>
-            <p class="text-gray-300 text-xs md:text-sm mb-4">Abonnez-vous pour recevoir une notification par e-mail dès qu'un nouveau récit est publié sur le Livre d'Or !</p>
-            
-            <form id="subscribe-form" class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-                <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="Votre adresse e-mail" 
-                    required 
-                    class="flex-1 bg-gray-900/60 text-white placeholder-gray-500 px-4 py-2.5 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition text-sm"
-                >
-                <button 
-                    type="submit" 
-                    class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold px-5 py-2.5 rounded-xl shadow-md transition duration-200 text-sm whitespace-nowrap"
-                >
-                    S'abonner
-                </button>
-            </form>
-            <div id="subscribe-message" class="text-sm mt-3 hidden font-medium"></div>
-        </div> -->
-
-        <?php if (empty($entries_by_date)): ?>
+        <?php if (empty($entries_by_project)): ?>
             <p class="text-gray-400 text-center">Aucune entrée enregistrée pour le moment.😜</p>
         <?php else: ?>
             <div id="accordion">
-                <?php $jour_index = 1;
-                foreach ($entries_by_date as $date => $entries): ?>
-                    <div class="mb-4">
-                        <button class="w-full text-left p-1 md:p-4 bg-gray-700 hover:bg-gray-600 font-semibold text-yellow-300 focus:outline-none accordion-header text-center" style="border-radius: 8px 8px 0 0">
-                            <?= date('d M Y', strtotime($date)) ?> | <?= $jour_index === 1 ? '1er jour' : $jour_index . 'e jour' ?> du CSI | Sterna - Mobil'
-                        </button>
+                <?php 
+                $is_first_project = true;
+                // On boucle d'abord sur tous les projets connus pour garder le bon ordre (year DESC)
+                foreach ($projects as $p):
+                    $proj_id = $p['id'];
+                    if (empty($entries_by_project[$proj_id])) continue; // Ignorer les projets sans récit
+                    
+                    $dates = $entries_by_project[$proj_id];
+                    $current_project_name = !empty($p['title']) ? $p['title'] : 'CSI ' . $p['country'];
+                    
+                    // On supprime ce projet du tableau pour traiter les "unknown" à la fin
+                    unset($entries_by_project[$proj_id]);
+                ?>
+                    
+                    <h1 class="text-xl md:text-3xl font-bold text-yellow-400 mt-5 mb-6 text-center">💫 <?= htmlspecialchars($current_project_name) ?></h1>
+                    
+                    <?php 
+                    $jour_index = 1;
+                    foreach ($dates as $date => $entries): ?>
+                        <div class="mb-4" id="jour-<?= htmlspecialchars($proj_id) ?>-<?= htmlspecialchars($date) ?>">
+                            <button class="w-full text-left p-1 md:p-4 bg-gray-700 hover:bg-gray-600 font-semibold text-yellow-300 focus:outline-none accordion-header text-center" style="border-radius: 8px 8px 0 0">
+                                <?= date('d M', strtotime($date)) ?> | <?= $jour_index === 1 ? '1er jour' : $jour_index . 'e jour' ?> du CSI <?= htmlspecialchars($current_project_name) ?>
+                            </button>
                         <div class="accordion-content hidden p-2 md:p-4 space-y-6">
                             <?php foreach ($entries as $entry): ?>
                                 <div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
                                     <!-- Avatar seulement visible en dehors sur sm et plus -->
-                                    <img src="<?= htmlspecialchars($entry['avatar']) ?>" class="w-12 h-12 rounded-full  shadow hidden sm:block" alt="Avatar">
+                                    <img src="<?= htmlspecialchars($entry['avatar']) ?>" class="w-12 h-12 rounded-full shadow hidden sm:block" alt="Avatar" loading="lazy">
 
                                     <!-- Bloc principal -->
                                     <div class="md:p-3 rounded-2xl w-full">
                                         <!-- En-tête du récit (Nom + Humeur + Partage) -->
                                         <div class="flex items-center justify-between mb-3 w-full border-b border-gray-800 pb-2">
                                             <div class="flex items-center space-x-3">
-                                                <img src="<?= htmlspecialchars($entry['avatar']) ?>" class="w-10 h-10 rounded-full shadow sm:hidden" alt="Avatar">
+                                                <img src="<?= htmlspecialchars($entry['avatar']) ?>" class="w-10 h-10 rounded-full shadow sm:hidden" alt="Avatar" loading="lazy">
                                                 <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
                                                     <p class="font-bold text-yellow-300 text-sm md:text-base">
                                                         <?= htmlspecialchars($entry['name']) ?>
                                                     </p>
                                                     <?php if (!empty($entry['mood'])): ?>
-                                                        <span class="inline-flex text-xs bg-yellow-500/20 text-yellow-300 px-2.5 py-0.5 rounded-full border border-yellow-500/30 font-medium self-start sm:self-auto">
+                                                        <!--<span class="inline-flex text-xs bg-yellow-500/20 text-yellow-300 px-2.5 py-0.5 rounded-full border border-yellow-500/30 font-medium self-start sm:self-auto">
                                                             <?= htmlspecialchars($entry['mood']) ?>
-                                                        </span>
+                                                        </span>-->
                                                     <?php endif; ?>
-                                                    <span class="text-gray-400 text-xs sm:text-sm font-normal hidden sm:inline">- raconte sa journée</span>
+                                                    <span class="text-gray-400 text-xs sm:text-sm font-normal hidden sm:inline"> raconte</span>
                                                 </div>
                                             </div>
                                             
                                             <!-- Bouton Partager -->
-                                            <button class="share-btn text-xs text-gray-400 hover:text-yellow-400 flex items-center gap-1 bg-gray-800/60 hover:bg-gray-800 px-2.5 py-1.5 rounded-xl border border-gray-700/50 transition cursor-pointer" data-author="<?= htmlspecialchars($entry['name']) ?>" data-date="<?= date('d M Y', strtotime($entry['entry_date'])) ?>">
+                                            <button class="share-btn text-xs text-gray-400 hover:text-yellow-400 flex items-center gap-1 bg-gray-800/60 hover:bg-gray-800 px-2.5 py-1.5 rounded-xl border border-gray-700/50 transition cursor-pointer" data-author="<?= htmlspecialchars($entry['name']) ?>" data-date="<?= date('d M Y', strtotime($entry['entry_date'])) ?>" data-anchor="jour-<?= htmlspecialchars($proj_id) ?>-<?= htmlspecialchars($date) ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l4.636-2.318m0 0a3 3 0 102.267-4.035 3 3 0 00-2.267 4.035zm-4.636 2.318a3 3 0 100 5.002 3 3 0 000-5.002zm0 0l4.636 2.318m0 0a3 3 0 102.267-4.035 3 3 0 00-2.267 4.035z" />
                                                 </svg>
@@ -145,7 +175,7 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                                             $stmtBlocks->execute([$entry['id']]);
                                             while ($block = $stmtBlocks->fetch()):
                                                 if (!empty($block['image'])) {
-                                                    echo "<img src='uploads/" . htmlspecialchars($block['image']) . "' class='w-full max-h-96 object-cover rounded-lg mb-1'>";
+                                                    echo "<img src='uploads/" . htmlspecialchars($block['image']) . "' class='w-full max-h-96 object-cover rounded-lg mb-4' loading='lazy' alt='Image du récit'>";
                                                 }
                                                 //texte
                                                 if (!empty($block['text'])) {
@@ -211,7 +241,9 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                         </div>
                     </div>
                 <?php $jour_index++;
-                endforeach; ?>
+                endforeach; // fin boucle jours
+                ?>
+                <?php endforeach; // fin boucle projets ?>
             </div>
         <?php endif; ?>
     </div>
@@ -554,7 +586,7 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                 const wasHidden = currentContent.classList.contains('hidden');
                 currentContent.classList.toggle('hidden');
 
-                // Si on vient d'ouvrir (et donc il était caché), on scroll
+                // Si on vient d'ouvrir (et donc il était caché), on scroll et on prépare le popup
                 if (wasHidden) {
                     // Petite pause pour que l'ouverture visuelle ait lieu, puis scroll
                     setTimeout(() => {
@@ -563,15 +595,63 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                             block: 'start'
                         });
                     }, 100);
+
+                    // Afficher le popup après 10 secondes de lecture
+                    if (!localStorage.getItem("newsletter_subscribed")) {
+                        setTimeout(() => {
+                            const popup = document.getElementById('newsletter-popup');
+                            if (popup && popup.classList.contains('hidden')) {
+                                popup.classList.remove('hidden');
+                                popup.classList.add('flex');
+                                // Petite pause pour la transition Tailwind
+                                setTimeout(() => {
+                                    popup.classList.remove('opacity-0');
+                                    popup.firstElementChild.classList.remove('scale-95', 'translate-y-4');
+                                    popup.firstElementChild.classList.add('scale-100', 'translate-y-0');
+                                }, 50);
+                            }
+                        }, 10000);
+                    }
                 }
             });
+        });
+        
+        // Ouvrir automatiquement l'accordéon si un hash ou paramètre est présent
+        window.addEventListener('load', () => {
+            // SÉCURITÉ : Forcer la fermeture de tous les accordéons au chargement
+            document.querySelectorAll('.accordion-content').forEach(c => c.classList.add('hidden'));
+
+            let targetId = null;
+            if (window.location.hash) {
+                targetId = window.location.hash.substring(1);
+            } else {
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.has('jour')) {
+                    targetId = 'jour-' + urlParams.get('jour');
+                }
+            }
+
+            if (targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const button = targetElement.querySelector('.accordion-header');
+                    if (button) {
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            // Highlight temporaire pour montrer quel récit a été partagé
+                            button.classList.add('ring-4', 'ring-yellow-400', 'ring-opacity-50');
+                            setTimeout(() => button.classList.remove('ring-4', 'ring-yellow-400', 'ring-opacity-50'), 3000);
+                        }, 500);
+                    }
+                }
+            }
         });
     </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const subscribeForm = document.getElementById("subscribe-form");
-            const subscribeMessage = document.getElementById("subscribe-message");
+            const subscribeForm = document.getElementById("subscribe-form-popup");
+            const subscribeMessage = document.getElementById("subscribe-message-popup");
 
             if (subscribeForm) {
                 subscribeForm.addEventListener("submit", (e) => {
@@ -594,6 +674,21 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                             subscribeMessage.classList.add("text-green-400");
                             subscribeMessage.textContent = data.message || "Inscription réussie ! 🎉";
                             subscribeForm.reset();
+                            localStorage.setItem("newsletter_subscribed", "true");
+                            
+                            // Fermer automatiquement le popup après succès
+                            setTimeout(() => {
+                                const popup = document.getElementById("newsletter-popup");
+                                if (popup) {
+                                    popup.classList.add('opacity-0');
+                                    popup.firstElementChild.classList.remove('scale-100', 'translate-y-0');
+                                    popup.firstElementChild.classList.add('scale-95', 'translate-y-4');
+                                    setTimeout(() => {
+                                        popup.classList.add('hidden');
+                                        popup.classList.remove('flex');
+                                    }, 1000);
+                                }
+                            }, 2500);
                         } else {
                             subscribeMessage.classList.add("text-red-400");
                             subscribeMessage.textContent = data.message || "Une erreur est survenue.";
@@ -722,10 +817,14 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                 btn.addEventListener("click", () => {
                     const author = btn.dataset.author;
                     const date = btn.dataset.date;
+                    const anchor = btn.dataset.anchor;
+                    const paramValue = anchor.replace('jour-', '');
+                    const cacheBuster = new Date().getTime();
+                    const shareUrl = window.location.origin + window.location.pathname + '?jour=' + paramValue + '&t=' + cacheBuster;
                     const shareData = {
                         title: `Récit de ${author} - Livre d'Or Sterna Africa`,
                         text: `Découvrez ce que ${author} a partagé le ${date} sur le chantier de solidarité internationale de Sterna Africa ! 🌟`,
-                        url: window.location.origin + window.location.pathname
+                        url: shareUrl
                     };
                     
                     if (navigator.share) {
@@ -751,10 +850,121 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
                     }
                 });
             });
+            // === NEWSLETTER ===
+            const newsletterBox = document.getElementById("newsletter-box");
+            const subscribeForm = document.getElementById("subscribe-form");
+            const subscribeMessage = document.getElementById("subscribe-message");
+
+            // Si déjà abonné, on cache la boite complètement
+            if (localStorage.getItem("sterna_newsletter_subscribed") === "true") {
+                if (newsletterBox) newsletterBox.style.display = "none";
+            }
+
+            if (subscribeForm) {
+                subscribeForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const emailInput = subscribeForm.querySelector("input[name='email']");
+                    const submitBtn = subscribeForm.querySelector("button[type='submit']");
+                    
+                    if (!emailInput.value) return;
+
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = "Patientez...";
+                    subscribeMessage.classList.add("hidden");
+
+                    try {
+                        const formData = new FormData();
+                        formData.append("email", emailInput.value);
+
+                        const response = await fetch("subscribe.php", {
+                            method: "POST",
+                            body: formData
+                        });
+                        const data = await response.json();
+
+                        if (data.success) {
+                            // Succès !
+                            subscribeForm.innerHTML = `<p class="text-green-400 font-bold text-center w-full py-2">✅ ${data.message}</p>`;
+                            // On enregistre l'abonnement dans le navigateur
+                            localStorage.setItem("sterna_newsletter_subscribed", "true");
+                            
+                            // On fait disparaître la boite après 3 secondes pour nettoyer l'écran
+                            setTimeout(() => {
+                                if (newsletterBox) {
+                                    newsletterBox.style.opacity = '0';
+                                    setTimeout(() => newsletterBox.style.display = 'none', 500);
+                                }
+                            }, 3000);
+                        } else {
+                            // Erreur
+                            subscribeMessage.textContent = "⚠️ " + data.message;
+                            subscribeMessage.classList.remove("hidden");
+                            subscribeMessage.classList.add("text-red-400");
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalBtnText;
+                        }
+                    } catch (error) {
+                        subscribeMessage.textContent = "⚠️ Une erreur est survenue. Réessayez plus tard.";
+                        subscribeMessage.classList.remove("hidden");
+                        subscribeMessage.classList.add("text-red-400");
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    }
+                });
+            }
         });
     </script>
 
     <?php include_once 'includes/footer.php'; ?>
+    <!-- BOÎTE NEWSLETTER (POPUP) -->
+    <div id="newsletter-popup" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex-col items-center justify-center z-50 transition-opacity duration-1000 ease-in-out opacity-0">
+        <div class="bg-gray-800 border border-gray-700/50 p-2 md:p-4 rounded-3xl shadow-2xl max-w-lg w-11/12 mx-auto text-center relative transform scale-95 translate-y-4 transition-all duration-1000 ease-out">
+            <button id="close-newsletter" class="absolute top-4 right-4 text-gray-400 hover:text-white transition text-3xl focus:outline-none">&times;</button>
+            <h2 class="text-xl md:text-2xl font-bold text-yellow-300 mb-2">Ne manquez aucun récit !</h2>
+            <p class="text-gray-300 text-sm mb-6">Abonnez-vous pour recevoir une petite notification par e-mail dès qu'un bénévole publie son journal de bord.</p>
+            
+            <form id="subscribe-form-popup" class="flex flex-col gap-3">
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Votre adresse e-mail" 
+                    required 
+                    class="w-full bg-gray-900/60 text-white placeholder-gray-500 px-4 py-3 rounded-xl border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition text-sm"
+                >
+                <button 
+                    type="submit" 
+                    class="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold px-5 py-3 rounded-xl shadow-md transition duration-200"
+                >
+                    M'abonner
+                </button>
+            </form>
+            <div id="subscribe-message-popup" class="text-sm mt-4 hidden font-medium"></div>
+        </div>
+    </div>
+    <script>
+        // Logique de fermeture du popup
+        document.addEventListener("DOMContentLoaded", () => {
+            const popup = document.getElementById("newsletter-popup");
+            const closeBtn = document.getElementById("close-newsletter");
+            
+            function closeNewsletter() {
+                if(!popup) return;
+                popup.classList.add('opacity-0');
+                popup.firstElementChild.classList.remove('scale-100', 'translate-y-0');
+                popup.firstElementChild.classList.add('scale-95', 'translate-y-4');
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                    popup.classList.remove('flex');
+                }, 1000); // 1000ms to match the new duration-1000
+                localStorage.setItem("newsletter_closed", "true");
+            }
+            
+            if (closeBtn) {
+                closeBtn.addEventListener("click", closeNewsletter);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -6,8 +6,8 @@ $username = 'root'; // à adapter selon ton serveur
 $password = 'SoftiP24';     // idem
 
 try {
-    // Création de la connexion PDO avec encodage UTF-8
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    // Création de la connexion PDO avec encodage UTF-8mb4 (support des émojis)
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
     // Options pour sécuriser et gérer les erreurs proprement
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Active les erreurs PDO

@@ -15,18 +15,33 @@ if ($_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// Création d'un chantier si formulaire soumis
+// Création ou modification d'un chantier si formulaire soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = trim($_POST['title']);
-    $country = trim($_POST['country']);
-    $year = trim($_POST['year']);
-
-    if ($title && $country && $year) {
-        $stmt = $pdo->prepare("INSERT INTO projects (title, country, year, created_at) VALUES (?, ?, ?, NOW())");
-        $stmt->execute([$title, $country, $year]);
-        $success = "Nouveau chantier créé avec succès !";
+    if (isset($_POST['action']) && $_POST['action'] === 'edit') {
+        // Modification
+        $project_id = (int)($_POST['project_id'] ?? 0);
+        $title = trim($_POST['title'] ?? '');
+        
+        if ($project_id && $title) {
+            $stmt = $pdo->prepare("UPDATE projects SET title = ? WHERE id = ?");
+            $stmt->execute([$title, $project_id]);
+            $success = "Le nom du chantier a été mis à jour avec succès !";
+        } else {
+            $error = "Le titre ne peut pas être vide.";
+        }
     } else {
-        $error = "Tous les champs sont obligatoires.";
+        // Création
+        $title = trim($_POST['title'] ?? '');
+        $country = trim($_POST['country'] ?? '');
+        $year = trim($_POST['year'] ?? '');
+
+        if ($title && $country && $year) {
+            $stmt = $pdo->prepare("INSERT INTO projects (title, country, year, created_at) VALUES (?, ?, ?, NOW())");
+            $stmt->execute([$title, $country, $year]);
+            $success = "Nouveau chantier créé avec succès !";
+        } else {
+            $error = "Tous les champs sont obligatoires pour la création.";
+        }
     }
 }
 
@@ -54,7 +69,12 @@ $pays_disponibles = $antennes;
 <body class="bg-gray-900 text-white font-sans min-h-screen py-10 px-4 flex flex-col">
 
     <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold text-yellow-400 mb-8 text-center">Tableau de bord Admin</h1>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-yellow-400 mb-4 md:mb-0 text-center">Tableau de bord Admin</h1>
+            <a href="subscribers.php" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-semibold shadow transition flex items-center gap-2">
+                ✉️ Voir les abonnés newsletter
+            </a>
+        </div>
 
         <?php if (!empty($success)): ?>
             <div class="bg-green-700/20 text-green-400 p-4 mb-4 rounded border border-green-600">
@@ -97,9 +117,22 @@ $pays_disponibles = $antennes;
             <h2 class="text-xl font-semibold text-yellow-300 mb-4">Chantiers existants</h2>
             <ul class="divide-y divide-gray-700">
                 <?php foreach ($projects as $p): ?>
-                    <li class="py-3">
-                        <strong class="text-white"><?= htmlspecialchars($p['title']) ?></strong>
-                        <span class="text-gray-400"> (<?= $p['country'] ?>, <?= $p['year'] ?>)</span>
+                    <li class="py-4 flex flex-col gap-3">
+                        <div class="flex justify-between items-center w-full">
+                            <div>
+                                <strong class="text-white text-lg"><?= htmlspecialchars($p['title']) ?></strong>
+                                <span class="text-gray-400 block text-sm sm:inline"> (<?= htmlspecialchars($p['country']) ?>, <?= htmlspecialchars($p['year']) ?>)</span>
+                            </div>
+                            <button type="button" onclick="document.getElementById('edit-form-<?= $p['id'] ?>').classList.toggle('hidden')" class="text-sm bg-gray-700 hover:bg-gray-600 text-yellow-400 border border-gray-600 px-3 py-1 rounded transition">
+                                Modifier
+                            </button>
+                        </div>
+                        <form id="edit-form-<?= $p['id'] ?>" class="hidden bg-gray-900/50 p-4 rounded-lg border border-gray-700 flex flex-col md:flex-row gap-3 mt-1" method="post">
+                            <input type="hidden" name="action" value="edit">
+                            <input type="hidden" name="project_id" value="<?= $p['id'] ?>">
+                            <input type="text" name="title" value="<?= htmlspecialchars($p['title']) ?>" class="bg-gray-700 border border-gray-600 p-2 rounded text-white flex-1 focus:ring-2 focus:ring-yellow-400 focus:outline-none" required>
+                            <button type="submit" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 px-5 py-2 rounded-lg font-semibold transition">Enregistrer</button>
+                        </form>
                     </li>
                 <?php endforeach; ?>
             </ul>

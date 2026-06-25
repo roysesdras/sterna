@@ -59,23 +59,13 @@ $project_id = $project['id'] ?? null;
         </div>
 
         <?php if ($entry): ?>
-            <div class="bg-green-700/20 p-6 rounded-lg border border-green-500 space-y-6">
-                <h3 class="text-lg font-semibold text-green-400 mb-2">C’est noté ! Tu viens de remplir le Cahier d'Or pour aujourd’hui. À la prochaine pour une nouvelle aventure ✨</h3>
+            <div class="bg-green-700/20 p-4 rounded-2xl border border-green-500 text-center shadow-xl flex flex-col items-center justify-center min-h-[50vh]">
+                <h3 class="text-xl md:text-2xl font-bold text-green-400 mb-4">C’est noté !</h3>
+                <p class="text-gray-300 text-base md:text-lg mb-8 max-w-md">Tu viens de remplir le livre d'Or pour aujourd’hui. À la prochaine.</p>
                 
-                <div class="space-y-4">
-                    <?php foreach ($entry_blocks as $block): ?>
-                        <div class="bg-gray-800/60 p-4 rounded-xl border border-gray-700">
-                            <?php if (!empty($block['image'])): ?>
-                                <div class="mb-3">
-                                    <img src="uploads/<?= htmlspecialchars($block['image']) ?>" alt="Image du jour" class="rounded-lg shadow max-w-full h-auto max-h-80 object-cover">
-                                </div>
-                            <?php endif; ?>
-                            <?php if (!empty($block['text'])): ?>
-                                <p class="whitespace-pre-line text-gray-300 text-sm sm:text-base"><?= nl2br(htmlspecialchars($block['text'])) ?></p>
-                            <?php endif; ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                <a href="index.php" class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition duration-200 transform hover:scale-105">
+                    OK
+                </a>
             </div>
         <?php else: ?>
             <!-- Bannière d'alerte hors-ligne -->
@@ -120,16 +110,7 @@ $project_id = $project['id'] ?? null;
                 </div>
 
                 <div class="flex flex-wrap items-center mt-6 gap-3">
-                    <!-- Bouton Ajouter un bloc -->
-                    <button
-                        type="button"
-                        id="add-block"
-                        class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold px-5 py-2.5 rounded-xl shadow-md transition duration-200">
-                        + Ajouter un bloc
-                    </button>
 
-                    <!-- Espace auto entre les deux -->
-                    <div class="flex-grow"></div>
 
                     <!-- Bouton Publier à droite -->
                     <button
@@ -143,19 +124,20 @@ $project_id = $project['id'] ?? null;
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const container = document.getElementById('entry-blocks');
-                    const addButton = document.getElementById('add-block');
 
                     function addBlock(showRemoveButton = false) {
                         const block = document.createElement('div');
                         block.className = 'entry-block rounded-lg relative mb-4';
 
                         block.innerHTML = `
-                            <!-- Zone de contenu (textarea) -->  
                             <textarea 
                                 name="content[]" 
                                 rows="8"
                                 placeholder="Alors, tu nous racontes quoi de beau aujourd’hui ? 😎"
                                 class="w-full bg-gray-800 text-white placeholder-gray-400 p-4 rounded-2xl shadow-inner resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 transition duration-150 ease-in-out mb-4"
+                                required
+                                oninvalid="this.setCustomValidity('Il faut écrire un petit texte pour raconter ta journée ! 📝')"
+                                oninput="this.setCustomValidity('')"
                             ></textarea>
 
                             <!-- Input image stylisé -->
@@ -164,7 +146,7 @@ $project_id = $project['id'] ?? null;
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 01-2.828 0L2 10.828M17 7h5v5M21 21H3V3" />
                                 </svg>
                                 <span>Ajouter une image</span>
-                                <input type="file" name="image[]" accept="image/*" class="image-input absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                <input type="file" name="image[]" accept="image/*" class="image-input absolute inset-0 w-full h-full opacity-0 cursor-pointer" required oninvalid="this.setCustomValidity('Il faut obligatoirement ajouter une photo pour illustrer ton récit ! 📸')" onchange="this.setCustomValidity('')">
                             </label>
 
                             <img class="image-preview hidden rounded-lg max-h-40">
@@ -202,20 +184,18 @@ $project_id = $project['id'] ?? null;
                     }
 
                     addBlock(false);
-
-                    addButton.addEventListener('click', () => {
-                        addBlock(true);
-                    });
                 });
             </script>
         <?php endif; ?>
 
     </div>
+    <?php if (!$entry): ?>
     <div class="flex mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <a href="logout.php" class="text-sm text-gray-400 hover:text-red-400 bg-gray-700 px-4 py-2 rounded-lg shadow transition">
             Se déconnecter
         </a>
     </div>
+    <?php endif; ?>
     <?php include_once 'includes/footer.php'; ?>
 
     <script>

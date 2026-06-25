@@ -38,7 +38,8 @@ if (isset($_GET['code'])) {
 
         if (!$user) {
             // Créer nouvel utilisateur
-            $stmt = $pdo->prepare("INSERT INTO users (google_id, name, email, avatar) VALUES (?, ?, ?, ?)");
+            // On ajoute un mot de passe vide par défaut pour éviter l'erreur SQL 1364
+            $stmt = $pdo->prepare("INSERT INTO users (google_id, name, email, avatar, password) VALUES (?, ?, ?, ?, '')");
             $stmt->execute([$google_id, $name, $email, $avatar]);
             $user_id = $pdo->lastInsertId();
         } else {

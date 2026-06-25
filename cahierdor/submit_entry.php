@@ -1,8 +1,11 @@
 <?php
-// Debug temporaire (à désactiver en prod)
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+// Debug temporaire
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/php_errors.log');
+
 
 require_once 'includes/db.php';
 require_once 'includes/auth.php';
@@ -20,9 +23,29 @@ if ($stmt->fetch()) {
     exit();
 }
 
-// Vérifier la présence de contenu
-if (empty($_POST['content']) || !is_array($_POST['content'])) {
-    $_SESSION['error'] = "Aucun contenu reçu.";
+// Vérifier la présence de contenu (texte et image obligatoires)
+$has_text = false;
+if (!empty($_POST['content']) && is_array($_POST['content'])) {
+    foreach ($_POST['content'] as $text) {
+        if (trim($text) !== '') {
+            $has_text = true;
+            break;
+        }
+    }
+}
+
+$has_image = false;
+if (!empty($_FILES['image']['name']) && is_array($_FILES['image']['name'])) {
+    foreach ($_FILES['image']['name'] as $img_name) {
+        if (!empty($img_name)) {
+            $has_image = true;
+            break;
+        }
+    }
+}
+
+if (!$has_text || !$has_image) {
+    $_SESSION['error'] = "Ton récit doit obligatoirement contenir du texte ET une photo 📸📝";
     header("Location: raconte-ta-journee");
     exit();
 }
@@ -61,11 +84,45 @@ foreach ($_POST['content'] as $index => $text) {
             // Vérification de sécurité supplémentaire (vérifie les en-têtes réels de l'image)
             $check_image = getimagesize($tmp_name);
             if ($check_image !== false) {
-                $new_name = uniqid('block_', true) . '.' . $ext;
+                // On force le format JPG pour une meilleure compression WhatsApp
+                $new_name = uniqid('block_', true) . '.jpg';
                 $destination = $upload_dir . $new_name;
 
-                if (move_uploaded_file($tmp_name, $destination)) {
-                    $image_path = $new_name;
+                // Fonction de compression (max 1200px largeur, 75% qualité)
+                $mime = $check_image['mime'];
+                $image = false;
+                if ($mime == 'image/jpeg') $image = @imagecreatefromjpeg($tmp_name);
+                elseif ($mime == 'image/png') $image = @imagecreatefrompng($tmp_name);
+                elseif ($mime == 'image/gif') $image = @imagecreatefromgif($tmp_name);
+
+                if ($image) {
+                    $width = imagesx($image);
+                    $height = imagesy($image);
+                    $maxWidth = 1200;
+                    
+                    $newWidth = $width;
+                    $newHeight = $height;
+                    if ($width > $maxWidth) {
+                        $newWidth = $maxWidth;
+                        $newHeight = floor($height * ($maxWidth / $width));
+                    }
+                    
+                    $tmp = imagecreatetruecolor($newWidth, $newHeight);
+                    // Remplir le fond en blanc (au cas où PNG transparent)
+                    $white = imagecolorallocate($tmp, 255, 255, 255);
+                    imagefill($tmp, 0, 0, $white);
+                    imagecopyresampled($tmp, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                    
+                    if (imagejpeg($tmp, $destination, 75)) {
+                        $image_path = $new_name;
+                    }
+                    imagedestroy($image);
+                    imagedestroy($tmp);
+                } else {
+                    // Fallback si la librairie GD échoue
+                    if (move_uploaded_file($tmp_name, $destination)) {
+                        $image_path = $new_name;
+                    }
                 }
             }
         }
@@ -79,7 +136,7 @@ foreach ($_POST['content'] as $index => $text) {
 
 // Envoyer une notification par e-mail aux abonnés
 try {
-    $stmtSubscribers = $pdo->query("SELECT email FROM subscribers");
+    $stmtSubscribers = $pdo->query("SELECT email FROM newsletter_subscribers");
     $subscribers = $stmtSubscribers->fetchAll(PDO::FETCH_COLUMN);
 
     if (!empty($subscribers)) {
