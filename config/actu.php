@@ -1,13 +1,15 @@
-<div class="lg:col-span-2">
-    <h2 class="text-3xl font-black text-sterna-blue mb-10 border-l-8 border-sterna-orange pl-6 inline-block uppercase tracking-tight">
-        Nos Actualités
+<div class="lg:col-span-2 mt-8 md:mt-16">
+    
+    
+    <h2 class="text-3xl font-black text-sterna-blue mb-10 border-l-8 border-sterna-yellow pl-6 inline-block uppercase tracking-tight">
+        Nos <span class="text-sterna-yellow">Action</span>
     </h2>
 
     <div class="space-y-12">
         <?php if (count($actualites) > 0): ?>
             <?php
             $count = 0;
-            $max_activities = 8;
+            $max_activities = 3;
             
             // On définit les couleurs basées sur votre nouvelle charte Urunani
             $classes_pays = [
@@ -40,7 +42,7 @@
                         <img src="images/<?php echo $actualite['image']; ?>" 
                              alt="<?php echo $title_for_alt; ?>" 
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-urunani-blue opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <div class="absolute inset-0 bg-urunani-blue opacity-0 group-hover:opacity-20 transition-opacity shadow-lg"></div>
                     </div>
 
                     <div>
@@ -60,7 +62,7 @@
                         </p>
 
                         <a href="<?php echo $actualite_link; ?>" 
-                           class="inline-block mt-4 text-urunani-blue font-bold border-b-2 border-urunani-orange text-xs uppercase tracking-tighter">
+                           class="inline-block mt-4 text-sterna-yellow font-bold border-b-2 border-sterna-blue text-md uppercase tracking-tighter">
                             Lire la suite &rarr;
                         </a>
                     </div>

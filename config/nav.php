@@ -58,7 +58,7 @@ if (is_dir($rapports_dir)) {
     }
 }
 ?>
-<nav class="bg-gray-100 shadow-md sticky top-0 z-50 text-gray-700">
+<nav class="bg-gray-100 shadow-lg sticky top-0 z-50 text-gray-700">
     <div class="max-w-7xl mx-auto px-2 flex justify-between items-center h-20">
 
         <div class="flex items-center shrink-0 cursor-pointer group">

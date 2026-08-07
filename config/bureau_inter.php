@@ -1,9 +1,5 @@
 <section class="overflow-hidden" id="equipe">
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-        <h2 class="text-3xl font-black text-sterna-blue uppercase tracking-tighter border-l-8 border-sterna-orange pl-6">
-            Le Bureau <br><span class="text-sterna-orange">Sterna Africa</span>
-        </h2>
-    </div>
+
 
     <div class="team-scroll-container">
         <div class="team-track">

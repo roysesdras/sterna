@@ -18,9 +18,9 @@ usort($missions, function($a, $b) use ($today) {
 });
 ?>
 
-<div class="space-y-8 sticky top-24">
-    <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-sterna-blue">
-        <h2 class="text-xl font-black text-sterna-orange mb-8 uppercase tracking-tighter">Événements & Missions</h2>
+<div class="space-y-8 sticky top-24 mt-8 md:mt-16">
+    <div class="bg-sterna-yellow p-4 rounded-2xl shadow-lg">
+        <h2 class="text-xl font-black text-sterna-blue mb-8 uppercase tracking-tighter">Nos Événements & Missions</h2>
         
         <div class="space-y-8">
             <?php if (count($missions) > 0): ?>
@@ -36,16 +36,16 @@ usort($missions, function($a, $b) use ($today) {
 
                     // Couleurs basées sur le statut réel
                     if ($end < $today) {
-                        $accentClass = "text-gray-400";
-                        $hoverColor = "group-hover:bg-gray-400"; // Clôturé
+                        $accentClass = "text-gray-800";
+                        $hoverColor = "group-hover:bg-gray-800"; // Clôturé
                         $statusText = "Terminé";
                     } elseif ($start <= $today && $end >= $today) {
-                        $accentClass = "text-sterna-orange";
-                        $hoverColor = "group-hover:bg-sterna-orange"; // En cours
+                        $accentClass = "text-sterna-blue";
+                        $hoverColor = "group-hover:bg-sterna-blue"; // En cours
                         $statusText = "En cours";
                     } else {
-                        $accentClass = "text-sterna-rose";
-                        $hoverColor = "group-hover:bg-sterna-rose"; // À venir
+                        $accentClass = "text-green-600";
+                        $hoverColor = "group-hover:bg-green-600"; // À venir
                         $statusText = "À venir";
                     }
 
@@ -56,16 +56,16 @@ usort($missions, function($a, $b) use ($today) {
                 ?>
 
                     <div class="flex items-center space-x-5 group cursor-pointer" onclick="window.location.href='<?php echo $mission_link; ?>'">
-                        <div class="bg-gray-50 text-sterna-blue p-3 rounded-xl text-center min-w-[60px] <?php echo $hoverColor; ?> group-hover:text-white transition-colors duration-300">
+                        <div class="bg-gray-50 text-sterna-blue p-2 shadow-lg rounded-xl text-center min-w-[55px] <?php echo $hoverColor; ?>">
                             <span class="block text-xl font-black"><?php echo $jour; ?></span>
                             <span class="text-[9px] font-bold uppercase tracking-widest"><?php echo $mois; ?></span>
                         </div>
 
                         <div>
-                            <h4 class="font-black text-sm text-sterna-blue leading-tight uppercase group-hover:text-sterna-yellow transition-colors">
+                            <h4 class="font-black text-md text-gray-50 leading-tight uppercase">
                                 <?php echo htmlspecialchars($mission['title']); ?>
                             </h4>
-                            <p class="text-[11px] text-gray-400 font-bold mt-1 uppercase tracking-tighter italic">
+                            <p class="text-[12px] text-gray-100 font-bold mt-1 uppercase tracking-tighter italic">
                                 <?php echo $lieu; ?> • 
                                 <span class="text-[9px] <?php echo $accentClass; ?>">
                                     <?php echo $statusText; ?>

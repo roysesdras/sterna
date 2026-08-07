@@ -78,14 +78,14 @@
 
     .email-input.form-control:focus {
         background: rgba(255, 255, 255, 0.1) !important;
-        border-color: #ea750fff !important; /* Rose Urunani */
+        border-color: #f0be19ff !important; /* Rose Urunani */
         box-shadow: 0 0 15px rgba(234, 15, 104, 0.2) !important;
         outline: none;
     }
 
     /* Le bouton S'abonner */
     #newsletter-form .btn-primary {
-        background: #ea750fff; !important;
+        background: #ffffff; !important;
         border: none !important;
         border-radius: 15px !important;
         padding: 12px !important;
@@ -97,9 +97,9 @@
     }
 
     #newsletter-form .btn-primary:hover {
-        background: #ea750fff !important;
+        background: #ffffff !important;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(234, 15, 104, 0.4);
+        color: #063f78ff !important;
     }
 
     /* Description sous le formulaire */

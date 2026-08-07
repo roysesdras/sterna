@@ -1,0 +1,63 @@
+[25-Jun-2026 11:48:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-2026-06-25' for key 'entries.project_id' in /var/www/html/cahierdor/submit_entry.php:44
+Stack trace:
+#0 /var/www/html/cahierdor/submit_entry.php(44): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /var/www/html/cahierdor/submit_entry.php on line 44
+[25-Jun-2026 11:49:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-2026-06-25' for key 'entries.project_id' in /var/www/html/cahierdor/submit_entry.php:44
+Stack trace:
+#0 /var/www/html/cahierdor/submit_entry.php(44): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /var/www/html/cahierdor/submit_entry.php on line 44
+[25-Jun-2026 11:49:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-2026-06-25' for key 'entries.project_id' in /var/www/html/cahierdor/submit_entry.php:44
+Stack trace:
+#0 /var/www/html/cahierdor/submit_entry.php(44): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /var/www/html/cahierdor/submit_entry.php on line 44
+[25-Jun-2026 11:53:36 UTC] Erreur envoi notifications e-mail : SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cahierdor.subscribers' doesn't exist
+[25-Jun-2026 11:53:36 UTC] PHP Notice:  It is highly recommended to install the GMP or BCMath extension to speed up calculations. The fastest available calculator implementation will be automatically selected at runtime. in /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php on line 83
+[25-Jun-2026 11:53:36 UTC] [VAPID WebPush] Echec pour https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5 : Client error: `POST https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5` resulted in a `410 Gone` response:
+push subscription has unsubscribed or expired.
+
+
+[25-Jun-2026 11:53:36 UTC] [VAPID WebPush] Exception lors de l'envoi : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[25-Jun-2026 11:53:36 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php:83) in /var/www/html/cahierdor/submit_entry.php on line 159
+[25-Jun-2026 12:03:59 UTC] Erreur envoi notifications e-mail : SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cahierdor.subscribers' doesn't exist
+[25-Jun-2026 12:03:59 UTC] PHP Notice:  It is highly recommended to install the GMP or BCMath extension to speed up calculations. The fastest available calculator implementation will be automatically selected at runtime. in /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php on line 83
+[25-Jun-2026 12:04:00 UTC] [VAPID WebPush] Echec pour https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5 : Client error: `POST https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5` resulted in a `410 Gone` response:
+push subscription has unsubscribed or expired.
+
+
+[25-Jun-2026 12:04:00 UTC] [VAPID WebPush] Exception lors de l'envoi : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[25-Jun-2026 12:04:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php:83) in /var/www/html/cahierdor/submit_entry.php on line 159
+[25-Jun-2026 12:11:47 UTC] Erreur envoi notifications e-mail : SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cahierdor.subscribers' doesn't exist
+[25-Jun-2026 12:11:47 UTC] PHP Notice:  It is highly recommended to install the GMP or BCMath extension to speed up calculations. The fastest available calculator implementation will be automatically selected at runtime. in /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php on line 83
+[25-Jun-2026 12:11:47 UTC] [VAPID WebPush] Echec pour https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5 : Client error: `POST https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5` resulted in a `410 Gone` response:
+push subscription has unsubscribed or expired.
+
+
+[25-Jun-2026 12:11:47 UTC] [VAPID WebPush] Exception lors de l'envoi : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[25-Jun-2026 12:11:47 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php:83) in /var/www/html/cahierdor/submit_entry.php on line 159
+[25-Jun-2026 12:41:37 UTC] Erreur envoi notifications e-mail : SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cahierdor.subscribers' doesn't exist
+[25-Jun-2026 12:41:37 UTC] PHP Notice:  It is highly recommended to install the GMP or BCMath extension to speed up calculations. The fastest available calculator implementation will be automatically selected at runtime. in /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php on line 83
+[25-Jun-2026 12:41:37 UTC] [VAPID WebPush] Echec pour https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5 : Client error: `POST https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5` resulted in a `410 Gone` response:
+push subscription has unsubscribed or expired.
+
+
+[25-Jun-2026 12:41:37 UTC] [VAPID WebPush] Exception lors de l'envoi : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[25-Jun-2026 12:41:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php:83) in /var/www/html/cahierdor/submit_entry.php on line 179
+[25-Jun-2026 15:12:42 UTC] Erreur envoi notifications e-mail : SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cahierdor.subscribers' doesn't exist
+[25-Jun-2026 15:12:42 UTC] PHP Notice:  It is highly recommended to install the GMP or BCMath extension to speed up calculations. The fastest available calculator implementation will be automatically selected at runtime. in /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php on line 83
+[25-Jun-2026 15:12:42 UTC] [VAPID WebPush] Echec pour https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5 : Client error: `POST https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5` resulted in a `410 Gone` response:
+push subscription has unsubscribed or expired.
+
+
+[25-Jun-2026 15:12:42 UTC] [VAPID WebPush] Exception lors de l'envoi : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[25-Jun-2026 15:12:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php:83) in /var/www/html/cahierdor/submit_entry.php on line 179
+[25-Jun-2026 16:36:48 UTC] Erreur envoi notifications e-mail : SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cahierdor.newsletter_subscribers' doesn't exist
+[25-Jun-2026 16:36:48 UTC] PHP Notice:  It is highly recommended to install the GMP or BCMath extension to speed up calculations. The fastest available calculator implementation will be automatically selected at runtime. in /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php on line 83
+[25-Jun-2026 16:36:48 UTC] [VAPID WebPush] Echec pour https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5 : Client error: `POST https://fcm.googleapis.com/fcm/send/dNK_2CoBkeE:APA91bHj7zml_M834xauRI05ZiiLmjy63lJCJ6AmVZS1JOJhlK7RlUf3FbWV8v8xhASXbghfQveqwAJA3CQQpgitrEa7H4FdqyHuW4X4vSB0NHzH5ayfnEOJXfChTJLvot0IZ85jRij5` resulted in a `410 Gone` response:
+push subscription has unsubscribed or expired.
+
+
+[25-Jun-2026 16:36:48 UTC] [VAPID WebPush] Exception lors de l'envoi : SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[25-Jun-2026 16:36:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/cahierdor/vendor/minishlink/web-push/src/Utils.php:83) in /var/www/html/cahierdor/submit_entry.php on line 179

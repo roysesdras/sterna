@@ -14,7 +14,7 @@ if (isset($conn) && !isset($pdoAfrica)) {
 
 // 2. Connexion à la base monespace (en PDO comme tu l'as défini)
 try {
-    $pdoMonespace = new PDO('mysql:host=db;dbname=monespace', 'root', 'SoftiP4');
+    $pdoMonespace = new PDO('mysql:host=db;dbname=monespace', 'root', 'SoftiP24');
     $pdoMonespace->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // On ne bloque pas tout le site si monespace a un souci
@@ -109,12 +109,9 @@ if (!function_exists('time_elapsed_string')) {
 }
 ?>
 
-<section class="py-15 mt-20 overflow-hidden" id="stories">
-    <div class="max-w-7xl mx-auto px-6 mb-2 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<section class="mt-5 overflow-hidden bg-white" id="stories">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-            <h2 class="text-4xl font-black text-sterna-blue uppercase tracking-tighter border-l-8 border-sterna-orange pl-6">
-                Récits de <span class="text-sterna-orange">Solidarité</span>
-            </h2>
             
         </div>
         
@@ -141,12 +138,12 @@ if (!function_exists('time_elapsed_string')) {
                 }
                 ?>
 
-                <div class="testimonial-card group" onclick="window.location.href='../temoignage/<?= $temoignage['id']; ?>'">
+                <div class="testimonial-card group" onclick="window.location.href='../temoignage/<?= $temoignage['id']; ?>'" style="border:1px solid #edbe3de1">
                     <div class="card-inner">
                         <div class="flex justify-between items-start mb-6">
                             <div class="flex items-center gap-4">
                                 <div class="avatar-wrapper">
-                                    <img src="<?= $photoPath; ?>" alt="Avatar" class="avatar-img">
+                                    <img src="<?= $photoPath; ?>" alt="Avatar" class="avatar-img" style="border-radius: 5px; object-fit: cover;">
                                 </div>
                                 <div>
                                     <h4 class="text-[15px] font-black text-sterna-blue uppercase leading-none mb-1">
@@ -252,7 +249,7 @@ if (!function_exists('time_elapsed_string')) {
     .avatar-img {
         width: 100%;
         height: 100%;
-        border-radius: 10px;
+        border-radius: 5px;
         object-fit: cover;
         
     }

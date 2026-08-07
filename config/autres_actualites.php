@@ -42,10 +42,10 @@ $classes = [
             $short_title = (mb_strlen($actualite['title']) > 55) ? mb_substr($actualite['title'], 0, 55) . '...' : $actualite['title'];
         ?>
             <div class="min-w-[240px] md:min-w-[280px] snap-start group">
-                <a href="../actualite/<?php echo $actualite['id']; ?>" class="block">
+                <a href="/archives_ancien_site/actualite/actualite_detail.php?id=<?php echo $actualite['id']; ?>" class="block">
                     <div class="relative h-40 rounded-2xl overflow-hidden mb-3 border border-white/5 shadow-lg group-hover:border-sternaYellow/50 transition-all duration-500">
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            src="../images/<?php echo $actualite['image']; ?>"
+                            src="/images/<?php echo $actualite['image']; ?>"
                             alt="<?php echo html_entity_decode($actualite['title'], ENT_QUOTES, 'UTF-8'); ?>">
 
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

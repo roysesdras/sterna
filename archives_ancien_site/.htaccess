@@ -1,0 +1,66 @@
+RewriteEngine On
+RewriteBase /
+
+# ==========================================================
+# 0. VALIDATION SSL (INDISPENSABLE POUR LE CADENAS VERT)
+# ==========================================================
+# On empêche toute redirection si Let's Encrypt demande un fichier de test
+RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+# ==========================================================
+# 1. AIGUILLAGE DES SOUS-DOMAINES
+# ==========================================================
+
+# Aiguillage pour monespacevolontaire
+RewriteCond %{HTTP_HOST} ^monespacevolontaire\.sternaafrica\.org$ [NC]
+RewriteCond %{REQUEST_URI} !^/monespacevolontaire/
+RewriteRule ^(.*)$ monespacevolontaire/$1 [L,QSA]
+
+# Aiguillage pour cahierdor
+RewriteCond %{HTTP_HOST} ^cahierdor\.sternaafrica\.org$ [NC]
+RewriteCond %{REQUEST_URI} !^/cahierdor/
+RewriteRule ^(.*)$ cahierdor/$1 [L]
+
+# ==========================================================
+# 2. RÈGLES DU SITE PRINCIPAL (sternaafrica.org)
+# ==========================================================
+
+# Réécrire l'URL pour le flux RSS (Google adore le .xml)
+# Si ton fichier s'appelle rss.php, cette règle crée l'URL : sternaafrica.org/feed.xml
+RewriteRule ^feed\.xml$ rss.php [L]
+
+# Réécrire l'URL pour les actualités
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^actualite/([0-9]+)/?$ actualite/actualite_detail.php?id=$1 [L,QSA]
+
+# Réécrire l'URL pour les evenements
+RewriteRule ^evenement/([0-9]+)/?$ evenement/mission_detail.php?id=$1 [L,QSA]
+
+# Réécrire l'URL pour les interviews
+RewriteRule ^interview$ /interview.php [L,QSA]
+
+# Réécrire l'URL pour les temoignages
+RewriteRule ^temoignage/([0-9]+)$ /pages/temoignage_detail.php?id=$1 [L,QSA]
+
+# Antenne
+RewriteRule ^antenne/([^/]+)$ antenne.php?nom=$1 [L,QSA]
+
+# ==========================================================
+# 3. RÈGLES POUR LE QUIZ
+# ==========================================================
+RewriteRule ^quiz/dashboard$ /quiz/dashboard.php [L]
+RewriteRule ^quiz/login$ /quiz/login.php [L]
+RewriteRule ^quiz/register$ /quiz/register.php [L]
+RewriteRule ^quiz/ajouter-categorie$ /quiz/ajouter_categorie.php [L]
+RewriteRule ^quiz/ajouter-question-reponse$ /quiz/ajouter_question_reponse.php [L]
+RewriteRule ^quiz/edit-category$ /quiz/edit_category.php [L]
+RewriteRule ^quiz/delete-category$ /quiz/delete_category.php [L]
+RewriteRule ^quiz/delete-question$ /quiz/delete_question.php [L]
+RewriteRule ^quiz/edit-question$ /quiz/edit_question.php [L]
+RewriteRule ^quiz/animateur-connect$ /quiz/animateur_login.php [L]
+RewriteRule ^quiz/animateur$ /quiz/animateur_dashboard.php [L]
+RewriteRule ^quiz/participant-connect$ /quiz/participant_connect.php [L]
+RewriteRule ^quiz/participant$ /quiz/participant.php [L]
+RewriteRule ^quiz/documentation$ /quiz/doc.php [L]
+RewriteRule ^quiz/classement-final$ /quiz/classement_final.php [L]

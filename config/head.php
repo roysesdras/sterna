@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://sternaafrica.org/">
     <meta property="og:title" content="Sternaafrica : solidarité internationale">
     <meta property="og:description" content="Sterna Africa : Association d'Éducation à la Citoyenneté et à la Solidarité Internationale (ECSI), engagée sur le continent africain et au-delà.">
-    <meta property="og:image" content="https://sternaafrica.org/images/garde.jpg">
+    <meta property="og:image" content="https://sternaafrica.org/images/garde.jpg\">
     <meta property="og:site_name" content="sternaafrica">
     <meta property="og:locale" content="fr_FR">
 
@@ -22,7 +22,7 @@
     <meta name="twitter:url" content="https://sternaafrica.org/">
     <meta name="twitter:title" content="Sterna Africa">
     <meta name="twitter:description" content="Association d'Éducation à la Citoyenneté et à la Solidarité Internationale (ECSI).">
-    <meta name="twitter:image" content="https://sternaafrica.org/images/garde.jpg">
+    <meta name="twitter:image" content="https://sternaafrica.org/images/garde.jpg\">
 
     <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
     <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
@@ -45,12 +45,9 @@
             theme: {
                 extend: {
                     colors: {
-                        'sterna-blue': '#04378bec',
-                        'sterna-yellow': '#ffbd17ff',
+                        'sterna-blue': '#034890',
+                        'sterna-yellow': '#e4a60aff',
                         'sterna-green': '#eaf0edff',
-                        'sterna-keppel': '#44aca0',
-                        'sterna-rose': '#ea0f68',
-                        'sterna-orange': '#ff8800',
                     },
                     fontFamily: {
                         'sans': ['Quicksand', 'sans-serif'],

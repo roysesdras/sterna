@@ -16,40 +16,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v22.0"></script>
 
-<footer class="relative overflow-hidden pt-10 pb-10" style="background: linear-gradient(135deg, #0f277e 0%, #071952 100%);">
+<footer class="relative overflow-hidden pb-10" style="background: #085191;">
     
-    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(white 1.5px, transparent 1.5px); background-size: 30px 30px;"></div>
-
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             
-            <div class="space-y-6">
+            <div class="space-y-2">
                 <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Logo" class="h-32 w-auto brightness-0 invert">
                 <p class="text-sm font-black text-white/80 tracking-[0.3em] uppercase">Wherever Needed</p>
-                <div class="flex items-start gap-3 text-white/60">
-                    <i class="fi fi-rr-marker text-urunani-orange mt-1"></i>
-                    <p class="text-lg leading-relaxed font-medium">Adiaké, Côte d'Ivoire<br>Afrique de l'Ouest</p>
-                </div>
             </div>
 
             <div id="contact" class="space-y-6">
-                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Connectez-vous</h4>
+                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Nous contacter</h4>
                 <ul class="space-y-4">
                     <li class="flex items-center gap-3">
-                        <i class="fi fi-rr-envelope text-white/50"></i>
-                        <a href="mailto:sternaafrica@gmail.com" class="text-sm text-white/80 hover:text-urunani-orange font-bold transition-colors">sternaafrica@gmail.com</a>
+                        <i class="fi fi-rr-envelope text-white"></i>
+                        <a href="mailto:sternaafrica@gmail.com" class="text-sm font-bold transition-colors" style="color: white;">sternaafrica@gmail.com</a>
                     </li>
                     <li class="flex items-center gap-3">
-                        <i class="fi fi-rr-phone-call text-white/50"></i>
-                        <a href="tel:+2250556779012" class="text-sm text-white/80 hover:text-urunani-orange font-bold transition-colors">+225 05 56 77 90 12</a>
+                        <i class="fi fi-rr-phone-call text-white"></i>
+                        <a href="tel:+2250556779012" class="text-sm text-white font-bold transition-colors" style="color: white;">+225 05 56 77 90 12</a>
+                    </li>
+                     <li class="flex items-center gap-3">
+                        <i class="fi fi-rr-marker mt-1" style="color: white;"></i>
+                        <a href="" class="text-sm text-white font-bold transition-colors" style="color: white;">Lyon, France</a>
                     </li>
                 </ul>
                 <div class="flex gap-3 pt-4">
-                    <a href="https://twitter.com/AfricaSterna" class="footer-social-btn"><i class="fi fi-brands-twitter-alt"></i></a>
-                    <a href="https://www.instagram.com/associationsterna/" class="footer-social-btn"><i class="fi fi-brands-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UCekpxdwSoamybXcXT2rtJww" class="footer-social-btn"><i class="fi fi-brands-youtube"></i></a>
-                    <a href="https://www.linkedin.com" class="footer-social-btn"><i class="fi fi-brands-linkedin"></i></a>
+                    <a href="https://twitter.com/AfricaSterna" class="footer-social-btn" style="color: white;"><i class="fi fi-brands-twitter-alt"></i></a>
+                    <a href="https://www.instagram.com/associationsterna/" class="footer-social-btn" style="color: white;"><i class="fi fi-brands-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCekpxdwSoamybXcXT2rtJww" class="footer-social-btn" style="color: white;"><i class="fi fi-brands-youtube"></i></a>
+                    <a href="https://www.linkedin.com" class="footer-social-btn" style="color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 </div>
             </div>
 
@@ -77,7 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
     </div>
 </footer>
 
-<?php include 'partenaire.php'; ?>
+<?php include 'impact.php'; ?>
+<?php include 'temoignage.php'; ?>
 
 <style>
     .footer-social-btn {
@@ -94,8 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
         transition: all 0.3s ease;
     }
     .footer-social-btn:hover {
-        background: #ea750fff; /* Rose Urunani */
-        border-color: #ea750fff;
+        background: #fcb900; /* Jaune Sterna */
+        border-color: #fcb900;
         transform: translateY(-3px);
     }
     /* Pour forcer les textes de la newsletter à être blancs s'ils sont injectés */
