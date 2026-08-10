@@ -5,4 +5,5 @@
 RewriteEngine On
 RewriteRule ^projet/([a-zA-Z0-9-]+)/?$ /projet.php?slug=$1 [L,QSA]
 RewriteRule ^camp-ecsi/?$ /projet.php?slug=camp-ecsi [L,QSA]
-RewriteRule ^temoignage/([0-9]+)$ /pages/temoignage_detail.php?id=$1 [L,QSA]
+RewriteRule ^temoignage/([0-9]+)$ /old/pages/temoignage_detail.php?id=$1 [L,QSA]
+RewriteRule ^actualite/([0-9]+)/?$ /old/actualite/actualite_detail.php?id=$1 [L,QSA]

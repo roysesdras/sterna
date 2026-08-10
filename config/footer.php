@@ -16,15 +16,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v22.0"></script>
 
-<footer class="relative overflow-hidden pb-10" style="background: #085191;">
+<footer class="relative overflow-hidden pb-10" style="background: #034890;">
     
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
             
             <div class="space-y-2">
                 <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Logo" class="h-32 w-auto brightness-0 invert">
                 <p class="text-sm font-black text-white/80 tracking-[0.3em] uppercase">Wherever Needed</p>
+            </div>
+
+            <div class="space-y-6">
+                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Liens Utiles</h4>
+                <ul class="space-y-3">
+                    <li><a href="/a-propos/" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Qui sommes-nous ?</a></li>
+                    <li><a href="/old/pages/missions.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Missions</a></li>
+                    <li><a href="/old/pages/documents.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Documents</a></li>
+                    <li><a href="/recit_volontaire.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Récit Volontaire</a></li>
+                </ul>
             </div>
 
             <div id="contact" class="space-y-6">
@@ -40,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
                     </li>
                      <li class="flex items-center gap-3">
                         <i class="fi fi-rr-marker mt-1" style="color: white;"></i>
-                        <a href="" class="text-sm text-white font-bold transition-colors" style="color: white;">Lyon, France</a>
+                        <a href="" class="text-sm text-white font-bold transition-colors" style="color: white;">Bordeaux, France</a>
                     </li>
                 </ul>
                 <div class="flex gap-3 pt-4">
@@ -77,6 +87,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
 
 <?php include 'impact.php'; ?>
 <?php include 'temoignage.php'; ?>
+
+<!-- Bouton Back to Top Design Moderne -->
+<button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-sterna-blue/90 backdrop-blur-md text-white border border-white/20 shadow-[0_0_20px_rgba(3,72,144,0.4)] hover:shadow-[0_0_30px_rgba(252,185,0,0.6)] hover:bg-sterna-yellow hover:text-sterna-blue transition-all duration-500 opacity-0 pointer-events-none translate-y-12 group overflow-hidden" aria-label="Retour en haut">
+    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+    <i class="fi fi-rr-arrow-up text-2xl relative z-10 group-hover:-translate-y-1 transition-transform duration-300"></i>
+</button>
+
+<script>
+    // Logique Back to Top
+    document.addEventListener("DOMContentLoaded", () => {
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-12');
+                    backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-12');
+                    backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                }
+            });
+        }
+    });
+</script>
 
 <style>
     .footer-social-btn {

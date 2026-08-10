@@ -1,49 +1,56 @@
-<section class="bg-white" id="partenaires">
-    <div class="text-center">
-        
-        <!-- <div class="mb-16">
-            <h2 class="text-3xl font-black text-urunani-blue uppercase tracking-tighter">
-                Ils nous font <br><span class="text-urunani-orange">Confiance</span>
-            </h2>
-            <p class="mt-4 text-gray-400 font-bold text-xs uppercase tracking-[0.3em]">Partenaires institutionnels & opérationnels</p>
-            <div class="w-16 h-1 bg-gray-100 mx-auto mt-6 rounded-full"></div>
-        </div> -->
+<section class="bg-sterna-blue relative py-28" id="partenaires">
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 items-center">
+    <!-- SVG de séparation en haut de la section -->
+    <div class="absolute -top-0 md:top-0 left-0 w-full overflow-hidden leading-none">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 md:h-20 text-gray-100 fill-current">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="mb-8 mt-2 md:mt-0">
+            <h2 class="text-2xl md:text-4xl font-bold text-white uppercase tracking-tighter border-l-8 border-sterna-yellow pl-6">
+                Nos Partenaires
+            </h2>
+        </div>
+
+        <div class="flex overflow-x-auto snap-x snap-mandatory md:grid md:overflow-visible md:snap-none md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 items-center pb-8 hide-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <style>
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+            </style>
             
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://i.ibb.co/NKRx7N1/logos-1.png" alt="Partenaire" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://ethique-sur-etiquette.org/images/logo.png" alt="Éthique sur étiquette" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://sgdf.fr/wp-content/themes/sgdf/assets/images/logos/SGDF_logo_CMJN_horizontal.png" alt="SGDF" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://i.ibb.co/N2Z9H006/logo-ASA.png" alt="Logo ASA" class="max-h-36 md:max-h-40 scale-110 w-auto object-contain group-hover:scale-125 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://i.ibb.co/KpXspt49/uranani-removebg-preview.png" alt="Urunani" class="max-h-36 md:max-h-40 scale-125 w-auto object-contain group-hover:scale-150 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://i.ibb.co/dwYkf6bx/embassade-removebg-preview.png" alt="Ambassade" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
-                <img src="https://iteco.be/squelettes/style/images/logoIteco.png" alt="Iteco" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
-            </div>
-
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://culturekonnect.com/wp-content/uploads/2024/05/Culture-Konnect-Couleurs-transparant.png" alt="Culture Konnect" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
-            <div class="p-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl group flex justify-center items-center h-40">
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
                 <img src="https://scd.asso.fr/wp-content/themes/theme-scd/images/logo-scd.png" alt="SCD" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 

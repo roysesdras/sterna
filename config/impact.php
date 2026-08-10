@@ -7,10 +7,16 @@ if ($result) {
     $abonnes_count = (int)$row['count'];
 }
 $total_abonnes = 1500 + $abonnes_count;
-?>
-<section class="relative overflow-hidden py-10" style="background: #085191;">
 
-    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 30px 30px;"></div>
+$antennes_count = 0;
+$result_ant = $conn->query("SELECT COUNT(*) as count FROM antennes");
+if ($result_ant) {
+    $row_ant = $result_ant->fetch_assoc();
+    $antennes_count = (int)$row_ant['count'];
+}
+?>
+<section class="relative overflow-hidden py-10" style="background: #034890;">
+
     <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full" style="background:rgba(245, 185, 4, 0.04);"></div>
     <div class="absolute -bottom-20 -right-20 w-72 h-72 rounded-full" style="background:rgba(234, 15, 104, 0.06);"></div>
 
@@ -52,7 +58,7 @@ $total_abonnes = 1500 + $abonnes_count;
             </div>
 
             <div class="flex flex-col items-center text-center px-4">
-                <p class="counter" data-target="4" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
+                <p class="counter" data-target="<?php echo $antennes_count; ?>" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-keppel rounded-full my-4"></div>
                 <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Pays <br>d'intervention</p>
             </div>

@@ -109,7 +109,7 @@ if (!function_exists('time_elapsed_string')) {
 }
 ?>
 
-<section class="mt-5 overflow-hidden bg-white" id="stories">
+<section class="mt-5 overflow-hidden" id="stories">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
             
@@ -129,21 +129,32 @@ if (!function_exists('time_elapsed_string')) {
         <div class="testimonial-track">
             <?php foreach ($temoignages as $temoignage): ?>
                 <?php
-                $photoPath = "../assets/img/avatar-default.jpg";
+                $photoPath = "/old/assets/img/avatar-default.jpg";
+                
                 if (!empty($temoignage['is_volontaire']) && !empty($temoignage['volontaire_avatar'])) {
                     $fileName = basename(trim($temoignage['volontaire_avatar']));
                     $photoPath = "https://monespacevolontaire.sternaafrica.org/uploads/" . $fileName;
                 } elseif (!empty($temoignage['photo'])) {
-                    $photoPath = "../uploads/" . basename(trim($temoignage['photo']));
+                    $fileName = basename(trim($temoignage['photo']));
+                    $photoPath = "/uploads/" . $fileName;
                 }
                 ?>
+                <?php
+                // Génération de l'avatar par défaut avec les initiales (Couleurs Sterna Africa : Fond bleu, texte blanc)
+                $nomUrl = urlencode($temoignage['nom']);
+                $defaultAvatar = "https://ui-avatars.com/api/?name={$nomUrl}&background=034890&color=fff&rounded=true&bold=true&size=128";
+                ?>
 
-                <div class="testimonial-card group" onclick="window.location.href='../temoignage/<?= $temoignage['id']; ?>'" style="border:1px solid #edbe3de1">
+                <div class="testimonial-card group" style="border:1px solid #edbe3de1">
                     <div class="card-inner">
                         <div class="flex justify-between items-start mb-6">
                             <div class="flex items-center gap-4">
                                 <div class="avatar-wrapper">
-                                    <img src="<?= $photoPath; ?>" alt="Avatar" class="avatar-img" style="border-radius: 5px; object-fit: cover;">
+                                    <img src="<?= $photoPath; ?>" 
+                                         alt="Avatar" 
+                                         class="avatar-img" 
+                                         style="border-radius: 5px; object-fit: cover;"
+                                         onerror="this.onerror=null; this.src='<?= $defaultAvatar; ?>';">
                                 </div>
                                 <div>
                                     <h4 class="text-[15px] font-black text-sterna-blue uppercase leading-none mb-1">
@@ -170,9 +181,9 @@ if (!function_exists('time_elapsed_string')) {
                         </div>
 
                         <div class="pt-2 border-t border-slate-200 flex items-center justify-between">
-                            <span class="text-[11px] font-black text-urunani-orange uppercase tracking-wider group-hover:translate-x-2 transition-transform duration-300">
+                            <a href="/temoignage/<?= $temoignage['id']; ?>" class="text-[11px] font-black text-urunani-orange uppercase tracking-wider group-hover:translate-x-2 transition-transform duration-300 flex items-center">
                                 Lire le récit <i class="fi fi-rr-arrow-small-right ml-1"></i>
-                            </span>
+                            </a>
                         </div>
                     </div>
                 </div>

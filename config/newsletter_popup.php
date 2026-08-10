@@ -149,7 +149,7 @@
         const formData = new FormData(this);
         const messageElement = document.getElementById('response-message');
 
-        fetch('inscription_newsletter.php', {
+        fetch('/old/actualite/inscription_newsletter.php', {
             method: 'POST',
             body: formData
         })

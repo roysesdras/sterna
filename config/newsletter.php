@@ -18,7 +18,7 @@
         const formData = new FormData(this);
 
         // Envoi de la requête AJAX
-        fetch('https://sternaafrica.org/actualite/inscription_newsletter.php', { // Laisse l'action vide pour utiliser le même fichier PHP
+        fetch('/old/actualite/inscription_newsletter.php', {
                 method: 'POST',
                 body: formData
             })

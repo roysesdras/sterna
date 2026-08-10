@@ -1,7 +1,7 @@
-<section class="relative mt-8 md:mt-16 bg-sterna-blue/20 py-4 md:py-24" id="secteurs">
+<section class="relative py-4 md:py-20" id="secteurs">
     <!-- SVG de séparation en haut de la section -->
     <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 md:h-20 text-gray-100 fill-current">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block text-sterna-yellow w-full h-12 md:h-20 text-gray-100 fill-current">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
         </svg>
     </div>
@@ -77,12 +77,8 @@
                                 <p class="text-[13px] text-gray-500 mt-1 leading-relaxed">Projet "Sang Tabou" : Autonomie économique et hygiène menstruelle.</p>
                             </div>
                         </div>
-                        
-                    </div>
-
-                    
+                    </div>  
                 </div>
-
             </div>
         </div>
     </div>

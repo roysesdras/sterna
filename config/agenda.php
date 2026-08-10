@@ -20,7 +20,7 @@ usort($missions, function($a, $b) use ($today) {
 
 <div class="space-y-8 sticky top-24 mt-8 md:mt-16">
     <div class="bg-sterna-yellow p-4 rounded-2xl shadow-lg">
-        <h2 class="text-xl font-black text-sterna-blue mb-8 uppercase tracking-tighter">Nos Événements & Missions</h2>
+        <h2 class="text-xl font-bold text-black mb-8 uppercase tracking-tighter">Nos Événements & Missions</h2>
         
         <div class="space-y-8">
             <?php if (count($missions) > 0): ?>
@@ -62,7 +62,7 @@ usort($missions, function($a, $b) use ($today) {
                         </div>
 
                         <div>
-                            <h4 class="font-black text-md text-gray-50 leading-tight uppercase">
+                            <h4 class="font-black text-md text-sterna-blue leading-tight uppercase">
                                 <?php echo htmlspecialchars($mission['title']); ?>
                             </h4>
                             <p class="text-[12px] text-gray-100 font-bold mt-1 uppercase tracking-tighter italic">

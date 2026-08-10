@@ -1,8 +1,8 @@
 <div class="lg:col-span-2 mt-8 md:mt-16">
     
     
-    <h2 class="text-3xl font-black text-sterna-blue mb-10 border-l-8 border-sterna-yellow pl-6 inline-block uppercase tracking-tight">
-        Nos <span class="text-sterna-yellow">Action</span>
+    <h2 class="text-3xl font-black font-bold mb-10 border-l-8 border-sterna-yellow pl-6 inline-block uppercase tracking-tight">
+        <span class="text-sterna-yellow">Nos</span> <span class="text-white">Action</span>
     </h2>
 
     <div class="space-y-12">
@@ -13,11 +13,11 @@
             
             // On définit les couleurs basées sur votre nouvelle charte Urunani
             $classes_pays = [
-                "Côte d'Ivoire" => "text-sterna-orange",
+                "Côte d'Ivoire" => "text-white",
                 "Bénin" => "text-sterna-blue",
-                "France" => "text-sterna-orange",
+                "France" => "text-white",
                 "Burkina-Faso" => "text-sterna-blue",
-                "Togo" => "text-sterna-keppel",
+                "Togo" => "text-sterna-yellow",
             ];
 
             foreach ($actualites as $actualite):
@@ -33,7 +33,7 @@
                     }
                 }
                 
-                $actualite_link = "./actualite/" . $actualite['id'];
+                $actualite_link = "/actualite/" . $actualite['id'];
             ?>
 
                 <article class="flex flex-col md:flex-row gap-6 group cursor-pointer" onclick="window.location.href='<?php echo $actualite_link; ?>'">
@@ -46,23 +46,32 @@
                     </div>
 
                     <div>
-                        <span class="<?php echo $color_class; ?> font-bold text-[10px] uppercase tracking-widest">
+                        <span class="<?php // echo $color_class; ?> font-bold text-[10px] uppercase tracking-widest text-white">
                             <?php echo $lieu; ?> • <?= date('d M Y', strtotime($actualite['end_date'])) ?>
                         </span>
                         
-                        <h3 class="text-2xl font-black text-sterna-blue mt-2 group-hover:<?php echo $color_class; ?> transition-colors leading-tight">
+                        <h3 class="text-2xl font-black text-white mt-2 transition-colors leading-tight">
                             <?php
-                            $title = $actualite['title'];
+                            $title = strip_tags(html_entity_decode($actualite['title']));
                             echo (mb_strlen($title) > 65) ? mb_substr($title, 0, 65) . '...' : $title;
                             ?>
                         </h3>
 
-                        <p class="text-gray-600 mt-3 text-sm leading-relaxed line-clamp-3 font-medium">
-                            Découvrez les détails de notre action à <?php echo $lieu; ?>. Sterna Africa continue de s'engager pour l'Éducation à la Citoyenneté et à la Solidarité Internationale.
+                        <p class="text-gray-50 mt-3 text-sm leading-relaxed line-clamp-3 font-medium">
+                            <?php 
+                                $desc_text = strip_tags(html_entity_decode($actualite['description'] ?? ''));
+                                if (mb_strlen($desc_text) > 180) {
+                                    echo mb_substr($desc_text, 0, 180) . '...';
+                                } else if (!empty($desc_text)) {
+                                    echo $desc_text;
+                                } else {
+                                    echo "Découvrez les détails de notre action à " . $lieu . ".";
+                                }
+                            ?>
                         </p>
 
                         <a href="<?php echo $actualite_link; ?>" 
-                           class="inline-block mt-4 text-sterna-yellow font-bold border-b-2 border-sterna-blue text-md uppercase tracking-tighter">
+                           class="inline-block mt-4 text-sterna-yellow font-bold border-b-2 border-white text-md uppercase tracking-tighter">
                             Lire la suite &rarr;
                         </a>
                     </div>

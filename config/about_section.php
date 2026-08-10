@@ -18,24 +18,24 @@
 
                     nous œuvrons pour un monde plus juste et durable, en plaçant les populations locales au cœur de nos initiatives.
                 </p>
-                    <a href="" class="bg-sterna-blue hover:bg-sterna-blue mt-10 text-white font-bold py-2 px-6 shadow-2xl rounded-full w-fit">
+                    <a href="/a-propos/" class="bg-sterna-blue hover:bg-sterna-blue mt-10 text-white font-bold py-2 px-6 shadow-2xl rounded-full w-fit">
                     Lire la suite
                     </a> 
             </div>
 
-            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="lg:col-span-7 hidden md:grid grid-cols-1 md:grid-cols-2 gap-6 order-block">
 
-                <a href="">
-                        <div class="p-4 rounded-[35px] border border-gray-100 hover:shadow-2xl hover:shadow-rose-100 transition-all duration-500 group bg-white">
+                <a href="/old/pages/enfant.php">
+                        <div class="p-4 rounded-[35px] hover:shadow-2xl hover:shadow-rose-100 transition-all duration-500 group bg-white">
                         <div class="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-sterna-blue text-2xl mb-6 group-hover:bg-sterna-blue group-hover:text-white transition-all">
                             <i class="fi fi-rr-user"></i>
                         </div>
-                        <h3 class="text-xl font-black text-urunani-blue uppercase mb-3">Les Enfants</h3>
+                        <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Les Enfants</h3>
                         <p class="text-gray-500 text-sm leading-relaxed font-medium">Éducation inclusive et bien-être en milieu rural.</p>
                     </div>
                 </a>
 
-                <a href="">
+                <a href="/old/pages/femmes.php">
                     <div class="p-4 rounded-[35px] border border-gray-100 hover:shadow-2xl hover:shadow-orange-100 transition-all duration-500 group bg-sterna-blue">
                         <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:bg-sterna-yellow group-hover:text-white transition-all">
                             <i class="fi fi-rr-venus"></i>
@@ -45,23 +45,23 @@
                     </div>
                 </a>
 
-                <a href="" class="order-2 md:order-1">
+                <a href="/old/pages/jeunesse.php" class="order-2 md:order-1">
                     <div class="p-4 rounded-[35px] border border-gray-100 hover:shadow-2xl hover:shadow-teal-100 transition-all duration-500 group bg-sterna-yellow">
-                        <div class="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-500 text-2xl mb-6 group-hover:bg-sterna-blue group-hover:text-white transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 text-2xl mb-6 group-hover:bg-sterna-blue group-hover:text-white transition-all">
                             <i class="fi fi-rr-users"></i>
                         </div>
-                        <h3 class="text-xl font-black text-gray-50 uppercase mb-3">La Jeunesse</h3>
-                        <p class="text-gray-100 text-sm leading-relaxed font-medium">Formation des futurs leaders communautaires.</p>
+                        <h3 class="text-xl font-black text-gray-900 uppercase mb-3">La Jeunesse</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed font-medium">Inclusion, formation et engagement citoyen.</p>
                     </div>
                 </a>
 
-                <a href="" class="order-1 md:order-2">
-                    <div class="p-4 rounded-[35px] border border-gray-100 hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 group bg-white">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-500 text-2xl mb-6 group-hover:bg-sterna-yellow group-hover:text-white transition-all">
+                <a href="/old/pages/environnement.php" class="order-1 md:order-2">
+                    <div class="p-4 rounded-[35px] border border-gray-100 hover:shadow-2xl hover:shadow-green-100 transition-all duration-500 group bg-white">
+                        <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 text-2xl mb-6 group-hover:bg-sterna-yellow group-hover:text-white transition-all">
                             <i class="fi fi-rr-leaf"></i>
                         </div>
-                        <h3 class="text-xl font-black text-urunani-blue uppercase mb-3">L'Environnement</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed font-medium">Solutions locales face au défi climatique.</p>
+                        <h3 class="text-xl font-black text-gray-900 uppercase mb-3">L'Environnement</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed font-medium">Sensibilisation et développement durable.</p>
                     </div>
                 </a>
         </div>

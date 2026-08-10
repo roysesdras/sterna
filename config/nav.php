@@ -10,68 +10,69 @@ if (isset($conn)) {
     }
 }
 
-$newsletters_dir = $_SERVER['DOCUMENT_ROOT'] . '/newsletters';
 $newsletters = [];
-if (is_dir($newsletters_dir)) {
-    $years = array_diff(scandir($newsletters_dir), ['..', '.']);
-    usort($years, function($a, $b) {
-        $yearA = (int)str_replace('annee_', '', $a);
-        $yearB = (int)str_replace('annee_', '', $b);
-        return $yearB <=> $yearA; // Tri décroissant numérique
-    });
-    foreach ($years as $year_dir) {
-        if (is_dir($newsletters_dir . '/' . $year_dir)) {
-            $year_label = str_replace('annee_', '', $year_dir);
-            $months = array_diff(scandir($newsletters_dir . '/' . $year_dir), ['..', '.']);
-            $newsletters[$year_label] = [];
-            foreach ($months as $month_dir) {
-                if (is_dir($newsletters_dir . '/' . $year_dir . '/' . $month_dir)) {
-                    $files = glob($newsletters_dir . '/' . $year_dir . '/' . $month_dir . '/*.{pdf,PDF}', GLOB_BRACE);
-                    if (!empty($files)) {
-                        $pdf_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $files[0]);
-                        $newsletters[$year_label][$month_dir] = $pdf_path;
-                    }
-                }
+$rapports = [];
+
+if (isset($conn)) {
+    // Récupération des Bulletins (newsletters)
+    $res_bull = $conn->query("SELECT annee, trimestre, pdf_link FROM rapports WHERE type_document = 'bulletin' ORDER BY annee DESC, trimestre DESC");
+    if ($res_bull && $res_bull->num_rows > 0) {
+        while ($row = $res_bull->fetch_assoc()) {
+            $year_label = $row['annee'];
+            $trimestre = !empty($row['trimestre']) ? $row['trimestre'] : 'T1';
+            $pdf_path = $row['pdf_link'];
+            
+            if (!isset($newsletters[$year_label])) {
+                $newsletters[$year_label] = [];
             }
+            $newsletters[$year_label][$trimestre] = $pdf_path;
         }
     }
-}
 
-$rapports_dir = $_SERVER['DOCUMENT_ROOT'] . '/rapport';
-$rapports = [];
-if (is_dir($rapports_dir)) {
-    $years_r = array_diff(scandir($rapports_dir), ['..', '.']);
-    usort($years_r, function($a, $b) {
-        $yearA = (int)str_replace('annee_', '', $a);
-        $yearB = (int)str_replace('annee_', '', $b);
-        return $yearB <=> $yearA; // Tri décroissant numérique
-    }); 
-    foreach ($years_r as $year_dir) {
-        if (is_dir($rapports_dir . '/' . $year_dir)) {
-            $year_label = str_replace('annee_', '', $year_dir);
-            $files = glob($rapports_dir . '/' . $year_dir . '/*.{pdf,PDF}', GLOB_BRACE);
-            if (!empty($files)) {
-                $pdf_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', $files[0]);
+    // Récupération des Rapports Annuels
+    $res_rap = $conn->query("SELECT annee, pdf_link FROM rapports WHERE type_document = 'rapport_annuel' ORDER BY annee DESC");
+    if ($res_rap && $res_rap->num_rows > 0) {
+        while ($row = $res_rap->fetch_assoc()) {
+            $year_label = $row['annee'];
+            $pdf_path = $row['pdf_link'];
+            
+            if (!isset($rapports[$year_label])) {
                 $rapports[$year_label] = $pdf_path;
             }
         }
     }
 }
 ?>
-<nav class="bg-gray-100 shadow-lg sticky top-0 z-50 text-gray-700">
-    <div class="max-w-7xl mx-auto px-2 flex justify-between items-center h-20">
+<nav class="bg-gray-100 shadow-lg top-0 z-50 text-gray-700">
+    <div class="max-w-7xl mx-auto px-2 flex justify-between items-center h-14">
 
         <div class="flex items-center shrink-0 cursor-pointer group">
             <div class="transition-transform group-hover:scale-105 duration-300">
-                <a href="/"><img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Logo sterna africa" class="h-16 md:h-16 w-auto object-contain"></a>
+                <a href="/"><img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Logo sterna africa" class="h-14 md:h-14 w-auto object-contain"></a>
             </div>
         </div>
 
         <div class="hidden lg:flex space-x-6 font-bold text-[14px] uppercase items-center">
-            <a href="#about" class="hover:text-[#ea750fff] transition whitespace-nowrap">Qui sommes-nous ?</a>
-            <a href="#secteurs" class="hover:text-[#ea750fff] transition whitespace-nowrap">Nos missions</a>
+            <a href="/a-propos/" class="hover:text-[#ea750fff] transition whitespace-nowrap">A propos</a>
+            <a href="/old/pages/missions.php" class="hover:text-[#ea750fff] transition whitespace-nowrap">Nos missions</a>
+            <div class="relative group">
+                <a href="/#evenements" class="hover:text-[#ea750fff] transition whitespace-nowrap flex items-center gap-1">
+                    Nos événements <i class="fi fi-rr-angle-small-down"></i>
+                </a>
+                <div class="absolute top-full left-0 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div class="bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden">
+                        <div class="px-4 py-2 text-[10px] font-black text-gray-400 uppercase tracking-widest bg-gray-50">Festivals</div>
+                        <a href="/old/pages/festival_alimenterre.php" class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50">Festival Alimenterre</a>
+                        <a href="/old/pages/festival_solidarite.php" class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50">Festival des Solidarités</a>
+                        <div class="px-4 py-2 text-[10px] font-black text-gray-400 uppercase tracking-widest bg-gray-50 border-t border-gray-100">Journées Int.</div>
+                        <a href="/old/pages/jide.php" class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50">Droits des Enfants</a>
+                        <a href="/old/pages/jiv.php" class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50">Volontariat</a>
+                        <a href="/old/pages/jvf.php" class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50">Journée du Volontatriat Français</a>
+                    </div>
+                </div>
+            </div>
 
-            <a href="./actualite/toutes_les_actualites.php" class="hover:text-[#ea750fff] transition whitespace-nowrap">Nos actions</a>
+            <a href="/old/actualite/toutes_les_actualites.php" class="hover:text-[#ea750fff] transition whitespace-nowrap">Nos actions</a>
 
             <div class="relative group">
                 <a href="#" class="hover:text-[#ea750fff] transition whitespace-nowrap flex items-center gap-1">
@@ -88,7 +89,7 @@ if (is_dir($rapports_dir)) {
                                 <div class="absolute left-full top-0 w-40 opacity-0 invisible group-hover/year:opacity-100 group-hover/year:visible transition-all duration-300 pl-1">
                                     <div class="bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden">
                                         <?php foreach ($months as $month => $pdf): ?>
-                                            <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" class="block px-4 py-3 text-[11px] text-gray-600 hover:bg-gray-50 hover:text-[#ea750fff] font-bold capitalize border-b border-gray-50">
+                                            <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" download class="block px-4 py-3 text-[11px] text-gray-600 hover:bg-gray-50 hover:text-[#ea750fff] font-bold capitalize border-b border-gray-50">
                                                 <?= htmlspecialchars($month) ?>
                                             </a>
                                         <?php endforeach; ?>
@@ -108,7 +109,7 @@ if (is_dir($rapports_dir)) {
                 <div class="absolute top-full left-0 pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div class="bg-white border border-gray-100 shadow-xl rounded-xl">
                         <?php if(!empty($rapports)): foreach ($rapports as $year => $pdf): ?>
-                            <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50 flex justify-between items-center group/item">
+                            <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" download class="block px-4 py-3 text-xs text-gray-700 hover:bg-gray-50 hover:text-[#ea750fff] font-bold border-b border-gray-50 flex justify-between items-center group/item">
                                 Année <?= htmlspecialchars($year) ?>
                                 <i class="fi fi-rr-download text-[10px] opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
                             </a>
@@ -179,15 +180,31 @@ if (is_dir($rapports_dir)) {
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl overflow-y-auto max-h-screen">
         <div class="px-6 py-4 flex flex-col space-y-0 font-bold uppercase text-sm tracking-wide">
 
-            <a href="#about" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
-                Qui sommes-nous ?
+            <a href="/a-propos/" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
+                A propos
             </a>
 
-            <a href="#" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
+            <a href="/old/pages/missions.php" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
                 Nos missions
             </a>
 
-            <a href="./actualite/toutes_les_actualites.php" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
+            <details class="group/mob py-1 border-b border-gray-50">
+                <summary class="text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    Nos événements
+                    <i class="fi fi-rr-angle-small-down group-open/mob:rotate-180 transition-transform"></i>
+                </summary>
+                <div class="pl-4 mt-2 space-y-1 mb-2 border-l-2 border-gray-100">
+                    <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest pt-2 pb-1">Festivals</div>
+                    <a href="/old/pages/festival_alimenterre.php" class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2">Festival Alimenterre</a>
+                    <a href="/old/pages/festival_solidarite.php" class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2">Festival des Solidarités</a>
+                    <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest pt-4 pb-1 border-t border-gray-50 mt-2">Journées Int.</div>
+                    <a href="/old/pages/jide.php" class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2">Droits des Enfants</a>
+                    <a href="/old/pages/jiv.php" class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2">Volontariat</a>
+                    <a href="/old/pages/jvf.php" class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2">Journée du Volontatriat Français</a>
+                </div>
+            </details>
+
+            <a href="/old/actualite/toutes_les_actualites.php" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
                 Nos actions
             </a>
 
@@ -205,7 +222,7 @@ if (is_dir($rapports_dir)) {
                             </summary>
                             <div class="pl-4 mt-1 space-y-1 mb-2 border-l-2 border-gray-100">
                                 <?php foreach ($months as $month => $pdf): ?>
-                                    <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" class="block text-gray-500 text-[11px] hover:text-[#ea750fff] capitalize py-2 pl-2">
+                                    <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" download class="block text-gray-500 text-[11px] hover:text-[#ea750fff] capitalize py-2 pl-2">
                                         <?= htmlspecialchars($month) ?>
                                     </a>
                                 <?php endforeach; ?>
@@ -224,7 +241,7 @@ if (is_dir($rapports_dir)) {
                 </summary>
                 <div class="pl-4 mt-2 space-y-1 mb-2 border-l-2 border-gray-100">
                     <?php if(!empty($rapports)): foreach ($rapports as $year => $pdf): ?>
-                        <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2 flex justify-between items-center">
+                        <a href="<?= htmlspecialchars($pdf) ?>" target="_blank" download class="block text-gray-600 text-xs hover:text-[#ea750fff] py-2 pl-2 flex justify-between items-center">
                             Année <?= htmlspecialchars($year) ?>
                             <i class="fi fi-rr-download text-[10px]"></i>
                         </a>
@@ -255,7 +272,7 @@ if (is_dir($rapports_dir)) {
 
         <div class="bg-gray-50 p-6 text-center">
             <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em]">
-                Urunani Afrique &copy; 2026
+                Sterna Africa &copy; 2026
             </p>
         </div>
     </div>

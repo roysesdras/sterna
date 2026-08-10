@@ -48,12 +48,14 @@ if ($result_actualites->num_rows > 0) {
 
     <?php include __DIR__ . '/config/about_section.php'; ?>
 
+    <?php include __DIR__ . '/config/pont_solidaire.php'; ?>
+
     <?php include __DIR__ . '/config/secteur_intervention.php'; ?>
 
-    <main class="relative">
+    <main class="relative bg-sterna-blue">
         <!-- SVG de séparation en haut de la section -->
-        <div class="absolute top-[-30] left-0 w-full overflow-hidden leading-none">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 md:h-20 text-sterna-blue/20 fill-current">
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 md:h-20 fill-current text-gray-100">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
             </svg>
         </div>
@@ -68,29 +70,13 @@ if ($result_actualites->num_rows > 0) {
 
     <?php include __DIR__ . '/config/presse.php'; ?>
 
-    <?php include __DIR__ . '/config/bureau_inter.php'; ?>
+    <?php // include __DIR__ . '/config/bureau_inter.php'; ?>
 
     <?php include __DIR__ . '/config/partenaire.php'; ?>
 
     <?php include __DIR__ . '/config/footer.php'; ?>
 
-    <footer class="relative overflow-hidden py-8" style="background: linear-gradient(135deg, #0f277e 0%, #071952 100%);">
-    
-    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(white 1.5px, transparent 1.5px); background-size: 30px 30px;"></div>
-
-    <div class="max-w-7xl mx-auto px-2 relative z-10">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna" class="h-6 w-auto brightness-0 invert opacity-80 mb-2 md:mb-0">
-                <p class="text-[11px] font-bold text-white/40 uppercase tracking-[0.2em]">
-                    © 2026 Sterna Africa — <span class="text-white/80">Wherever Needed</span>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
+    <?php include __DIR__ . '/config/footer_2.php'; ?>
 </body>
 
 </html>
