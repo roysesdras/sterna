@@ -46,6 +46,8 @@ if ($result_actualites->num_rows > 0) {
 
     <?php include __DIR__ . '/config/header.php'; ?>
 
+    <?php include __DIR__ . '/config/infographics_carousel.php'; ?>
+
     <?php include __DIR__ . '/config/about_section.php'; ?>
 
     <?php include __DIR__ . '/config/pont_solidaire.php'; ?>

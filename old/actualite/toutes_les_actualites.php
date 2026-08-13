@@ -1,6 +1,14 @@
 <?php
-// On garde juste la connexion ici pour d'autres besoins si nécessaire
+// Connexion pour récupérer la liste des projets
 $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
+
+$projets_list = [];
+$res_projets = $conn->query("SELECT id, nom FROM projets ORDER BY nom ASC");
+if ($res_projets && $res_projets->num_rows > 0) {
+    while ($row_p = $res_projets->fetch_assoc()) {
+        $projets_list[] = $row_p;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr" class="bg-gray-200">
@@ -59,13 +67,25 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/nav.php'; ?>
 
     <main class="container mx-auto px-4 pt-5 pb-20">
-        <div class="mb-12 border-l-4 border-[#ea750fff] pl-6">
-            <h1 class="cabin-sketch text-4xl md:text-5xl font-bold text-[#0f277e] mb-2">
-                JOURNAL DE <span class="text-[#ea750fff]">BORD</span>
-            </h1>
-            <p class="text-gray-600 max-w-xl">
-                Suivez nos missions, nos victoires et le quotidien de nos volontaires sur le terrain.
-            </p>
+        <div class="mb-12 border-l-4 border-[#ea750fff] pl-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <h1 class="cabin-sketch text-4xl md:text-5xl font-bold text-[#0f277e] mb-2">
+                    JOURNAL DE <span class="text-[#ea750fff]">BORD</span>
+                </h1>
+                <p class="text-gray-600 max-w-xl">
+                    Suivez nos missions, nos victoires et le quotidien de nos volontaires sur le terrain.
+                </p>
+            </div>
+            
+            <div class="min-w-[250px]">
+                <label for="projet_filter" class="block text-sm font-bold text-gray-700 mb-1">Filtrer par projet :</label>
+                <select id="projet_filter" class="w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ea750fff] transition-all cursor-pointer font-bold">
+                    <option value="0">Tous les projets</option>
+                    <?php foreach ($projets_list as $p): ?>
+                        <option value="<?php echo $p['id']; ?>"><?php echo htmlspecialchars($p['nom']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="actualites-container">
@@ -87,9 +107,11 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
     <script>
         let offset = 0;
         let limit = 12;
+        let projet_id = 0;
 
         function loadActualites() {
             const btn = $("#load-more");
+            btn.show();
             btn.addClass('opacity-50 cursor-not-allowed').html('<i class="fas fa-spinner fa-spin"></i> Chargement...');
 
             $.ajax({
@@ -97,13 +119,16 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
                 type: "GET",
                 data: {
                     offset: offset,
-                    limit: limit
+                    limit: limit,
+                    projet_id: projet_id
                 },
                 success: function(data) {
                     if (data.trim() === "no_more") {
                         btn.fadeOut();
+                        if (offset === 0) {
+                            $("#actualites-container").html('<p class="text-gray-500 italic col-span-full">Aucune actualité trouvée pour ce projet.</p>');
+                        }
                     } else {
-                        // On ajoute les nouvelles cartes avec une petite animation
                         const $newItems = $(data).addClass('fade-in-card');
                         $("#actualites-container").append($newItems);
                         offset += limit;
@@ -115,7 +140,15 @@ $conn = new mysqli('db', 'root', 'SoftiP24', 'africa_db');
 
         $(document).ready(function() {
             loadActualites();
+            
             $("#load-more").click(function() {
+                loadActualites();
+            });
+
+            $("#projet_filter").change(function() {
+                projet_id = $(this).val();
+                offset = 0;
+                $("#actualites-container").empty();
                 loadActualites();
             });
         });

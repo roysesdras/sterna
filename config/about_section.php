@@ -1,4 +1,4 @@
-<section class="py-10overflow-hidden mt-8 md:mt-20" id="about">
+<section class="py-10overflow-hidden" id="about">
     <div class="max-w-7xl mx-auto px-4">
         
         <div class="mb-4">

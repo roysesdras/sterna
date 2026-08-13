@@ -316,12 +316,38 @@ $conn->close();
                         e.preventDefault();
                     },
                     onImageUpload: function(files) {
-                        alert('L’upload d’image n’est pas encore activé côté serveur.');
+                        var data = new FormData();
+                        data.append("file", files[0]);
+                        $.ajax({
+                            url: 'upload_summernote_image.php',
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            data: data,
+                            type: "POST",
+                            success: function(url) {
+                                if (url.startsWith('http')) {
+                                    var image = $('<img>').attr('src', url).addClass('styled-summernote-img');
+                                    $('#description').summernote("insertNode", image[0]);
+                                } else {
+                                    alert(url);
+                                }
+                            },
+                            error: function(data) {
+                                alert('Erreur lors du téléchargement de l\'image.');
+                            }
+                        });
+                    },
+                    // Quand le contenu change, on stylise les images automatiquement
+                    onChange: function(contents, $editable) {
+                        $editable.find('img').each(function() {
+                            $(this).addClass('styled-summernote-img');
+                        });
                     }
                 }
             });
         });
     </script>
 
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/config/footer_2.php'; ?>
+    <?php // require_once $_SERVER['DOCUMENT_ROOT'] . '/config/footer_2.php'; ?>
 </body>

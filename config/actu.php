@@ -2,7 +2,7 @@
     
     
     <h2 class="text-3xl font-black font-bold mb-10 border-l-8 border-sterna-yellow pl-6 inline-block uppercase tracking-tight">
-        <span class="text-sterna-yellow">Nos</span> <span class="text-white">Action</span>
+        <span class="text-sterna-yellow">Nos</span> <span class="text-white">Actions</span>
     </h2>
 
     <div class="space-y-12">
@@ -50,11 +50,13 @@
                             <?php echo $lieu; ?> • <?= date('d M Y', strtotime($actualite['end_date'])) ?>
                         </span>
                         
-                        <h3 class="text-2xl font-black text-white mt-2 transition-colors leading-tight">
-                            <?php
+                        <h3 class="text-2xl font-black text-sterna-yellow mt-2 transition-colors leading-tight">
+                            <b>
+                                <?php
                             $title = strip_tags(html_entity_decode($actualite['title']));
                             echo (mb_strlen($title) > 65) ? mb_substr($title, 0, 65) . '...' : $title;
                             ?>
+                            </b>
                         </h3>
 
                         <p class="text-gray-50 mt-3 text-sm leading-relaxed line-clamp-3 font-medium">

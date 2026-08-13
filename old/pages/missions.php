@@ -68,10 +68,11 @@ if (isset($conn)) {
 
             <!-- Colonne Cartes (Sticky) -->
             <div class="lg:col-span-5 relative">
+                <h1 class="text-3xl font-black text-sterna-yellow mb-6">Nos Cibles</h1>
                 <div class="sticky top-24 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                    
+
                     <a href="/old/pages/enfant.php">
-                        <div class="p-6 rounded-[35px] border border-gray-100 shadow-xl hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 group bg-white h-full flex flex-col items-center text-center">
+                        <div class="p-6 rounded-[35px] shadow-xl hover:shadow-2xl hover:shadow-blue-100 transition-all duration-500 group bg-white h-full flex flex-col items-center text-center">
                             <div class="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-sterna-blue text-2xl mb-4 group-hover:bg-sterna-blue group-hover:text-white transition-all">
                                 <i class="fi fi-rr-user"></i>
                             </div>
@@ -81,7 +82,7 @@ if (isset($conn)) {
                     </a>
 
                     <a href="/old/pages/femmes.php">
-                        <div class="p-6 rounded-[35px] border border-gray-100 shadow-xl hover:shadow-2xl hover:shadow-orange-100 transition-all duration-500 group bg-sterna-blue h-full flex flex-col items-center text-center">
+                        <div class="p-6 rounded-[35px] shadow-xl hover:shadow-2xl hover:shadow-orange-100 transition-all duration-500 group bg-sterna-blue h-full flex flex-col items-center text-center">
                             <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-sterna-yellow text-2xl mb-4 group-hover:bg-sterna-yellow group-hover:text-white transition-all">
                                 <i class="fi fi-rr-venus"></i>
                             </div>
@@ -91,7 +92,7 @@ if (isset($conn)) {
                     </a>
 
                     <a href="/old/pages/jeunesse.php">
-                        <div class="p-6 rounded-[35px] border border-gray-100 shadow-xl hover:shadow-2xl hover:shadow-teal-100 transition-all duration-500 group bg-sterna-yellow h-full flex flex-col items-center text-center">
+                        <div class="p-6 rounded-[35px] shadow-xl hover:shadow-2xl hover:shadow-teal-100 transition-all duration-500 group bg-sterna-yellow h-full flex flex-col items-center text-center">
                             <div class="w-14 h-14 rounded-2xl bg-white/30 flex items-center justify-center text-gray-900 text-2xl mb-4 group-hover:bg-sterna-blue group-hover:text-white transition-all">
                                 <i class="fi fi-rr-users"></i>
                             </div>
@@ -101,7 +102,7 @@ if (isset($conn)) {
                     </a>
 
                     <a href="/old/pages/environnement.php">
-                        <div class="p-6 rounded-[35px] border border-gray-100 shadow-xl hover:shadow-2xl hover:shadow-green-100 transition-all duration-500 group bg-white h-full flex flex-col items-center text-center">
+                        <div class="p-6 rounded-[35px] shadow-xl hover:shadow-2xl hover:shadow-green-100 transition-all duration-500 group bg-white h-full flex flex-col items-center text-center">
                             <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 text-2xl mb-4 group-hover:bg-sterna-yellow group-hover:text-white transition-all">
                                 <i class="fi fi-rr-leaf"></i>
                             </div>
@@ -129,7 +130,7 @@ if (isset($conn)) {
                     <div class="w-16 h-16 rounded-2xl bg-pink-50 flex items-center justify-center text-pink-500 text-3xl mb-6 group-hover:bg-pink-500 group-hover:text-white transition-all">
                         <i class="fi fi-rr-heart"></i>
                     </div>
-                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Solidarité</h3>
+                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Solidarité International</h3>
                     <p class="text-gray-600 text-sm leading-relaxed font-medium">L'entraide et le soutien mutuel sont au cœur de toutes nos actions pour les communautés vulnérables.</p>
                 </div>
 
@@ -137,24 +138,24 @@ if (isset($conn)) {
                     <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-sterna-blue text-3xl mb-6 group-hover:bg-sterna-blue group-hover:text-white transition-all">
                         <i class="fi fi-rr-eye"></i>
                     </div>
-                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Transparence</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed font-medium">Nous nous engageons à communiquer ouvertement et honnêtement sur la gestion de nos projets et de nos fonds.</p>
+                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Éducation Populaire</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed font-medium">Ateliers de formation citoyenne (masterclass, modules thématiques), Ciné-débats et cafés-débats, Ateliers ludo-pédagogiques</p>
                 </div>
 
                 <div class="p-8 rounded-[35px] shadow-xl hover:shadow-2xl transition-all duration-500 group bg-white h-full flex flex-col items-center text-center hover:-translate-y-2">
                     <div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-500 text-3xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all">
                         <i class="fi fi-rr-hands-heart"></i>
                     </div>
-                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Engagement</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed font-medium">Une détermination sans faille à agir pour le changement positif, avec nos bénévoles et partenaires locaux.</p>
+                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Volontariat</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed font-medium">Recrutement, formation et accompagnement de volontaires Programmes de volontariat national ou international (VSI, service civique, etc.)</p>
                 </div>
 
                 <div class="p-8 rounded-[35px] shadow-xl hover:shadow-2xl transition-all duration-500 group bg-white h-full flex flex-col items-center text-center hover:-translate-y-2">
                     <div class="w-16 h-16 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 text-3xl mb-6 group-hover:bg-teal-600 group-hover:text-white transition-all">
                         <i class="fi fi-rr-scale"></i>
                     </div>
-                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Équité</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed font-medium">Nous luttons contre toutes formes de discriminations pour offrir les mêmes chances de réussite à chacun.</p>
+                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Développement Communautaire</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed font-medium">Appui à des projets communautaires locaux (eau, santé, éducation,infrastructures)</p>
                 </div>
             </div>
         </div>

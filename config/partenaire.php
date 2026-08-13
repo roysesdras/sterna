@@ -27,15 +27,15 @@
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="https://ethique-sur-etiquette.org/images/logo.png" alt="Éthique sur étiquette" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="" alt="Éthique sur étiquette" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="https://sgdf.fr/wp-content/themes/sgdf/assets/images/logos/SGDF_logo_CMJN_horizontal.png" alt="SGDF" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="" alt="SGDF" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="https://i.ibb.co/N2Z9H006/logo-ASA.png" alt="Logo ASA" class="max-h-36 md:max-h-40 scale-110 w-auto object-contain group-hover:scale-125 transition-transform">
+                <img src="" alt="Logo ASA" class="max-h-36 md:max-h-40 scale-110 w-auto object-contain group-hover:scale-125 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="https://culturekonnect.com/wp-content/uploads/2024/05/Culture-Konnect-Couleurs-transparant.png" alt="Culture Konnect" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="" alt="Culture Konnect" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">

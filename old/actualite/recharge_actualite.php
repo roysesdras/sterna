@@ -8,9 +8,20 @@ if ($conn->connect_error) {
 // Récupération sécurisée des paramètres
 $offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
 $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 12;
+$projet_id = isset($_GET['projet_id']) ? intval($_GET['projet_id']) : 0;
 
-$sql = "SELECT * FROM actualites ORDER BY start_date DESC LIMIT $limit OFFSET $offset";
-$result_actualites = $conn->query($sql);
+if ($projet_id > 0) {
+    $sql = "SELECT * FROM actualites WHERE projet_id = ? ORDER BY start_date DESC LIMIT ? OFFSET ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iii", $projet_id, $limit, $offset);
+} else {
+    $sql = "SELECT * FROM actualites ORDER BY start_date DESC LIMIT ? OFFSET ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $limit, $offset);
+}
+
+$stmt->execute();
+$result_actualites = $stmt->get_result();
 
 // Configuration des couleurs par pays (Norme Sterna 2026)
 $classes = [
@@ -46,7 +57,7 @@ if ($result_actualites && $result_actualites->num_rows > 0):
                     <?php echo $lieu; ?>
                 </span>
 
-                <a href="./actualite_detail.php?id=<?php echo $row['id']; ?>" class="block h-full w-full">
+                <a href="/old/actualite/actualite_detail.php?id=<?php echo $row['id']; ?>" class="block h-full w-full">
                     <img src="/images/<?php echo $row['image']; ?>"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                         alt="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>">
@@ -65,7 +76,7 @@ if ($result_actualites && $result_actualites->num_rows > 0):
                     </h5>
                 </div>
 
-                <a href="./actualite_detail.php?id=<?php echo $row['id']; ?>"
+                <a href="/old/actualite/actualite_detail.php?id=<?php echo $row['id']; ?>"
                     class="inline-flex items-center gap-2 text-[#305196] hover:text-[#ea750fff] font-black text-xs uppercase tracking-widest transition-all group/link">
                     Lire l'article
                     <i class="fas fa-chevron-right text-[10px] transform group-hover/link:translate-x-2 transition-transform"></i>

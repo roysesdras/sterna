@@ -52,8 +52,9 @@ if (isset($conn)) {
             </div>
         </div>
 
-        <div class="hidden lg:flex space-x-6 font-bold text-[14px] uppercase items-center">
+        <div class="hidden lg:flex space-x-3 font-bold text-[14px] uppercase items-center">
             <a href="/a-propos/" class="hover:text-[#ea750fff] transition whitespace-nowrap">A propos</a>
+            <a href="/projets/" class="hover:text-[#ea750fff] transition whitespace-nowrap">Nos projets</a>
             <a href="/old/pages/missions.php" class="hover:text-[#ea750fff] transition whitespace-nowrap">Nos missions</a>
             <div class="relative group">
                 <a href="/#evenements" class="hover:text-[#ea750fff] transition whitespace-nowrap flex items-center gap-1">
@@ -182,6 +183,10 @@ if (isset($conn)) {
 
             <a href="/a-propos/" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
                 A propos
+            </a>
+
+            <a href="/projets/" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">
+                Nos projets
             </a>
 
             <a href="/old/pages/missions.php" class="py-1 border-b border-gray-50 text-gray-700 hover:text-[#ea750fff] transition-colors flex justify-between items-center group">

@@ -1,113 +1,228 @@
-<section class="relative py-4 md:py-20" id="secteurs">
+<section class="relative py-16 md:py-24 bg-gray-100" id="secteurs">
     <!-- SVG de séparation en haut de la section -->
     <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block text-sterna-yellow w-full h-12 md:h-20 text-gray-100 fill-current">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
         </svg>
     </div>
-    <div class="max-w-7xl mx-auto px-2">
+    
+    <div class="max-w-7xl mx-auto px-4 mt-8 md:mt-0">
         
-        <div class="mb-8 mt-8 md:mt-0">
-            <h2 class="text-2xl md:text-4xl font-black text-sterna-blue uppercase tracking-tighter border-l-8 border-sterna-blue pl-6">
-                Nos Secteurs <br>d'<span class="text-sterna-yellow">Intervention</span>
+        <div class="text-left mb-12">
+            <h2 class="text-3xl md:text-3xl font-black text-sterna-blue uppercase tracking-tighter">
+                Nos <span class="text-sterna-yellow">Secteurs</span> D'intervention
             </h2>
-            
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Onglets (Tabs) -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button onclick="switchSecteur('education')" id="btn-education" class="secteur-btn active px-6 py-3 rounded-full font-bold text-xs sm:text-sm md:text-base transition-all duration-300 bg-sterna-blue text-white shadow-lg shadow-sterna-blue/30 transform hover:-translate-y-1">ÉDUCATION POPULAIRE</button>
             
-            <div class="lg:w-1/3 space-y-4 mt-5">
-                <button onclick="switchSecteur('france')" id="btn-france" class="secteur-btn active w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-300 text-left group">
-                    <span class="font-black uppercase tracking-widest text-sm text-sterna-blue">Volontariat Sans Frontières</span>
-                    <i class="fi fi-rr-arrow-right"></i>
-                </button>
+            <button onclick="switchSecteur('solidarite')" id="btn-solidarite" class="secteur-btn px-6 py-3 rounded-full font-bold text-xs sm:text-sm md:text-base transition-all duration-300 bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 transform hover:-translate-y-1">SOLIDARITÉ INTERNATIONALE</button>
+            
+            <button onclick="switchSecteur('volontariat')" id="btn-volontariat" class="secteur-btn px-6 py-3 rounded-full font-bold text-xs sm:text-sm md:text-base transition-all duration-300 bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 transform hover:-translate-y-1">VOLONTARIAT</button>
+            
+            <button onclick="switchSecteur('developpement')" id="btn-developpement" class="secteur-btn px-6 py-3 rounded-full font-bold text-xs sm:text-sm md:text-base transition-all duration-300 bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 transform hover:-translate-y-1">DÉVELOPPEMENT COMMUNAUTAIRE</button>
+        </div>
 
-                <button onclick="switchSecteur('developpement')" id="btn-developpement" class="secteur-btn w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all duration-300 text-left group text-gray-700 border-sterna-yellow">
-                    <span class="font-black uppercase tracking-widest text-sm">Développement & Impact</span>
-                    <i class="fi fi-rr-arrow-right"></i>
-                </button>
-            </div>
-
-            <div class="lg:w-2/3 rounded-3xl p-2 md:p-4 min-h-[350px]">
-                
-                <div id="content-france" class="secteur-content transition-all duration-500">
-                    <div class="flex flex-col xl:flex-row gap-10">
-                        <div class="flex-1 order-2 md:order-1">
-                            <h3 class="text-3xl font-black text-sterna-blue mb-4">Engagement & Échanges Interculturels</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed italic">"Promouvoir l’ECSI pour co-construire des solutions aux défis locaux et globaux."</p>
-                            
-                            <div class="space-y-4">
-                                <div class="p-4 bg-gray-100 rounded-xl shadow-md">
-                                    <h5 class="font-bold text-sterna-blue text-sm uppercase">Missions de Terrain et Animations</h5>
-                                    <p class="text-sm text-gray-500 mt-1">Soutien scolaire, animation d’ateliers, réfections et création d’outils pédagogiques.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="xl:w-1/3 order-1 md:order-2">
-                            <img src="https://i.postimg.cc/xCGNgM1v/Whats-App-Image-2025-03-23-at-3-21-23-AM.jpg" 
-                            class="rounded-2xl shadow-lg w-full h-[400px] sm:h-[500px] md:h-80 object-cover" 
-                            alt="Antenne France">
-                        </div>
+        <!-- Conteneur des Contenus -->
+        <div class="bg-gray-50 rounded-3xl shadow-2xl overflow-hidden min-h-[400px]">
+            
+            <!-- 1. ÉDUCATION POPULAIRE -->
+            <div id="content-education" class="secteur-content transition-all duration-500 opacity-100 block">
+                <div class="flex flex-col lg:flex-row h-full">
+                    <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
+                        <!-- Image illustrative -->
+                        <img src="https://i.ibb.co/MD9zmRRC/1755464569925.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Éducation Populaire">
+                        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
+                    </div>
+                    <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
+                        <div class="w-12 h-1 bg-sterna-yellow mb-6"></div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-sterna-blue mb-8 uppercase">Éducation Populaire</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Ateliers de formation citoyenne (masterclass, modules thématiques)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Ciné-débats et cafés-débats</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Ateliers ludo-pédagogiques</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Formation de formateurs</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Production d'outils pédagogiques (livrets, jeux, supports de sensibilisation)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Interventions en milieu scolaire ou dans les quartiers</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
-                <div id="content-developpement" class="secteur-content hidden transition-all duration-500">
-                    <h3 class="text-3xl font-black text-sterna-blue mb-8 uppercase">Développement & Services Sociaux</h3>
-
-                    <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide order-1 md:order-2">
-                        <img src="https://i.postimg.cc/qMvWdV6n/18-min.png" class="h-32 rounded-xl shrink-0 shadow-md" alt="D1">
-                        <img src="https://i.postimg.cc/W4gH7sxR/20-min.png" class="h-32 rounded-xl shrink-0 shadow-md" alt="D3">
-                        <img src="https://i.postimg.cc/fLQ64VYT/21-min.png" class="h-32 rounded-xl shrink-0 shadow-md" alt="D4">
-                        <img src="https://i.postimg.cc/rs83m7hB/22-min.png" class="h-32 rounded-xl shrink-0 shadow-md" alt="D5">
+            <!-- 2. SOLIDARITÉ INTERNATIONALE -->
+            <div id="content-solidarite" class="secteur-content transition-all duration-500 opacity-0 hidden">
+                <div class="flex flex-col lg:flex-row h-full">
+                    <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
+                        <img src="https://i.postimg.cc/j2VYXJ33/Whats-App-Image-2026-08-13-at-11-54-09-AM.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Solidarité Internationale">
+                        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 order-2 md:order-1">
-                        <div class="flex items-start gap-4 p-4 bg-gray-100 rounded-2xl shadow-md">
-                            <div class="text-sterna-keppel text-xl"><i class="fi fi-sr-book-alt"></i></div>
-                            <div>
-                                <h5 class="font-black text-sterna-blue text-sm uppercase">Éducation & Inclusion</h5>
-                                <p class="text-[13px] text-gray-500 mt-1 leading-relaxed">Déjeuner des démunis, MAA (Mouvement d'Appui à l'Apprentissage), réhabilitation d'écoles.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4 p-4 bg-gray-100 rounded-2xl shadow-md">
-                            <div class="text-sterna-orange text-xl"><i class="fi fi-sr-woman-side"></i></div>
-                            <div>
-                                <h5 class="font-black text-sterna-blue text-sm uppercase">Femmes & Autonomie</h5>
-                                <p class="text-[13px] text-gray-500 mt-1 leading-relaxed">Projet "Sang Tabou" : Autonomie économique et hygiène menstruelle.</p>
-                            </div>
-                        </div>
-                    </div>  
+                    <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
+                        <div class="w-12 h-1 bg-sterna-yellow mb-6"></div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-sterna-blue mb-8 uppercase">Solidarité Internationale</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Actions d'Éducation à la Citoyenneté et à la Solidarité Internationale (ECSI)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Partenariats et échanges Nord-Sud ou Sud-Sud entre organisations de différents pays</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Participation à des réseaux internationaux (comme RADSI, URUNANI Afrique)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Plaidoyer sur des enjeux mondiaux (droits humains, climat, migrations)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Mobilisation de ressources et collecte de fonds pour des projets de coopération</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Accueil de délégations étrangères, missions et voyages d'échange</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <!-- 3. VOLONTARIAT -->
+            <div id="content-volontariat" class="secteur-content transition-all duration-500 opacity-0 hidden">
+                <div class="flex flex-col lg:flex-row h-full">
+                    <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
+                        <img src="https://i.postimg.cc/Rh3QMWMS/Whats-App-Image-2026-08-13-at-11-54-18-AM.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Volontariat">
+                        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
+                    </div>
+                    <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
+                        <div class="w-12 h-1 bg-sterna-yellow mb-6"></div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-sterna-blue mb-8 uppercase">Volontariat</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Recrutement, formation et accompagnement de volontaires</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Programmes de volontariat national ou international (VSI, service civique, etc.)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Chantiers de solidarité internationale ou camp des volontaires</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Mobilisation citoyenne ponctuelle (journées de salubrité, reboisement, comme lors de votre "Action Communautaire")</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Valorisation et reconnaissance des compétences acquises par les volontaires</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. DÉVELOPPEMENT COMMUNAUTAIRE -->
+            <div id="content-developpement" class="secteur-content transition-all duration-500 opacity-0 hidden">
+                <div class="flex flex-col lg:flex-row h-full">
+                    <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
+                        <img src="https://i.postimg.cc/J7DpCzp8/Whats-App-Image-2026-08-13-at-11-54-14-AM(2).jpg" class="absolute inset-0 w-full h-full object-cover" alt="Développement Communautaire">
+                        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
+                    </div>
+                    <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
+                        <div class="w-12 h-1 bg-sterna-yellow mb-6"></div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-sterna-blue mb-8 uppercase">Développement Communautaire</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Appui à des projets communautaires locaux (eau, santé, éducation, infrastructures)</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Renforcement des capacités des organisations communautaires de base</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Actions directes avec les populations locales dans une logique d'apprentissage mutuel</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Appui à l'entrepreneuriat social et aux activités génératrices de revenus</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Rénovation ou dons d'équipements communautaires</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 min-w-[24px] text-sterna-yellow text-lg"><i class="fi fi-rr-check-circle"></i></div>
+                                <span class="text-gray-700 font-medium">Appui-conseil aux collectivités locales, création de coopératives ou groupements</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
-<style>
-    .secteur-btn.active {
-        background-color: white;
-        border-color: #0f277e;
-        box-shadow: 0 10px 30px rgba(15, 39, 126, 0.08);
-        transform: translateX(12px);
-    }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
-
 <script>
     function switchSecteur(secteur) {
-        document.querySelectorAll('.secteur-content').forEach(el => el.classList.add('hidden'));
-        document.querySelectorAll('.secteur-btn').forEach(el => {
-            el.classList.remove('active');
-            el.classList.add('text-gray-400', 'border-gray-100');
-            el.querySelector('span').classList.remove('text-sterna-blue');
+        // Cacher tous les contenus
+        const contents = document.querySelectorAll('.secteur-content');
+        contents.forEach(el => {
+            el.classList.remove('opacity-100');
+            el.classList.add('opacity-0');
+            setTimeout(() => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            }, 300); // Wait for fade out
         });
 
-        document.getElementById('content-' + secteur).classList.remove('hidden');
-        const btn = document.getElementById('btn-' + secteur);
-        btn.classList.add('active');
-        btn.classList.remove('text-gray-400', 'border-gray-100');
-        btn.querySelector('span').classList.add('text-sterna-blue');
+        // Reset de tous les boutons
+        const btns = document.querySelectorAll('.secteur-btn');
+        btns.forEach(el => {
+            el.classList.remove('bg-sterna-blue', 'text-white', 'shadow-lg', 'shadow-sterna-blue/30');
+            el.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+        });
+
+        // Afficher le contenu ciblé
+        setTimeout(() => {
+            const target = document.getElementById('content-' + secteur);
+            target.classList.remove('hidden');
+            target.classList.add('block');
+            setTimeout(() => {
+                target.classList.remove('opacity-0');
+                target.classList.add('opacity-100');
+            }, 50); // Slight delay to trigger CSS transition
+        }, 300);
+
+        // Activer le bouton ciblé
+        const targetBtn = document.getElementById('btn-' + secteur);
+        targetBtn.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+        targetBtn.classList.add('bg-sterna-blue', 'text-white', 'shadow-lg', 'shadow-sterna-blue/30');
     }
 </script>

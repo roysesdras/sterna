@@ -61,7 +61,7 @@ if ($result_projets) {
 
     <main class="relative -mt-8 z-20">
         <!-- Chiffres & Impact (Stats Grid) -->
-        <section class="container mx-auto px-4 mb-20">
+        <section class="container mx-auto px-4 mb-6 md:mb-20">
             <div class="bg-gray-100 rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-black text-sterna-blue mb-2"><strong>Notre Impact</strong></h2>
@@ -96,6 +96,11 @@ if ($result_projets) {
                 </div>
             </div>
         </section>
+
+        <!-- Mission & Vision -->
+        <div class="container mx-auto mb-6 md:mb-20 p-4 md:p-0">
+            <img src="https://i.postimg.cc/J0k9g4BM/Whats-App-Image-2026-08-13-at-11-54-14-AM.jpg" alt="" class="rounded-3xl w-full h-auto  md:h-[450px] object-contain md:object-cover shadow-lg">
+        </div>
 
         <!-- Relation Nord-Sud -->
         <section class="container mx-auto px-4 mb-24">

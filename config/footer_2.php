@@ -15,13 +15,13 @@
 </footer>
 
 <!-- Bouton Back to Top Design Moderne -->
-<button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-sterna-blue/90 backdrop-blur-md text-white border border-white/20 shadow-[0_0_20px_rgba(3,72,144,0.4)] hover:shadow-[0_0_30px_rgba(252,185,0,0.6)] hover:bg-sterna-yellow hover:text-sterna-blue transition-all duration-500 opacity-0 pointer-events-none translate-y-12 group overflow-hidden" aria-label="Retour en haut">
+<button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-sterna-blue/90 backdrop-blur-md text-white shadow-[0_0_20px_rgba(3,72,144,0.4)] hover:shadow-[0_0_30px_rgba(252,185,0,0.6)] hover:bg-sterna-yellow hover:text-sterna-blue transition-all duration-500 opacity-0 pointer-events-none translate-y-12 group overflow-hidden" aria-label="Retour en haut">
     <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
-    <i class="fi fi-rr-arrow-up text-2xl relative z-10 group-hover:-translate-y-1 transition-transform duration-300"></i>
+    <i class="fi fi-rr-arrow-up text-xl relative z-10 group-hover:-translate-y-1 transition-transform duration-300"></i>
 </button>
 
 <!-- Popup Cookies -->
-<div id="cookiePopup" class="fixed bottom-4 left-4 right-4 md:bottom-24 md:right-6 md:left-auto z-40 bg-white border border-gray-100 shadow-2xl rounded-3xl p-6 max-w-sm transform translate-y-full opacity-0 pointer-events-none transition-all duration-700 hidden">
+<div id="cookiePopup" class="fixed bottom-4 left-4 right-4 md:bottom-24 md:right-6 md:left-auto z-40 bg-gray-50 shadow-2xl rounded-3xl p-6 max-w-sm transform translate-y-full opacity-0 pointer-events-none transition-all duration-700 hidden">
     <div class="flex items-start gap-4">
         <div class="text-4xl">🍪</div>
         <div>
