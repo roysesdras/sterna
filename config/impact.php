@@ -22,7 +22,7 @@ if ($result_ant) {
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
-            <h2 class="text-white/70 uppercase tracking-[0.25em]" style="font-size: 16px !important; font-weight: 800 !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.2 !important; margin: 0 auto !important; letter-spacing: 0.25em !important; text-transform: uppercase !important; border: none !important;">Impact Global & Chiffres Clés</h2>
+            <h2 class="text-sterna-yellow uppercase tracking-[0.25em]" style="font-size: 16px !important; font-weight: 800 !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.2 !important; margin: 0 auto !important; letter-spacing: 0.25em !important; text-transform: uppercase !important; border: none !important;">Impact Global & Chiffres Clés</h2>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-12 lg:divide-x divide-white/10">
@@ -30,37 +30,37 @@ if ($result_ant) {
             <div class="flex flex-col items-center text-center px-4">
                 <p class="counter" data-target="99552" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-orange rounded-full my-4"></div>
-                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Bénéficiaires <br>Directs & Indirects</p>
+                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(241, 165, 12, 0.91) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Bénéficiaires <br>Directs & Indirects</p>
             </div>
 
             <div class="flex flex-col items-center text-center px-4">
                 <p class="counter" data-target="<?php echo $total_abonnes; ?>" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-rose rounded-full my-4"></div>
-                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Nombre <br>d'abonnés</p>
+                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(241, 165, 12, 0.91) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Nombre <br>d'abonnés</p>
             </div>
 
             <div class="flex flex-col items-center text-center px-4">
                 <p class="counter" data-target="1039" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-keppel rounded-full my-4"></div>
-                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Personnes <br>formées</p>
+                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(241, 165, 12, 0.91) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Personnes <br>formées</p>
             </div>
 
             <div class="flex flex-col items-center text-center px-4">
                 <p class="counter" data-target="380" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-orange rounded-full my-4"></div>
-                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Volontaires <br>adhérents</p>
+                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(241, 165, 12, 0.91) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Volontaires <br>adhérents</p>
             </div>
 
             <div class="flex flex-col items-center text-center px-4">
                 <p class="counter" data-target="203" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-rose rounded-full my-4"></div>
-                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Projets & <br>Activités</p>
+                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(241, 165, 12, 0.91) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Projets & <br>Activités</p>
             </div>
 
             <div class="flex flex-col items-center text-center px-4">
                 <p class="counter" data-target="<?php echo $antennes_count; ?>" style="font-size: clamp(24px, 6vw, 36px) !important; font-weight: 900 !important; color: #ffffff !important; font-family: 'Quicksand', sans-serif !important; line-height: 1.1 !important; margin: 0 !important; letter-spacing: -0.03em !important;">0</p>
                 <div class="w-8 h-1 bg-urunani-keppel rounded-full my-4"></div>
-                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(255,255,255,0.7) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Pays <br>d'intervention</p>
+                <p style="font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: rgba(241, 165, 12, 0.91) !important; line-height: 1.3 !important; font-family: 'Quicksand', sans-serif !important; margin: 0 !important;">Pays <br>d'intervention</p>
             </div>
 
         </div>

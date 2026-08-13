@@ -27,15 +27,15 @@
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="" alt="Éthique sur étiquette" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="https://i.postimg.cc/x18Bdxb1/cropped-cropped-cropped-Logo-Intal-rouge-slogan.png" alt="intal rouge" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="" alt="SGDF" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="https://i.postimg.cc/W1zx4WJT/CHOISI-TA-PLANETE.png" alt="planete" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="" alt="Logo ASA" class="max-h-36 md:max-h-40 scale-110 w-auto object-contain group-hover:scale-125 transition-transform">
+                <img src="https://i.postimg.cc/0yjhNWJ8/02-final-pack-identite-u-crid-03-crid-seul.png" alt="CRID" class="max-h-36 md:max-h-40 scale-110 w-auto object-contain group-hover:scale-125 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
@@ -47,11 +47,51 @@
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="" alt="Culture Konnect" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="https://scd.asso.fr/wp-content/themes/theme-scd/images/logo-scd.png" alt="SCD" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/wjMnBfsH/F3E-Logo.png" alt="f3e" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
             <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
-                <img src="https://scd.asso.fr/wp-content/themes/theme-scd/images/logo-scd.png" alt="SCD" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+                <img src="https://i.postimg.cc/bwr4vC2f/images-MEAE.png" alt="MEA" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/P5J0q38k/logo-2020-07-2-e1593683001952.png" alt="label" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/Gmt6p7sw/logo-AEH.jpg" alt="AEH" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/Cx59KPn3/LOGO-COURTScircuits.png" alt="Cour" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/QdCvM4Kw/logo-radsi.png" alt="Radsi" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/8zcxCKrG/LOGOFINROND.png" alt="Finrond" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/sDwtsd1V/MSL.jpg" alt="MSL" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/Z5DtFthq/Cedas-Square-300x300-jpg.jpg" alt="Cedas" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/bN3Kpcdq/unnamed.png" alt="partenaire14" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
+            </div>
+
+            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-sterna-yellow transition-all duration-500 group flex justify-center items-center h-40 min-w-[260px] shrink-0 snap-center md:min-w-0 md:shrink">
+                <img src="https://i.postimg.cc/9FJvC5zC/WOLSI.jpg" alt="Wolsi" class="max-h-24 md:max-h-28 w-auto object-contain group-hover:scale-110 transition-transform">
             </div>
 
         </div>

@@ -109,13 +109,13 @@ if (!function_exists('time_elapsed_string')) {
 }
 ?>
 
-<section class="mt-5 overflow-hidden" id="stories">
+<section class="overflow-hidden bg-sterna-yellow" id="stories">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
             
         </div>
         
-        <div class="hidden md:flex gap-4">
+        <div class="hidden md:flex gap-4 mt-5">
             <button onclick="document.querySelector('.testimonial-scroll-area').scrollBy({left: -350, behavior: 'smooth'})" class="nav-btn">
                 <i class="fi fi-rr-arrow-small-left"></i>
             </button>
@@ -248,7 +248,7 @@ if (!function_exists('time_elapsed_string')) {
     .testimonial-card:hover {
         transform: translateY(-15px);
         box-shadow: 0 30px 60px rgba(15, 39, 126, 0.1);
-        border-color: #ea7d0fff;
+        /* border-color: #ea7d0fff; */
     }
 
     /* Avatar Design */

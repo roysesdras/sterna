@@ -28,17 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
             </div>
 
             <div class="space-y-6">
-                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Liens Utiles</h4>
+                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-yellow w-fit pb-1">Liens Utiles</h4>
                 <ul class="space-y-3">
                     <li><a href="/a-propos/" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Qui sommes-nous ?</a></li>
                     <li><a href="/old/pages/missions.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Missions</a></li>
+                    <li><a href="/projets/" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Projets</a></li>
                     <li><a href="/old/pages/documents.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Documents</a></li>
                     <li><a href="/recit_volontaire.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Récit Volontaire</a></li>
                 </ul>
             </div>
 
             <div id="contact" class="space-y-6">
-                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Nous contacter</h4>
+                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-yellow w-fit pb-1">Nous contacter</h4>
                 <ul class="space-y-4">
                     <li class="flex items-center gap-3">
                         <i class="fi fi-rr-envelope text-white"></i>
@@ -62,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
             </div>
 
             <div class="space-y-6">
-                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Soutenir l'action</h4>
+                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-yellow w-fit pb-1">Soutenir l'action</h4>
                 <div class="bg-white/5 backdrop-blur-sm p-2 rounded-2xl border border-white/10">
                     <p class="text-[11px] font-black text-white/90 uppercase mb-3">RIB Sterna Africa</p>
                     <div class="bg-black/20 p-2 rounded-xl border border-white/5 mb-3">
@@ -74,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
             </div>
 
             <div id="newsletter" class="space-y-6">
-                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-orange w-fit pb-1">Newsletter</h4>
+                <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-yellow w-fit pb-1">Newsletter</h4>
                 <p class="text-sm text-white/90 font-medium leading-relaxed">Rejoignez l'aventure et recevez nos actualités directement.</p>
                 <div class="newsletter-dark-custom">
                     <?php if(file_exists('config/newsletter.php')) { include('config/newsletter.php'); } ?>

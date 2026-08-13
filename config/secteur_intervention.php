@@ -26,7 +26,7 @@
         </div>
 
         <!-- Conteneur des Contenus -->
-        <div class="bg-gray-50 rounded-3xl shadow-2xl overflow-hidden min-h-[400px]">
+        <div class="bg-gray-50 rounded-3xl shadow-lg overflow-hidden min-h-[400px]">
             
             <!-- 1. ÉDUCATION POPULAIRE -->
             <div id="content-education" class="secteur-content transition-all duration-500 opacity-100 block">
