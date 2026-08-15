@@ -33,7 +33,7 @@
                 <div class="flex flex-col lg:flex-row h-full">
                     <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
                         <!-- Image illustrative -->
-                        <img src="https://i.ibb.co/MD9zmRRC/1755464569925.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Éducation Populaire">
+                        <img src="https://i.postimg.cc/QxgwdDJc/4(1).png" class="absolute inset-0 w-full h-full object-cover" alt="Éducation Populaire">
                         <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
                     <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
@@ -73,7 +73,7 @@
             <div id="content-solidarite" class="secteur-content transition-all duration-500 opacity-0 hidden">
                 <div class="flex flex-col lg:flex-row h-full">
                     <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
-                        <img src="https://i.postimg.cc/j2VYXJ33/Whats-App-Image-2026-08-13-at-11-54-09-AM.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Solidarité Internationale">
+                        <img src="https://i.postimg.cc/3JjVxhFv/1(1).png" class="absolute inset-0 w-full h-full object-cover" alt="Solidarité Internationale">
                         <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
                     <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
@@ -113,7 +113,7 @@
             <div id="content-volontariat" class="secteur-content transition-all duration-500 opacity-0 hidden">
                 <div class="flex flex-col lg:flex-row h-full">
                     <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
-                        <img src="https://i.postimg.cc/Rh3QMWMS/Whats-App-Image-2026-08-13-at-11-54-18-AM.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Volontariat">
+                        <img src="https://i.postimg.cc/jd6mST4P/3(1).png" class="absolute inset-0 w-full h-full object-cover" alt="Volontariat">
                         <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
                     <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
@@ -149,7 +149,7 @@
             <div id="content-developpement" class="secteur-content transition-all duration-500 opacity-0 hidden">
                 <div class="flex flex-col lg:flex-row h-full">
                     <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
-                        <img src="https://i.postimg.cc/J7DpCzp8/Whats-App-Image-2026-08-13-at-11-54-14-AM(2).jpg" class="absolute inset-0 w-full h-full object-cover" alt="Développement Communautaire">
+                        <img src="https://i.postimg.cc/X7KmYWk5/2(1).png" class="absolute inset-0 w-full h-full object-cover" alt="Développement Communautaire">
                         <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
                     <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
