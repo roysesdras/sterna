@@ -3,6 +3,9 @@
         <span class="close-popup" id="close-newsletter">&times;</span>
 
         <div class="newsletter-container">
+            <div style="display: flex; justify-content: center; margin-top: -30px; margin-bottom: 10px;">
+                <img src="https://i.postimg.cc/fL7z8sKy/Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte" style="height: 120px; object-fit: contain; z-index: 10; position: relative;">
+            </div>
             <h4>Newsletter Exclusive</h4>
             <p class="description">Restez informé avant tout le monde ! Nos exclusivités, directement dans votre boîte mail.</p>
 
@@ -24,7 +27,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(15, 39, 126, 0.6); /* Sterna blue overlay */
+        backdrop-filter: blur(4px);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -42,15 +46,16 @@
 
     /* La Boîte de dialogue */
     .newsletter-content {
-        background: #1a1a1a;
-        color: #ffffff;
+        background: #ffffff;
+        color: #0f277e;
         padding: 40px 30px;
-        border-radius: 20px;
+        border-radius: 24px;
         position: relative;
         width: 90%;
         max-width: 400px;
         text-align: center;
-        border: 1px solid #333;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         transform: translateY(30px);
         transition: transform 0.5s ease;
     }
@@ -61,12 +66,13 @@
 
     /* Textes */
     .newsletter-content h4 {
-        font-size: 22px;
+        font-size: 24px;
+        font-weight: 900;
         margin: 0 0 10px 0;
     }
 
     .newsletter-content .description {
-        color: #bbb;
+        color: #6b7280;
         font-size: 14px;
         margin-bottom: 25px;
     }
@@ -76,38 +82,40 @@
         width: 100%;
         padding: 12px 15px;
         margin-bottom: 15px;
-        background: #2a2a2a;
-        border: 1px solid #444;
-        color: #fff;
-        border-radius: 8px;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        color: #111827;
+        border-radius: 12px;
         box-sizing: border-box;
-        /* Pour que le padding ne dépasse pas */
         font-size: 15px;
+        transition: all 0.3s;
     }
 
     .custom-input:focus {
         outline: none;
-        border-color: #ffc107;
-        /* Jaune Sterna */
+        border-color: #0f277e;
+        box-shadow: 0 0 0 3px rgba(15, 39, 126, 0.1);
     }
 
     /* Bouton personnalisé (Remplace btn-primary) */
     .custom-button {
         width: 100%;
-        padding: 12px;
-        background: #ffc107;
-        /* Jaune Sterna */
+        padding: 14px;
+        background: #0f277e;
         border: none;
-        color: #000;
-        font-weight: bold;
-        border-radius: 8px;
+        color: #ffffff;
+        font-weight: 900;
+        border-radius: 12px;
         cursor: pointer;
         font-size: 16px;
-        transition: background 0.3s;
+        text-transform: uppercase;
+        transition: all 0.3s;
     }
 
     .custom-button:hover {
-        background: #e5ad06;
+        background: #fcb900;
+        color: #0f277e;
+        box-shadow: 0 10px 15px -3px rgba(252, 185, 0, 0.3);
     }
 
     /* Bouton Fermer */
@@ -116,12 +124,14 @@
         top: 15px;
         right: 20px;
         font-size: 25px;
+        font-weight: bold;
         cursor: pointer;
-        color: #777;
+        color: #9ca3af;
+        transition: color 0.3s;
     }
 
     .close-popup:hover {
-        color: #fff;
+        color: #0f277e;
     }
 
     /* Messages */
@@ -143,14 +153,15 @@
 </style>
 
 <script>
-    // 1. Apparition progressive après 6 secondes
+    // 1. Apparition progressive
     window.addEventListener('load', function() {
         setTimeout(function() {
+            // On vérifie le sessionStorage pour ne pas l'afficher à chaque fois
             if (!sessionStorage.getItem('newsletter_closed')) {
                 const modal = document.getElementById('newsletter-modal');
-                modal.classList.add('active'); // On ajoute la classe pour lancer la transition CSS
+                if (modal) modal.classList.add('active'); // On ajoute la classe pour lancer la transition CSS
             }
-        }, 6000);
+        }, 10000); // Remis à 10 secondes pour un vrai usage
     });
 
     // 2. Fermeture du popup avec retrait de la classe active

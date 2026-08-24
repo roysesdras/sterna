@@ -69,6 +69,16 @@ if (isset($_POST['submit'])) {
             }
         }
 
+        // --- ENVOI DE LA NEWSLETTER ---
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/config/mailer_helper.php';
+        $subject = "Nouvelle Actualité : " . $title;
+        $body = "<h2>Une nouvelle actualité est en ligne !</h2>";
+        $body .= "<p><strong>" . htmlspecialchars($title) . "</strong></p>";
+        $body .= "<p>Découvrez nos dernières actions et toutes les nouveautés directement sur notre site.</p>";
+        $body .= "<p style='margin-top:20px;'><a href='https://sternaafrica.org/old/actualite/actualite_detail.php?id=" . $actualite_id . "' style='display:inline-block; padding:12px 25px; background:#fcb900; color:#034890; text-decoration:none; font-weight:bold; border-radius:8px;'>Lire la suite</a></p>";
+        send_newsletter_notification($conn, $subject, $body);
+        // ------------------------------
+
         header('Location: admin_actualites.php?message=Actualité%20ajoutée%20avec%20succès');
         exit();
     } else {

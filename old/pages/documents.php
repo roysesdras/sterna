@@ -16,17 +16,13 @@ if (isset($conn)) {
     }
 }
 
-// Fetch Rapports Annuels grouped by year
-$page_rapports = [];
+// Fetch Rapports Annuels (flat list)
+$all_rapports = [];
 if (isset($conn)) {
-    $res_rap = $conn->query("SELECT * FROM rapports WHERE type_document = 'rapport_annuel' ORDER BY annee DESC");
+    $res_rap = $conn->query("SELECT * FROM rapports WHERE type_document = 'rapport_annuel' ORDER BY annee DESC, created_at DESC");
     if ($res_rap && $res_rap->num_rows > 0) {
         while ($row = $res_rap->fetch_assoc()) {
-            $year = $row['annee'];
-            if (!isset($page_rapports[$year])) {
-                $page_rapports[$year] = [];
-            }
-            $page_rapports[$year][] = $row;
+            $all_rapports[] = $row;
         }
     }
 }
@@ -102,39 +98,35 @@ if (isset($conn)) {
             </div>
 
             <!-- Rapports Section -->
-            <div id="tab-rapports" class="hidden space-y-16 fade-in">
-                <?php if (!empty($page_rapports)): foreach ($page_rapports as $year => $docs): ?>
-                    <div>
-                        <div class="flex items-center gap-4 mb-8">
-                            <h2 class="text-3xl font-black text-[#ea750fff]">Année <?= htmlspecialchars($year) ?></h2>
-                            <div class="h-1 flex-grow bg-gradient-to-r from-[#ea750fff]/20 to-transparent rounded-full"></div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <?php foreach ($docs as $doc): ?>
-                                <div class="bg-gray-50 rounded-2xl shadow hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-200 hover:border-[#ea750fff]/50">
-                                    <div class="relative h-40 overflow-hidden bg-white flex items-center justify-center">
-                                        <?php if (!empty($doc['cover_image'])): ?>
-                                            <img src="<?= htmlspecialchars($doc['cover_image']) ?>" alt="<?= htmlspecialchars($doc['titre']) ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                                        <?php else: ?>
-                                            <i class="fi fi-rr-document text-4xl text-gray-300"></i>
-                                        <?php endif; ?>
-                                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    </div>
-                                    <div class="p-5 flex flex-col flex-grow">
-                                        <h3 class="font-bold text-gray-900 mb-2 line-clamp-2 text-sm group-hover:text-[#ea750fff] transition-colors"><?= htmlspecialchars($doc['titre']) ?></h3>
-                                        <div class="mt-auto pt-4 flex justify-between items-center border-t border-gray-200">
-                                            <span class="text-[10px] text-gray-500 font-medium"><?= date('d/m/Y', strtotime($doc['created_at'])) ?></span>
-                                            <a href="<?= htmlspecialchars($doc['pdf_link']) ?>" download class="w-8 h-8 rounded-full bg-[#ea750fff] flex items-center justify-center text-white hover:bg-sterna-blue transition-colors shadow-sm" title="Télécharger">
-                                                <i class="fi fi-rr-download text-xs mt-1"></i>
-                                            </a>
-                                        </div>
+            <div id="tab-rapports" class="hidden fade-in">
+                <?php if (!empty($all_rapports)): ?>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <?php foreach ($all_rapports as $doc): ?>
+                            <div class="bg-gray-50 rounded-2xl shadow hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-200 hover:border-[#ea750fff]/50">
+                                <div class="relative h-48 overflow-hidden bg-white flex items-center justify-center">
+                                    <?php if (!empty($doc['cover_image'])): ?>
+                                        <img src="<?= htmlspecialchars($doc['cover_image']) ?>" alt="<?= htmlspecialchars($doc['titre']) ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <?php else: ?>
+                                        <i class="fi fi-rr-document text-5xl text-gray-300"></i>
+                                    <?php endif; ?>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <span class="absolute top-3 right-3 bg-[#ea750fff] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                                        Année <?= htmlspecialchars($doc['annee']) ?>
+                                    </span>
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow relative z-20 bg-gray-50">
+                                    <h3 class="font-bold text-gray-900 mb-2 line-clamp-2 text-base group-hover:text-[#ea750fff] transition-colors"><?= htmlspecialchars($doc['titre']) ?></h3>
+                                    <div class="mt-auto pt-4 flex justify-between items-center border-t border-gray-200">
+                                        <span class="text-xs text-gray-500 font-medium"><?= date('d/m/Y', strtotime($doc['created_at'])) ?></span>
+                                        <a href="<?= htmlspecialchars($doc['pdf_link']) ?>" download class="w-10 h-10 rounded-full bg-[#ea750fff] flex items-center justify-center text-white hover:bg-sterna-blue transition-colors shadow-sm group/btn" title="Télécharger">
+                                            <i class="fi fi-rr-download text-sm mt-1 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                        </a>
                                     </div>
                                 </div>
-                            <?php endforeach; ?>
-                        </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                <?php endforeach; else: ?>
+                <?php else: ?>
                     <div class="text-center text-gray-500 py-10 bg-gray-50 rounded-2xl border border-dashed border-gray-300">Aucun rapport annuel disponible pour le moment.</div>
                 <?php endif; ?>
             </div>

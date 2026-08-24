@@ -52,6 +52,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO rapports (type_document, annee, trimestre, titre, pdf_link, cover_image) VALUES ('$type_document', $annee, " . ($trimestre ? "'$trimestre'" : "NULL") . ", '$titre', '$pdf_link', " . ($cover_image ? "'$cover_image'" : "NULL") . ")";
     
     if ($conn->query($sql) === TRUE) {
+        // --- ENVOI DE LA NEWSLETTER ---
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/config/mailer_helper.php';
+        $type_str = ($type_document === 'bulletin') ? "Un nouveau Bulletin Trimestriel" : "Un nouveau Rapport Annuel";
+        $subject = "Nouveau document disponible : " . $titre;
+        $body = "<h2>" . $type_str . " est en ligne !</h2>";
+        $body .= "<p><strong>" . htmlspecialchars($titre) . "</strong></p>";
+        $body .= "<p>Notre dernier document est maintenant disponible en téléchargement libre.</p>";
+        $body .= "<p style='margin-top:20px;'><a href='https://sternaafrica.org/old/pages/documents.php' style='display:inline-block; padding:12px 25px; background:#fcb900; color:#034890; text-decoration:none; font-weight:bold; border-radius:8px;'>Consulter les documents</a></p>";
+        send_newsletter_notification($conn, $subject, $body);
+        // ------------------------------
+
         header("Location: admin_rapports.php?message=Rapport importé avec succès");
         exit();
     } else {

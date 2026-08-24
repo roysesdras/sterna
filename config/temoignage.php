@@ -111,8 +111,11 @@ if (!function_exists('time_elapsed_string')) {
 
 <section class="overflow-hidden bg-sterna-yellow" id="stories">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-            
+        <div class="relative mt-8 md:mt-0">
+            <h2 class="text-2xl md:text-4xl font-black text-sterna-blue uppercase tracking-tighter">
+                Ce qu'ils <span class="text-white">disent</span>
+            </h2>
+            <img src="https://i.postimg.cc/fyFx5Y5z/mascotte2.png" alt="Mascotte" class="hidden md:block absolute -top-5 -right-24 w-20 h-20 object-contain drop-shadow-md animate-[bounce_5s_infinite]">
         </div>
         
         <div class="hidden md:flex gap-4 mt-5">

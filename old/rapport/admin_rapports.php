@@ -49,8 +49,10 @@ $result = $conn->query($sql);
                 </thead>
                 <tbody>
                     <?php if ($result && $result->num_rows > 0): ?>
+                        <?php $row_count = 0; ?>
                         <?php while ($rapport = $result->fetch_assoc()): ?>
-                            <tr>
+                            <?php $isHidden = $row_count >= 4 ? 'd-none hidden-row' : ''; ?>
+                            <tr class="<?= $isHidden ?>">
                                 <td class="text-center"><?= $rapport['id'] ?></td>
                                 <td class="fw-bold"><?= htmlspecialchars($rapport['titre']) ?></td>
                                 <td class="text-center">
@@ -69,6 +71,7 @@ $result = $conn->query($sql);
                                     </div>
                                 </td>
                             </tr>
+                            <?php $row_count++; ?>
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr><td colspan='6' class='text-center p-4'>Aucun rapport trouvé.</td></tr>
@@ -77,6 +80,29 @@ $result = $conn->query($sql);
             </table>
         </div>
         
+        <?php if (isset($row_count) && $row_count > 4): ?>
+            <div class="text-center mb-4">
+                <button id="toggleRowsBtn" class="btn btn-outline-primary btn-sm">Voir plus (<?= $row_count - 4 ?> autres)</button>
+            </div>
+            
+            <script>
+                document.getElementById('toggleRowsBtn').addEventListener('click', function() {
+                    const hiddenRows = document.querySelectorAll('.hidden-row');
+                    const isExpanded = !hiddenRows[0].classList.contains('d-none');
+                    
+                    hiddenRows.forEach(row => {
+                        if (isExpanded) {
+                            row.classList.add('d-none');
+                        } else {
+                            row.classList.remove('d-none');
+                        }
+                    });
+                    
+                    this.textContent = isExpanded ? 'Voir plus (<?= $row_count - 4 ?> autres)' : 'Voir moins';
+                });
+            </script>
+        <?php endif; ?>
+
         <div class="d-flex justify-content-between mb-5">
             <a href="../admin/admin_dashboard.php" class="btn btn-secondary btn-sm">← Retour Dashboard</a>
             <a href="admin_add_rapport.php" class="btn btn-success btn-sm"><i class="bi bi-plus-circle"></i> Nouveau Rapport</a>

@@ -58,7 +58,7 @@
                     <img src="https://i.postimg.cc/DzNGf4GP/SOUWE.png" alt="Souwe" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Souwebatha</p>
+                    <p class="name">Souwebath</p>
                     <p class="role">Coordinatrice Nationale FR</p>
                 </div>
             </div>

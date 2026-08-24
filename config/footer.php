@@ -22,19 +22,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
             
-            <div class="space-y-2">
-                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Logo" class="h-32 w-auto brightness-0 invert">
-                <p class="text-sm font-black text-white/80 tracking-[0.3em] uppercase">Wherever Needed</p>
+            <div class="space-y-2 relative">
+                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Logo" class="h-32 w-auto brightness-0 invert relative z-10">
+                <img src="https://i.postimg.cc/fyFx5Y5z/mascotte2.png" alt="Mascotte Sterna" class="absolute bottom-4 left-32 w-16 h-16 object-contain rotate-12 drop-shadow-md opacity-90 animate-pulse">
+                <p class="text-sm font-black text-white/80 tracking-[0.3em] uppercase relative z-10">Wherever Needed</p>
             </div>
 
             <div class="space-y-6">
                 <h4 class="text-sm font-black text-white uppercase tracking-widest border-b-2 border-sterna-yellow w-fit pb-1">Liens Utiles</h4>
                 <ul class="space-y-3">
-                    <li><a href="/a-propos/" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Qui sommes-nous ?</a></li>
-                    <li><a href="/old/pages/missions.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Missions</a></li>
-                    <li><a href="/projets/" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Projets</a></li>
-                    <li><a href="/old/pages/documents.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Documents</a></li>
-                    <li><a href="/recit_volontaire.php" class="text-sm font-bold text-white/80 hover:text-white transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Récit Volontaire</a></li>
+                    <li><a href="/a-propos/" class="text-sm font-bold text-white/80 hover:text-sterna-yellow transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Qui sommes-nous ?</a></li>
+                    <li><a href="/old/pages/missions.php" class="text-sm font-bold text-white/80 hover:text-sterna-yellow transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Missions</a></li>
+                    <li><a href="/projets/" class="text-sm font-bold text-white/80 hover:text-sterna-yellow transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Projets</a></li>
+                    <li><a href="/old/pages/documents.php" class="text-sm font-bold text-white/80 hover:text-sterna-yellow transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Nos Documents</a></li>
+                    <li><a href="/recit_volontaire.php" class="text-sm font-bold text-white/80 hover:text-sterna-yellow transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Récit Volontaire</a></li>
+                    <li><a href="/contact/" class="text-sm font-bold text-white/80 hover:text-sterna-yellow transition-colors flex items-center gap-2"><i class="fi fi-rr-angle-small-right"></i> Contactez-nous</a></li>
                 </ul>
             </div>
 
@@ -89,10 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
 <?php include 'impact.php'; ?>
 <?php include 'temoignage.php'; ?>
 
-<!-- Bouton Back to Top Design Moderne -->
-<button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-sterna-blue/90 backdrop-blur-md text-white shadow-[0_0_20px_rgba(3,72,144,0.4)] hover:shadow-[0_0_30px_rgba(252,185,0,0.6)] hover:bg-sterna-yellow hover:text-sterna-blue transition-all duration-500 opacity-0 pointer-events-none translate-y-12 group overflow-hidden" aria-label="Retour en haut">
-    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
-    <i class="fi fi-rr-arrow-up text-xl relative z-10 group-hover:-translate-y-1 transition-transform duration-300"></i>
+<!-- Bouton Back to Top avec la Mascotte -->
+<button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-y-12 group focus:outline-none" aria-label="Retour en haut">
+    <img src="https://i.postimg.cc/HnKQ3b3p/mascort1.png" alt="Remonter" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_8px_15px_rgba(0,0,0,0.2)] group-hover:-translate-y-4 group-hover:scale-110 transition-all duration-300 animate-[bounce_3s_infinite]">
 </button>
 
 <script>
@@ -112,6 +113,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
         }
     });
 </script>
+
+<!-- Popup Cookies avec Mascotte -->
+<div id="cookiePopup" class="fixed bottom-4 left-4 right-4 md:bottom-24 md:right-6 md:left-auto z-40 bg-white shadow-2xl rounded-3xl p-6 max-w-sm transform translate-y-full opacity-0 pointer-events-none transition-all duration-700 hidden border border-gray-100">
+    <div class="flex items-start gap-4">
+        <div class="shrink-0">
+            <img src="https://i.postimg.cc/fyFx5Y5z/mascotte2.png" alt="Mascotte Cookies" class="w-16 h-16 object-contain">
+        </div>
+        <div>
+            <h4 class="font-bold text-gray-900 mb-2">Respect de votre vie privée</h4>
+            <p class="text-xs text-gray-500 leading-relaxed font-medium mb-4">
+                Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
+                En continuant, vous acceptez notre utilisation des cookies.
+            </p>
+            <div class="flex gap-2">
+                <button onclick="acceptCookies()" class="bg-sterna-blue text-white text-xs font-bold py-2 px-6 rounded-full hover:bg-sterna-yellow hover:shadow-lg transition-all w-full md:w-auto">Accepter</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     .footer-social-btn {

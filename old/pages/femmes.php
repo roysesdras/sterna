@@ -35,7 +35,7 @@
 
             <ul>
                 <li class="mb-4">
-                    <strong>La sensibilisation sur l'hygiène alimentaire et menstruelle :</strong> Parce que la santé passe par les gestes du quotidien, nous animons des ateliers pratiques sur l'hygiène de l'eau, la conservation des aliments et la propreté corporelle. Ces formations préviennent de nombreuses maladies et améliorent durablement la qualité de vie dans les foyers ruraux.
+                    <strong>La sensibilisation sur l'hygiène alimentaire :</strong> Parce que la santé passe par les gestes du quotidien, nous animons des ateliers pratiques sur l'hygiène de l'eau, la conservation des aliments et la propreté corporelle. Ces formations préviennent de nombreuses maladies et améliorent durablement la qualité de vie dans les foyers ruraux.
                 </li>
 
                 <li class="mb-4">

@@ -30,7 +30,7 @@
             </p>  
 
             <p class="text-lg leading-relaxed mb-4">
-                Cet engagement se traduit concrètement à travers des programmes phares conçus pour dynamiser le quotidien des jeunes : 
+                Cet engagement se traduit concrètement à travers des programmes phares conçus pour dynamiser le quotidien des enfants : 
             </p>
             <ul>
                 <li class="mb-4"><strong>Educ'Moi</strong> : Notre initiative dédiée au soutien à l'éducation et à l'apprentissage. À travers des sessions de mentorat, des ateliers de lecture et un accompagnement de proximité, nous luttons contre le décrochage scolaire et offrons aux enfants les clés indispensables pour réussir leur parcours éducatif.

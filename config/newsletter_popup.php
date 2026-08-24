@@ -2,6 +2,9 @@
 <div id="popup-newsletter" class="popup-overlay">
     <div class="popup">
         <button class="close-btn" onclick="closePopup()">×</button>
+        <div style="display: flex; justify-content: center; margin-top: -30px; margin-bottom: 10px;">
+            <img src="https://i.postimg.cc/fL7z8sKy/Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte" style="height: 120px; object-fit: contain; z-index: 10; position: relative;">
+        </div>
         <h1 class="popup-title" style="color:#000;">Restez Informé !</h1>
         <form id="newsletter-form" class="flex-form">
             <input class="email-input" type="email" id="email" name="email" placeholder="Votre adresse e-mail" required>
@@ -22,7 +25,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.715);/* Assombrissement plus intense */
+        background: rgba(246, 243, 243, 0.96);/* Assombrissement plus intense */
         display: none; /* Masqué par défaut */
         justify-content: center;
         align-items: center;
@@ -139,7 +142,7 @@
         document.body.classList.remove('no-scroll');
     }
 
-    setTimeout(showPopup, 15000); // Affiche la popup après 5 secondes
+    setTimeout(showPopup, 5000); // Affiche la popup après 5 secondes
 
     // Gestion de la soumission du formulaire via AJAX
     document.getElementById('newsletter-form').addEventListener('submit', function(e) {

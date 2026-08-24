@@ -41,6 +41,24 @@ if ($result_actualites->num_rows > 0) {
 <?php include __DIR__ . '/config/head.php'; ?>
 
 <body class="bg-gray-100 font-sans text-gray-800">
+    
+    <!-- Preloader Mascotte Sterna -->
+    <div id="sterna-preloader" class="fixed inset-0 z-[99999] bg-white flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
+        <img src="https://i.postimg.cc/26dk0Yw3/Whats-App-Image-2026-08-15-at-5-15-14-PM-removebg-preview.png" alt="Chargement Sterna" class="w-32 h-32 md:w-40 md:h-40 object-contain animate-[bounce_1.5s_infinite] drop-shadow-xl">
+        <div class="mt-6 text-sterna-blue font-black tracking-widest uppercase text-sm md:text-base animate-pulse">Chargement...</div>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const preloader = document.getElementById('sterna-preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    preloader.style.transform = 'scale(1.1)';
+                    setTimeout(() => { preloader.style.display = 'none'; }, 700);
+                }
+            }, 800);
+        });
+    </script>
 
     <?php include __DIR__ . '/config/nav.php'; ?>
 

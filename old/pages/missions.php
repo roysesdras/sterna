@@ -2,7 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db.php';
 $recent_docs = [];
 if (isset($conn)) {
-    $res_docs = $conn->query("SELECT * FROM rapports ORDER BY created_at DESC LIMIT 4");
+    $res_docs = $conn->query("SELECT * FROM rapports ORDER BY annee DESC, created_at DESC LIMIT 4");
     if ($res_docs && $res_docs->num_rows > 0) {
         while ($row = $res_docs->fetch_assoc()) {
             $recent_docs[] = $row;
@@ -20,8 +20,11 @@ if (isset($conn)) {
             <div class="absolute inset-0 bg-gradient-to-b from-sterna-blue to-transparent opacity-90 z-10"></div>
         </div>
         <div class="container mx-auto px-6 relative z-20 text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-sterna-yellow text-sterna-blue text-xs font-bold uppercase tracking-widest mb-4">Ce que nous faisons</span>
-            <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Nos <span class="text-sterna-yellow">Missions</span></h1>
+            <!-- <span class="inline-block py-1 px-3 rounded-full bg-sterna-yellow text-sterna-blue text-xs font-bold uppercase tracking-widest mb-4 shadow-sm border border-sterna-yellow/30">Ce que nous faisons</span> -->
+            <div class="relative inline-block">
+                <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Nos <span class="text-sterna-yellow">Missions</span></h1>
+                <img src="https://i.postimg.cc/26dk0Yw3/Whats-App-Image-2026-08-15-at-5-15-14-PM-removebg-preview.png" alt="Mascotte Sterna" class="absolute -top-16 -right-24 md:-top-20 md:-right-32 w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-xl animate-[bounce_4s_infinite]">
+            </div>
             <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">S'engager pour le développement et la solidarité internationale.</p>
         </div>
     </header>
@@ -120,8 +123,8 @@ if (isset($conn)) {
     <section class="bg-sterna-yellow py-20 relative z-30">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 rounded-full bg-white text-sterna-blue text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">Ce qui nous anime</span>
-                <h2 class="text-4xl font-black text-sterna-blue">Nos <span class="text-white">Valeurs</span></h2>
+                <!-- <span class="inline-block py-1 px-3 rounded-full bg-white text-sterna-blue text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">Ce qui nous anime</span> -->
+                <h2 class="text-4xl font-black text-sterna-blue">Nos Secteurs d' <span class="text-white">Intervention</span></h2>
                 <p class="text-lg text-gray-800 mt-4 max-w-2xl mx-auto font-medium">L'éthique et la responsabilité guident nos pas au quotidien. Découvrez les quatre convictions profondes de Sterna Africa.</p>
             </div>
 
@@ -130,7 +133,7 @@ if (isset($conn)) {
                     <div class="w-16 h-16 rounded-2xl bg-pink-50 flex items-center justify-center text-pink-500 text-3xl mb-6 group-hover:bg-pink-500 group-hover:text-white transition-all">
                         <i class="fi fi-rr-heart"></i>
                     </div>
-                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Solidarité International</h3>
+                    <h3 class="text-xl font-black text-gray-900 uppercase mb-3">Solidarité internationale</h3>
                     <p class="text-gray-600 text-sm leading-relaxed font-medium">L'entraide et le soutien mutuel sont au cœur de toutes nos actions pour les communautés vulnérables.</p>
                 </div>
 
@@ -163,9 +166,12 @@ if (isset($conn)) {
 
     <section class="bg-gray-50 py-20 relative z-30">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 rounded-full bg-sterna-yellow/20 text-sterna-yellow text-xs font-bold uppercase tracking-widest mb-4 shadow-sm border border-sterna-yellow/30">Publications</span>
-                <h2 class="text-4xl font-black text-gray-900">Nos <span class="text-sterna-blue">Documents</span></h2>
+            <div class="text-center mb-16 relative">
+                <!-- <span class="inline-block py-1 px-3 rounded-full bg-sterna-yellow/20 text-sterna-yellow text-xs font-bold uppercase tracking-widest mb-4 shadow-sm border border-sterna-yellow/30">Publications</span> -->
+                <div class="relative inline-block">
+                    <h2 class="text-4xl font-black text-gray-900">Nos <span class="text-sterna-blue">Documents</span></h2>
+                    <img src="https://i.postimg.cc/HnKQ3b3p/mascort1.png" alt="Mascotte Sterna" class="absolute -top-12 -left-16 md:-top-16 md:-left-24 w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md animate-[bounce_5s_infinite]">
+                </div>
                 <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto font-medium">Consultez nos bulletins trimestriels et nos rapports annuels pour suivre l'évolution de nos projets.</p>
             </div>
 

@@ -1,31 +1,29 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db.php';
-$query_header = "SELECT image, title, description FROM actualites WHERE image != '' AND image IS NOT NULL ORDER BY end_date DESC LIMIT 6";
-$result_header = $conn->query($query_header);
-$header_images = [];
-if ($result_header) {
-    while($r = $result_header->fetch_assoc()) {
-        $header_images[] = $r;
-    }
+
+$image_urls = [];
+for ($i = 1; $i <= 15; $i++) {
+    $image_urls[] = "/assets/img/header/slide/slide_{$i}.jpeg";
 }
 
-// Fallback si pas d'image
-if (empty($header_images)) {
+// Mélanger le tableau de façon aléatoire
+shuffle($image_urls);
+
+// On ne sélectionne que 6 images au hasard pour de meilleures performances
+$image_urls = array_slice($image_urls, 0, 6);
+
+$header_images = [];
+foreach ($image_urls as $url) {
     $header_images[] = [
-        'image' => 'https://i.ibb.co/MD9zmRRC/1755464569925.jpg', 
-        'title' => 'Sterna Africa',
+        'image' => $url,
+        'title' => 'Sterna Africa Action',
         'description' => 'Nous sommes partout où le besoin se fait sentir. Rejoignez notre mouvement pour construire un avenir meilleur.'
     ];
 }
 
-// Préparer les descriptions pour le JS
 $descriptions_js = [];
 foreach($header_images as $item) {
-    $desc = isset($item['description']) && !empty(trim($item['description'])) 
-            ? strip_tags(html_entity_decode($item['description'])) 
-            : 'Nous sommes partout où le besoin se fait sentir. Rejoignez notre mouvement pour construire un avenir meilleur.';
-    // Garder seulement environ 120 caractères pour que ça reste beau
-    $desc = mb_strlen($desc) > 120 ? mb_substr($desc, 0, 120) . '...' : $desc;
+    $desc = $item['description'];
     $descriptions_js[] = json_encode(trim(preg_replace('/\s+/', ' ', $desc)));
 }
 ?>
@@ -33,13 +31,11 @@ foreach($header_images as $item) {
     <!-- Container des slides -->
     <div id="hero-slider" class="absolute inset-0 w-full h-full">
         <?php foreach($header_images as $index => $item): ?>
-            <?php 
-                $img_url = (filter_var($item['image'], FILTER_VALIDATE_URL)) ? $item['image'] : "/images/" . $item['image'];
-            ?>
             <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out <?php echo $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'; ?>" data-index="<?php echo $index; ?>">
-                <img src="<?php echo htmlspecialchars($img_url); ?>" 
+                <img src="<?php echo htmlspecialchars($item['image']); ?>" 
                      alt="<?php echo htmlspecialchars($item['title']); ?>"
-                     class="w-full h-full object-cover transform scale-105 transition-transform duration-[10000ms] ease-out">
+                     class="w-full h-full object-cover transform scale-105 transition-transform duration-[10000ms] ease-out"
+                     <?php if ($index > 0) echo 'loading="lazy"'; ?>>
                 
                 <!-- Overlay Dégradé (Noir/Bleu profond vers transparent) pour lisibilité -->
                 <div class="absolute inset-0 bg-gradient-to-r from-[#0f277e]/90 via-[#0f277e]/50 to-transparent"></div>
@@ -50,7 +46,7 @@ foreach($header_images as $item) {
     </div>
 
     <!-- Contenu Texte (Fixe par dessus le slider) -->
-    <div class="relative z-20 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pointer-events-none pt-20">
+    <div class="relative z-20 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pointer-events-none pt-10">
         <div class="max-w-3xl pointer-events-auto">
             <!-- Petit badge ou ligne au dessus -->
             <div class="flex items-center gap-4 mb-6">
@@ -63,9 +59,9 @@ foreach($header_images as $item) {
                 <span class="text-4xl md:text-6xl text-gray-200">WHEREVER NEEDED</span>
             </h1>
 
-            <p id="dynamic-desc-text" class="text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed font-light max-w-2xl text-shadow-sm transition-opacity duration-300">
+            <!-- <p id="dynamic-desc-text" class="text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed font-light max-w-2xl text-shadow-sm transition-opacity duration-300">
                 <?php echo json_decode($descriptions_js[0]); ?>
-            </p>
+            </p> -->
 
             <div class="flex flex-wrap gap-4">
                 <a href="/a-propos/" class="bg-[#ea750fff] hover:bg-[#c7620a] text-white font-bold py-3 px-4 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-[#ea750fff]/30">
