@@ -18,8 +18,8 @@ if ($res_projets && $res_projets->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal de Bord : Sterna Africa</title>
     <!-- Favicons -->
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="apple-touch-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>

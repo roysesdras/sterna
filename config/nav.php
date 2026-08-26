@@ -48,7 +48,7 @@ if (isset($conn)) {
 
         <div class="flex items-center shrink-0 cursor-pointer group">
             <div class="transition-transform group-hover:scale-105 duration-300">
-                <a href="/"><img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Logo sterna africa" class="h-14 md:h-14 w-auto object-contain"></a>
+                <a href="/"><img src="/assets/img/external/84e554fe99_sternaofficiel-2.png" alt="Logo sterna africa" class="h-14 md:h-14 w-auto object-contain"></a>
             </div>
         </div>
 

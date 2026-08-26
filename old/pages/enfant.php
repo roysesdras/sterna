@@ -6,7 +6,7 @@
     <header class="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden bg-sterna-blue">
         <div class="absolute inset-0">
             <!-- Image de fond -->
-            <img src="https://i.postimg.cc/mD1tcTxK/stafrica3.jpg" alt="Enfants" class="w-full h-full object-cover opacity-60 mix-blend-luminosity">
+            <img src="/assets/img/external/f5adb3cec9_stafrica3.jpg" alt="Enfants" class="w-full h-full object-cover opacity-60 mix-blend-luminosity">
             <!-- Surcouche bleue et dégradé -->
             <div class="absolute inset-0 bg-sterna-blue/60 mix-blend-multiply"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-sterna-blue via-sterna-blue/80 to-transparent z-10"></div>
@@ -60,7 +60,7 @@
                     </style>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.postimg.cc/cL39cnQj/stafrica.jpg" alt="Action Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/b67ac83b9b_stafrica.jpg" alt="Action Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
@@ -68,7 +68,7 @@
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.postimg.cc/SKMzq6zv/bj-JMDE.jpg" alt="Action Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/c41b9416c0_bj-JMDE.jpg" alt="Action Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.ibb.co/6cZGNH7z/1755588034707.jpg" alt="Action Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/c2253103c9_1755588034707.jpg" alt="Action Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                 </div>
 

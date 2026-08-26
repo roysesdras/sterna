@@ -184,8 +184,8 @@ if ($result->num_rows > 0) {
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
-        <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
+        <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="icon">
+        <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="apple-touch-icon">
 
         <!-- <link rel="stylesheet" href="../assets/styles.css"> -->
 

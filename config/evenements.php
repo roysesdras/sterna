@@ -39,7 +39,7 @@
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
                         <div class="h-48 overflow-hidden relative">
                             <div class="absolute inset-0 bg-green-500/20 group-hover:bg-transparent transition-colors z-10"></div>
-                            <img src="https://i.postimg.cc/Hxb3wDXv/tripo.jpg" alt="Festival Alimenterre" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <img src="/assets/img/external/8af62ae0b3_tripo.jpg" alt="Festival Alimenterre" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             <span class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-green-600 uppercase tracking-widest shadow-md">Alimentation & Climat</span>
                         </div>
                         <div class="p-6">
@@ -57,7 +57,7 @@
                     <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
                         <div class="h-48 overflow-hidden relative">
                             <div class="absolute inset-0 bg-orange-500/20 group-hover:bg-transparent transition-colors z-10"></div>
-                            <img src="https://i.postimg.cc/cL39cnQj/stafrica.jpg" alt="Festival des Solidarités" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <img src="/assets/img/external/b67ac83b9b_stafrica.jpg" alt="Festival des Solidarités" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             <span class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-orange-500 uppercase tracking-widest shadow-md">Engagement Citoyen</span>
                         </div>
                         <div class="p-6">

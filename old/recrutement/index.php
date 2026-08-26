@@ -19,7 +19,7 @@
     <link href="../assets/img/favicon1.png" rel="icon">
     <link href="../assets/img/apple-touch-icon1.png" rel="apple-touch-icon">
     <!-- meta for og.graph -->
-    <meta property="og:image" content="https://i.postimg.cc/VL8wG9Qk/recrute.jpg" />
+    <meta property="og:image" content="/assets/img/external/64eceb841e_recrute.jpg" />
     <meta property="og:url" content="https://sternaafrica.org/recrutement/" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="sternaafrica" />
@@ -85,7 +85,7 @@
 
                 <p class="text-warning"><b>NB :</b> Tous les champs de ce formulaire sont obligatoires. N’oubliez pas de précéder votre numéro WhatsApp par l’indicatif de votre pays. Merci.</p>
                 <form action="./traitement_form.php" method="post" enctype="multipart/form-data" class="shadow p-2 mb-3 rounded">
-                    <img src="https://i.postimg.cc/VL8wG9Qk/recrute.jpg"
+                    <img src="/assets/img/external/64eceb841e_recrute.jpg"
                         alt="benevol-image" class="w-100 rounded">
 
                     <!-- Champ pour uploader une image -->

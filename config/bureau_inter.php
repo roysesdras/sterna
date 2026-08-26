@@ -1,193 +1,184 @@
-<section class="overflow-hidden" id="equipe">
+<section class="py-6" id="equipe">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
-
-    <div class="team-scroll-container">
-        <div class="team-track">
+        <!-- Membre 1 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/nhHB3JZB/MADRICK.png" alt="Madrick" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_9.png" alt="Membre 1" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Madrick</p>
+                    <p class="name">Madrick TONAKAMBIO</p>
                     <p class="role">Président Fondateur</p>
                 </div>
             </div>
 
+            <!-- Membre 2 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/NFmmzG57/HERMINE.png" alt="Hermine" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_1.png" alt="Membre 2" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Hermine</p>
+                    <p class="name">Hermine AGBODAMAKOU</p>
                     <p class="role">Secrétaire Générale</p>
                 </div>
             </div>
 
+            <!-- Membre 3 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/sDCpZWNn/ISMAEL.png" alt="Ismael" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_10.png" alt="Membre 3" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Ismael</p>
+                    <p class="name">Mireille Vianney TEMOE</p>
+                    <p class="role">Trésorière Générale</p>
+                </div>
+            </div>
+
+            <!-- Membre 4 -->
+            <div class="team-card group">
+                <div class="image-wrapper">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_7.png" alt="Membre 4" class="team-img">
+                </div>
+                <div class="team-info">
+                    <p class="name">Ismael OUATARA</p>
                     <p class="role">Chargé des relations extérieurs</p>
                 </div>
             </div>
 
+            <!-- Membre 5 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/ZYd8RHVB/GRACE.png" alt="Grace" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_6.png" alt="Membre 5" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Grace</p>
-                    <p class="role">Directrice Executive CI</p>
+                    <p class="name">Ulriche Yapi ESSE</p>
+                    <p class="role">Responsable des Volontaires</p>
                 </div>
             </div>
 
+            <!-- Membre 6 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/VL9X96yz/ARNOULD.png" alt="Arnould" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_2.png" alt="Membre 6" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Arnould</p>
-                    <p class="role">Directeur Exécutif BJ</p>
-                </div>
-            </div>
-
-            <div class="team-card group">
-                <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/DzNGf4GP/SOUWE.png" alt="Souwe" class="team-img">
-                </div>
-                <div class="team-info">
-                    <p class="name">Souwebath</p>
-                    <p class="role">Coordinatrice Nationale FR</p>
-                </div>
-            </div>
-
-            <div class="team-card group">
-                <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/bvrbj9Zv/KONATE.png" alt="Konate" class="team-img">
-                </div>
-                <div class="team-info">
-                    <p class="name">Konaté</p>
-                    <p class="role">Coordinateur National BF</p>
+                    <p class="name">Grâce Naomi KOUAME</p>
+                    <p class="role">Directrice Executive Côte d'Ivoire</p>
                 </div>
             </div>
             
+            <!-- Membre 7 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/rmtrDyCX/VIANNEY.png" alt="Vianney" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_4.png" alt="Membre 7" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Vianney</p>
-                    <p class="role">Trésoriere générale</p>
+                    <p class="name">Arlould BOGNON</p>
+                    <p class="role">Directeur Executif Bénin</p>
                 </div>
             </div>
 
+            <!-- Membre 8 -->
             <div class="team-card group">
                 <div class="image-wrapper">
-                    <img src="https://i.postimg.cc/P52ZcRrc/ULRICH.png" alt="Ulrich" class="team-img">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_3.png" alt="Membre 8" class="team-img">
                 </div>
                 <div class="team-info">
-                    <p class="name">Ulrich</p>
-                    <p class="role">Resp. Volontaires</p>
+                    <p class="name">Julie AMEGBOR</p>
+                    <p class="role">Coordinatrice Sterna Africa TOGO</p>
                 </div>
             </div>
+
+            <!-- Membre 9 -->
+            <div class="team-card group">
+                <div class="image-wrapper">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_5.png" alt="Membre 9" class="team-img">
+                </div>
+                <div class="team-info">
+                    <p class="name">Mathilde Théau-Audin</p>
+                    <p class="role">Chargée de mission Sterna Africa Bordeaux</p>
+                </div>
+            </div>
+
+            <!-- Membre 10 -->
+            <div class="team-card group">
+                <div class="image-wrapper">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/bureau_membre_8.png" alt="Membre 10" class="team-img">
+                </div>
+                <div class="team-info">
+                    <p class="name">Souwébath ASHANTI</p>
+                    <p class="role">Coordinatrice nationale France</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
 <style>
-    .team-scroll-container {
-        position: relative;
-        width: 100%;
-        /* Effet de fondu sur les bords pour le mode clair */
-        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    }
-
-    .team-track {
-        display: flex;
-        gap: 20px;
-        width: max-content;
-        animation: scrollTeam 50s linear infinite;
-        padding: 20px 0;
-    }
-
     .team-card {
-        flex: 0 0 auto;
-        width: 250px;
         text-align: center;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .image-wrapper {
         width: 100%;
-        aspect-ratio: 4/5;
-        border-radius: 30px;
+        aspect-ratio: 1 / 1;
+        border-radius: 10px; /* Forme carrée avec coins arrondis à 10px */
         overflow: hidden;
-        background: #f8fafc;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        margin-bottom: 15px;
-        transition: all 0.4s ease;
+        /* background: rgba(255, 255, 255, 0.08); /* Effet verre transparent pour s'adapter au fond bleu */
+        /* border: 1px solid rgba(255, 255, 255, 0.15); */
+        /* backdrop-filter: blur(4px); */
+        /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); */
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        transition: all 0.35s ease;
     }
 
     .team-img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        /* Les photos sont colorées mais douces */
-        filter: saturate(0.8);
-        transition: all 0.4s ease;
+        object-fit: contain; /* Conserve le détourage sans fond et les proportions sans déformation */
+        transition: transform 0.35s ease;
     }
 
     .team-info .name {
-        font-size: 16px;
-        font-weight: 900;
-        color: #0f277e; /* urunani-blue */
+        font-size: 15px;
+        font-weight: 800;
+        color: #ffffff; /* Texte blanc lisible sur fond bleu */
         text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 4px;
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
     }
 
     .team-info .role {
-        font-size: 11px;
-        font-weight: 700;
-        color: #94a3b8;
+        font-size: 12px;
+        font-weight: 600;
+        color: #cbd5e1; /* Gris bleu clair lisible sur fond bleu */
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.4px;
     }
 
-    /* Hover effects */
+    /* --- EFFETS ET COULEURS AU SURVOL (HOVER) --- */
     .team-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-6px);
     }
 
     .team-card:hover .image-wrapper {
-        box-shadow: 0 20px 40px rgba(15, 39, 126, 0.15);
-        border: 2px solid #ea750fff; /* urunani-rose pour l'accent */
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+        border-color: #ea750f;                  /* <-- MODIFIER ICI : Couleur de la bordure au survol */
+        background: rgba(236, 219, 154, 0.12); /* <-- MODIFIER ICI : Couleur/transparence du fond au survol */
+    }
+
+    .team-card:hover .name {
+        color: #facc15;                         /* <-- MODIFIER ICI : Couleur du nom/texte au survol */
     }
 
     .team-card:hover .team-img {
-        filter: saturate(1.1);
         transform: scale(1.05);
     }
-
-    @keyframes scrollTeam {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
-    }
-
-    .team-track:hover {
-        animation-play-state: paused;
-    }
 </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const track = document.querySelector(".team-track");
-        if (track) {
-            const clone = track.innerHTML;
-            track.innerHTML += clone; // Duplication pour le scroll infini
-        }
-    });
-</script>

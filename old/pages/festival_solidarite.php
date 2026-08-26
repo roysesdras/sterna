@@ -115,7 +115,7 @@
                     <!-- Action Bénin -->
                     <div class="flex flex-col md:flex-row gap-6 items-start p-2 rounded-2xl">
                         <div class="w-full md:w-1/3 flex-shrink-0">
-                            <img src="https://i.postimg.cc/ncdNcjxT/Noir-Jaune1-Photoroom.png" alt="Sterna Bénin" class="w-full h-auto rounded-xl">
+                            <img src="/assets/img/external/9a2ed9c51c_Noir-Jaune1-Photoroom.png" alt="Sterna Bénin" class="w-full h-auto rounded-xl">
                         </div>
                         <div class="w-full md:w-2/3">
                             <h4 class="text-xl font-bold text-gray-900 mb-2">Au Bénin</h4>

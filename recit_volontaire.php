@@ -52,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 $target_path = $target_dir . $filename;
                 if (move_uploaded_file($_FILES['photo_volontaire']['tmp_name'], $target_path)) {
+                    require_once __DIR__ . '/config/image_helper.php';
+                    compress_uploaded_image($target_path);
                     $photo_volontaire_path = '/uploads/pont_solidaire/' . $filename;
                 }
             }
@@ -73,6 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $exp_target_dir = __DIR__ . '/uploads/pont_solidaire/';
                             $exp_target_path = $exp_target_dir . $exp_filename;
                             if (move_uploaded_file($_FILES['images_experience']['tmp_name'][$i], $exp_target_path)) {
+                                require_once __DIR__ . '/config/image_helper.php';
+                                compress_uploaded_image($exp_target_path);
                                 $experience_images[] = '/uploads/pont_solidaire/' . $exp_filename;
                             }
                         }

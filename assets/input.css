@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sterna-blue: #034890;
+  --color-sterna-yellow: #e4a60aff;
+  --color-sterna-green: #eaf0edff;
+  --font-sans: Quicksand, sans-serif;
+}

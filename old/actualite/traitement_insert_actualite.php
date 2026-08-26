@@ -29,22 +29,15 @@ if (isset($_POST['submit'])) {
 
         // Vérifier le type et la taille du fichier
         $imageFileType = strtolower(pathinfo($target, PATHINFO_EXTENSION));
-        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
-
-        // NOUVELLE LIMITE : 800 Ko
-        $maxFileSize = 800 * 1024;
-
-        if (in_array($imageFileType, $allowedTypes) && $_FILES['image']['size'] <= $maxFileSize) {
-            if (!move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        if (in_array($imageFileType, $allowedTypes)) {
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                require_once $_SERVER['DOCUMENT_ROOT'] . '/config/image_helper.php';
+                compress_uploaded_image($target);
+            } else {
                 die("Erreur lors du téléchargement de l'image.");
             }
         } else {
-            // Message d'erreur plus précis pour l'utilisateur
-            if ($_FILES['image']['size'] > $maxFileSize) {
-                die("Fichier trop lourd (Maximum 800 Ko).");
-            } else {
-                die("Type de fichier non pris en charge.");
-            }
+            die("Type de fichier non pris en charge (formats acceptés: JPG, PNG, GIF).");
         }
     } else {
         $image = NULL;

@@ -45,6 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_img = $target_dir . $img_name;
         
         if (move_uploaded_file($_FILES["cover_file"]["tmp_name"], $target_img)) {
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/config/image_helper.php';
+            compress_uploaded_image($target_img);
             $cover_image = "/uploads/rapports/" . $img_name;
         }
     }

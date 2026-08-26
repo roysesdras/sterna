@@ -121,14 +121,12 @@ if ($result_pont && $result_pont->num_rows > 0) {
 
                                 <!-- Image & Profil -->
                                 <div class="relative mb-5 overflow-hidden rounded-2xl h-64 bg-gray-900 flex items-center justify-center">
-                                    <!-- Image Floue de fond pour remplir l'espace -->
-                                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>" 
-                                         class="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" aria-hidden="true">
-                                         
-                                    <!-- Image Principale Entière (non coupée) -->
-                                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>" 
+                                    <!-- Image Principale Entière (non coupée) avec Lazy Loading -->
+                                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>?v=<?php echo @filemtime($_SERVER['DOCUMENT_ROOT'] . $volontaire['photo_volontaire']); ?>" 
                                          alt="<?php echo htmlspecialchars($volontaire['nom_complet']); ?>" 
-                                         class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                                         loading="lazy"
+                                         decoding="async"
+                                         class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
                                          
                                     <div class="absolute inset-0 z-20 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
                                     <div class="absolute z-30 bottom-3 left-3 right-3 text-white pointer-events-none">

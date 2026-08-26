@@ -37,8 +37,8 @@ $project_id = $project['id'] ?? null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Journée | Cahier d’Or</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="apple-touch-icon">
     <style>
         .image-preview {
             max-height: 200px;

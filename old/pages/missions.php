@@ -23,7 +23,7 @@ if (isset($conn)) {
             <!-- <span class="inline-block py-1 px-3 rounded-full bg-sterna-yellow text-sterna-blue text-xs font-bold uppercase tracking-widest mb-4 shadow-sm border border-sterna-yellow/30">Ce que nous faisons</span> -->
             <div class="relative inline-block">
                 <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Nos <span class="text-sterna-yellow">Missions</span></h1>
-                <img src="https://i.postimg.cc/26dk0Yw3/Whats-App-Image-2026-08-15-at-5-15-14-PM-removebg-preview.png" alt="Mascotte Sterna" class="absolute -top-16 -right-24 md:-top-20 md:-right-32 w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-xl animate-[bounce_4s_infinite]">
+                <img src="/assets/img/external/cd698b6f73_Whats-App-Image-2026-08-15-at-5-15-14-PM-removebg-preview.png" alt="Mascotte Sterna" class="absolute -top-16 -right-24 md:-top-20 md:-right-32 w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-xl animate-[bounce_4s_infinite]">
             </div>
             <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">S'engager pour le développement et la solidarité internationale.</p>
         </div>
@@ -170,7 +170,7 @@ if (isset($conn)) {
                 <!-- <span class="inline-block py-1 px-3 rounded-full bg-sterna-yellow/20 text-sterna-yellow text-xs font-bold uppercase tracking-widest mb-4 shadow-sm border border-sterna-yellow/30">Publications</span> -->
                 <div class="relative inline-block">
                     <h2 class="text-4xl font-black text-gray-900">Nos <span class="text-sterna-blue">Documents</span></h2>
-                    <img src="https://i.postimg.cc/HnKQ3b3p/mascort1.png" alt="Mascotte Sterna" class="absolute -top-12 -left-16 md:-top-16 md:-left-24 w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md animate-[bounce_5s_infinite]">
+                    <img src="/assets/img/external/478a9bc9cc_mascort1.png" alt="Mascotte Sterna" class="absolute -top-12 -left-16 md:-top-16 md:-left-24 w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md animate-[bounce_5s_infinite]">
                 </div>
                 <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto font-medium">Consultez nos bulletins trimestriels et nos rapports annuels pour suivre l'évolution de nos projets.</p>
             </div>

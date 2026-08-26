@@ -31,7 +31,7 @@
             <div class="snap-start flex-none w-[300px] md:w-[350px] group">
                 <a href="https://france-volontaires.org/actualite/temoignage/dominique-et-patrice-retraites-et-engages-dans-un-chantier-de-solidarite-internationale/" target="_blank" class="block bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://i.postimg.cc/ydTmppJp/5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
+                        <img src="/assets/img/external/55139108e3_5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
                         <span class="absolute top-4 left-4 bg-white/50 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-urunani-blue uppercase tracking-widest shadow-md">France Volontaires</span>
                     </div>
                     <div class="p-6">
@@ -46,7 +46,7 @@
             <div class="snap-start flex-none w-[300px] md:w-[350px] group">
                 <a href="https://france-volontaires.org/actualite/temoignage/samantha-benevole-dans-une-association-defendant-les-droits-des-enfants-en-cote-divoire/" target="_blank" class="block bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://i.postimg.cc/ydTmppJp/5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
+                        <img src="/assets/img/external/55139108e3_5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
                         <span class="absolute top-4 left-4 bg-white/50 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-blue-600 uppercase tracking-widest shadow-md">Témoignage</span>
                     </div>
                     <div class="p-6">
@@ -61,7 +61,7 @@
             <div class="snap-start flex-none w-[300px] md:w-[350px] group">
                 <a href="https://www.gralon.net/mairies-france/rhone/association-sterna-africa-villeurbanne_W691109313.htm" target="_blank" class="block bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://i.postimg.cc/ydTmppJp/5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
+                        <img src="/assets/img/external/55139108e3_5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
                         <span class="absolute top-4 left-4 bg-white/50 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-urunani-keppel uppercase tracking-widest shadow-md">Gralon</span>
                     </div>
                     <div class="p-6">
@@ -76,7 +76,7 @@
             <div class="snap-start flex-none w-[300px] md:w-[350px] group">
                 <a href="https://www.radsi.org/rencontres-sterna-africa-2025" target="_blank" class="block bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://i.postimg.cc/ydTmppJp/5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
+                        <img src="/assets/img/external/55139108e3_5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
                         <span class="absolute top-4 left-4 bg-white/50 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-orange-500 uppercase tracking-widest shadow-md">RADSI 2025</span>
                     </div>
                     <div class="p-6">
@@ -91,7 +91,7 @@
             <div class="snap-start flex-none w-[300px] md:w-[350px] group">
                 <a href="https://www.festivaldessolidarites.org/acteurs/association-sterna-africa-14830/" target="_blank" class="block bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="https://i.postimg.cc/ydTmppJp/5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
+                        <img src="/assets/img/external/55139108e3_5.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Presse">
                         <span class="absolute top-4 left-4 bg-white/50 backdrop-blur-sm text-[10px] font-black px-3 py-1 rounded-full text-urunani-rose uppercase tracking-widest shadow-md">Festisol</span>
                     </div>
                     <div class="p-6">

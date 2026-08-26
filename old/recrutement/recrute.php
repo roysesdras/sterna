@@ -302,7 +302,7 @@
                         <button type="submit" class="btn btn-primary">Soumettre</button>
                     </div>
 
-                    <img src="https://i.postimg.cc/8c4NDxST/les-sternes-8.jpg" alt="benevol" class="w-100 rounded">
+                    <img src="/assets/img/external/0697d8e6ab_les-sternes-8.jpg" alt="benevol" class="w-100 rounded">
                 </form>
             </div>
             <div class="col-md-3"></div>

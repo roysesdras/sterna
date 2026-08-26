@@ -65,19 +65,19 @@
                     </style>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.ibb.co/BVDqzd1f/1755595519748.jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/2a03bb076a_1755595519748.jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.postimg.cc/1z47xh90/Screenshot-20251031-111839-Linked-In.jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/1986b3408c_Screenshot-20251031-111839-Linked-In.jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.postimg.cc/kXYt6C4q/Whats-App-Image-2025-03-23-at-3-34-34-AM(2).jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/637fa1765c_Whats-App-Image-2025-03-23-at-3-34-34-AM_2_.jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
 
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.postimg.cc/qv9hwGyF/Whats-App-Image-2025-03-23-at-3-34-34-AM(1).jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/502401f8be_Whats-App-Image-2025-03-23-at-3-34-34-AM_1_.jpg" alt="Action jeunes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                 </div>
 

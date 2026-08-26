@@ -11,7 +11,7 @@
         content="Au-delà des frontières : une plongée au cœur du partenariat Nord-Sud. Sterna Africa et le Réseau Urunani vous invitent à redécouvrir le sens du mot solidarité." />
     <meta property="og:title" content="Comprendre les relations Nord et Sud - SternaAfrica" />
     <meta property="og:description" content="Au-delà des frontières : une plongée au cœur du partenariat Nord-Sud. Sterna Africa et Réseau Urunani vous invitent à redécouvrir le sens du mot solidarité." />
-    <meta property="og:image" content="https://i.postimg.cc/Hknsc3mW/Screenshot_20251203_144852_Gallery_(1).jpg" />
+    <meta property="og:image" content="/assets/img/external/c8bf49feb5_Screenshot_20251203_144852_Gallery__1_.jpg" />
     <meta property="og:url" content="https://sternaafrica.org/nord-sud-relation/" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="sternaafrica" />

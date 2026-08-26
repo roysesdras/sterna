@@ -14,15 +14,15 @@
         <div id="infographics-carousel" class="flex overflow-x-auto gap-6 md:gap-10 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth px-6 py-4">
             
             <div class="shrink-0 w-[85%] md:w-[70%] lg:w-[60%] snap-center flex justify-center mx-auto">
-                <img src="https://i.postimg.cc/J0k9g4BM/Whats-App-Image-2026-08-13-at-11-54-14-AM.jpg" alt="Infographie 1" class="w-full h-auto rounded-3xl">
+                <img loading="lazy" decoding="async" src="/assets/img/external/9af343c8df_Whats-App-Image-2026-08-13-at-11-54-14-AM.jpg" alt="Infographie 1" class="w-full h-auto rounded-3xl">
             </div>
             
             <div class="shrink-0 w-[85%] md:w-[70%] lg:w-[60%] snap-center flex justify-center mx-auto">
-                <img src="https://i.postimg.cc/tC3D7V3p/Whats-App-Image-2026-08-13-at-11-54-20-AM.jpg" alt="Infographie 2" class="w-full h-auto rounded-3xl">
+                <img loading="lazy" decoding="async" src="/assets/img/external/cd5daeec73_Whats-App-Image-2026-08-13-at-11-54-20-AM.jpg" alt="Infographie 2" class="w-full h-auto rounded-3xl">
             </div>
 
             <div class="shrink-0 w-[85%] md:w-[70%] lg:w-[60%] snap-center flex justify-center mx-auto">
-                <img src="https://i.postimg.cc/Rh3QMWMS/Whats-App-Image-2026-08-13-at-11-54-18-AM.jpg" alt="Infographie 3" class="w-full h-auto rounded-3xl">
+                <img loading="lazy" decoding="async" src="/assets/img/external/499f59a408_Whats-App-Image-2026-08-13-at-11-54-18-AM.jpg" alt="Infographie 3" class="w-full h-auto rounded-3xl">
             </div>
 
         </div>

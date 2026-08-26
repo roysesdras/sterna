@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $fileName = time() . '_' . $fileName;
             
             if (move_uploaded_file($tmpName, $uploadDir . $fileName)) {
+                require_once $_SERVER['DOCUMENT_ROOT'] . '/config/image_helper.php';
+                compress_uploaded_image($uploadDir . $fileName);
                 return $fileName;
             }
         }

@@ -55,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Admin - Cahier d'Or</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Favicons -->
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="apple-touch-icon">
 </head>
 
 <body class="bg-gray-900 min-h-screen flex items-center justify-center text-white flex flex-col">

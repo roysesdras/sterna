@@ -4,7 +4,7 @@
 
         <div class="newsletter-container">
             <div style="display: flex; justify-content: center; margin-top: -30px; margin-bottom: 10px;">
-                <img src="https://i.postimg.cc/fL7z8sKy/Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte" style="height: 120px; object-fit: contain; z-index: 10; position: relative;">
+                <img src="/assets/img/external/8497d6acd9_Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte" style="height: 120px; object-fit: contain; z-index: 10; position: relative;">
             </div>
             <h4>Newsletter Exclusive</h4>
             <p class="description">Restez informé avant tout le monde ! Nos exclusivités, directement dans votre boîte mail.</p>

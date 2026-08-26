@@ -30,8 +30,8 @@ $page_url = isset($page_url) ? $page_url : "https://sternaafrica.org" . $_SERVER
     <meta name="twitter:description" content="<?php echo htmlspecialchars($page_desc); ?>">
     <meta name="twitter:image" content="<?php echo htmlspecialchars($page_image); ?>">
 
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="apple-touch-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

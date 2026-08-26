@@ -40,8 +40,10 @@ if (isset($_POST['submit'])) {
         $allowedTypes = array('jpg', 'jpeg', 'png', 'gif', 'webp');
         $maxFileSize = 2000 * 1024; // 2 MB
 
-        if (in_array($ext, $allowedTypes) && $_FILES['image']['size'] <= $maxFileSize) {
+        if (in_array($ext, $allowedTypes)) {
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                require_once $_SERVER['DOCUMENT_ROOT'] . '/config/image_helper.php';
+                compress_uploaded_image($target);
                 $image_to_save = $new_image_name; // Mettre à jour avec la nouvelle image
                 // Optionnel: Supprimer l'ancienne image si elle existe
                 if (!empty($row_img['image']) && file_exists("../../images/" . $row_img['image'])) {
@@ -51,11 +53,7 @@ if (isset($_POST['submit'])) {
                 die("Erreur lors du téléchargement de la nouvelle image.");
             }
         } else {
-            if ($_FILES['image']['size'] > $maxFileSize) {
-                die("Fichier trop lourd (Maximum 2 Mo).");
-            } else {
-                die("Type de fichier non pris en charge.");
-            }
+            die("Type de fichier non pris en charge.");
         }
     }
 

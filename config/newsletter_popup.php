@@ -3,7 +3,7 @@
     <div class="popup">
         <button class="close-btn" onclick="closePopup()">×</button>
         <div style="display: flex; justify-content: center; margin-top: -30px; margin-bottom: 10px;">
-            <img src="https://i.postimg.cc/fL7z8sKy/Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte" style="height: 120px; object-fit: contain; z-index: 10; position: relative;">
+            <img src="/assets/img/external/8497d6acd9_Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte" style="height: 120px; object-fit: contain; z-index: 10; position: relative;">
         </div>
         <h1 class="popup-title" style="color:#000;">Restez Informé !</h1>
         <form id="newsletter-form" class="flex-form">

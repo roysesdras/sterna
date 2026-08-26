@@ -45,7 +45,7 @@ if ($result_projets) {
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-sterna-blue">
         <div class="absolute inset-0">
             <!-- Image de fond floutée et assombrie -->
-            <img src="https://sternaafrica.org/images/garde.jpg" alt="Fond Sterna" class="w-full h-full object-cover opacity-20 scale-105">
+            <img loading="lazy" decoding="async" src="https://sternaafrica.org/images/garde.jpg" alt="Fond Sterna" class="w-full h-full object-cover opacity-20 scale-105">
             <div class="absolute inset-0 bg-gradient-to-t from-sterna-blue to-transparent"></div>
         </div>
         <div class="container mx-auto px-6 relative z-10 text-center">
@@ -99,7 +99,7 @@ if ($result_projets) {
 
         <!-- Mission & Vision -->
         <div class="container mx-auto mb-6 md:mb-20 p-4 md:p-0">
-            <img src="https://i.postimg.cc/J0k9g4BM/Whats-App-Image-2026-08-13-at-11-54-14-AM.jpg" alt="" class="rounded-3xl w-full h-auto  md:h-[450px] object-contain md:object-cover shadow-lg">
+            <img loading="lazy" decoding="async" src="/assets/img/external/9af343c8df_Whats-App-Image-2026-08-13-at-11-54-14-AM.jpg" alt="" class="rounded-3xl w-full h-auto  md:h-[450px] object-contain md:object-cover shadow-lg">
         </div>
 
         <!-- Relation Nord-Sud -->
@@ -133,45 +133,19 @@ if ($result_projets) {
                 
                 <div class="flex-1 relative">
                     <div class="absolute inset-0 bg-sterna-yellow rounded-3xl transform translate-x-4 translate-y-4"></div>
-                    <img src="https://i.ibb.co/MD9zmRRC/1755464569925.jpg" alt="Relation Nord Sud" class="relative z-10 w-full h-[400px] object-cover rounded-3xl shadow-xl">
+                    <img loading="lazy" decoding="async" src="/assets/img/external/c91b232b72_1755464569925.jpg" alt="Relation Nord Sud" class="relative z-10 w-full h-[400px] object-cover rounded-3xl shadow-xl">
                 </div>
             </div>
         </section>
 
         <!-- L'Équipe -->
-        <section class="bg-sterna-yellow py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-2"><strong>L'Équipe Dirigeante</strong></h2>
-                <p class="text-gray-500 max-w-2xl mx-auto mb-16 text-lg">Des hommes et des femmes engagés au quotidien pour faire rayonner la solidarité internationale.</p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
-                    
-                    <?php
-                    $equipe = [
-                        ['nom' => 'Madrick', 'role' => 'Président Fondateur', 'img' => 'https://i.postimg.cc/nhHB3JZB/MADRICK.png'],
-                        ['nom' => 'Hermine', 'role' => 'Secrétaire Générale', 'img' => 'https://i.postimg.cc/NFmmzG57/HERMINE.png'],
-                        ['nom' => 'Vianney', 'role' => 'Trésorière Générale', 'img' => 'https://i.postimg.cc/rmtrDyCX/VIANNEY.png'],
-                        ['nom' => 'Ismael', 'role' => 'Chargé des relations extérieurs', 'img' => 'https://i.postimg.cc/sDCpZWNn/ISMAEL.png'],
-                        ['nom' => 'Ulrich', 'role' => 'Resp. Volontaires', 'img' => 'https://i.postimg.cc/P52ZcRrc/ULRICH.png'],
-                        ['nom' => 'Grace', 'role' => 'Directrice Executive CI', 'img' => 'https://i.postimg.cc/ZYd8RHVB/GRACE.png'],
-                        ['nom' => 'Arnould', 'role' => 'Directeur Exécutif BJ', 'img' => 'https://i.postimg.cc/VL9X96yz/ARNOULD.png'],
-                        ['nom' => 'Souwebatha', 'role' => 'Coordinatrice Nationale FR', 'img' => 'https://i.postimg.cc/DzNGf4GP/SOUWE.png'],
-                        ['nom' => 'Konaté', 'role' => 'Coordinateur National BF', 'img' => 'https://i.postimg.cc/bvrbj9Zv/KONATE.png']
-                    ];
-                    
-                    foreach($equipe as $membre): 
-                    ?>
-                    <div class="group">
-                        <div class="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-6 shadow-lg border-4 border-white group-hover:border-sterna-blue transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 bg-gray-100">
-                            <img src="<?php echo $membre['img']; ?>" alt="<?php echo $membre['nom']; ?>" class="w-full h-full object-cover object-top filter group-hover:brightness-110 transition-all duration-300">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 uppercase tracking-wider mb-1"><?php echo $membre['nom']; ?></h3>
-                        <p class="text-sterna-blue font-semibold text-sm uppercase tracking-wide opacity-80"><?php echo $membre['role']; ?></p>
-                    </div>
-                    <?php endforeach; ?>
-
-                </div>
+        <section class="bg-sterna-blue py-20">
+            <div class="container mx-auto px-4 text-center mb-8">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-2"><strong>L'Équipe Dirigeante</strong></h2>
+                <p class="text-blue-100 max-w-2xl mx-auto text-lg">Des hommes et des femmes engagés au quotidien pour faire rayonner la solidarité internationale.</p>
             </div>
+            
+            <?php include __DIR__ . '/../config/bureau_inter.php'; ?>
         </section>
 
         <!-- Nos Projets -->
@@ -190,14 +164,14 @@ if ($result_projets) {
                             <?php if (!empty($projet['image_main'])): ?>
                                 <!-- Image de fond optionnelle pour un rendu plus beau -->
                                 <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                                    <img src="/images/projets/<?php echo htmlspecialchars($projet['image_main']); ?>" class="w-full h-full object-cover">
+                                    <img loading="lazy" decoding="async" src="/images/projets/<?php echo htmlspecialchars($projet['image_main']); ?>" class="w-full h-full object-cover">
                                 </div>
                             <?php endif; ?>
 
                             <div class="relative z-10 w-full">
                                 <?php if (!empty($projet['image_main'])): ?>
                                     <div class="w-full h-40 bg-gray-100 rounded-xl overflow-hidden mb-6 group-hover:shadow-md transition-shadow">
-                                        <img src="/images/projets/<?php echo htmlspecialchars($projet['image_main']); ?>" alt="<?php echo htmlspecialchars($projet['nom']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        <img loading="lazy" decoding="async" src="/images/projets/<?php echo htmlspecialchars($projet['image_main']); ?>" alt="<?php echo htmlspecialchars($projet['nom']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     </div>
                                 <?php else: ?>
                                     <div class="w-12 h-12 bg-blue-50 text-sterna-blue rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-sterna-blue group-hover:text-white transition-all duration-300">

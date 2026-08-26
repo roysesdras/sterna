@@ -6,7 +6,7 @@
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-sterna-blue">
         <div class="absolute inset-0">
             <!-- Image de fond -->
-            <img src="https://i.ibb.co/wFKwTLjj/1755593839077.jpg" alt="Enfants" class="w-full h-full object-cover opacity-60 mix-blend-luminosity">
+            <img src="/assets/img/external/4179bc0464_1755593839077.jpg" alt="Enfants" class="w-full h-full object-cover opacity-60 mix-blend-luminosity">
             <!-- Surcouche bleue et dégradé -->
             <div class="absolute inset-0 bg-sterna-yellow/60 mix-blend-multiply"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-sterna-yellow via-sterna-yellow/80 to-transparent z-10"></div>
@@ -65,11 +65,11 @@
                     </style>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.ibb.co/0y3Jp0nJ/1755593839061.jpg" alt="Action femmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/85dd9149be_1755593839061.jpg" alt="Action femmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">
-                        <img src="https://i.postimg.cc/0yG3GRf1/12.jpg" alt="Action femmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/assets/img/external/c659a0a581_12.jpg" alt="Action femmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     
                     <div class="min-w-[85%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[35%] shrink-0 snap-center rounded-3xl overflow-hidden shadow-lg h-64 md:h-80 relative group">

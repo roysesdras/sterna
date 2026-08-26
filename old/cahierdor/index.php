@@ -31,7 +31,7 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 // === GESTION DYNAMIQUE DES VIGNETTES POUR LES RÉSEAUX SOCIAUX ===
 $og_title = "Livre d'Or | Sterna Africa";
 $og_description = "Découvrez les récits des bénévoles de Sterna Africa sur nos chantiers de solidarité internationale !";
-$og_image = "https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png"; // Image par défaut
+$og_image = "/assets/img/external/84e554fe99_sternaofficiel-2.png"; // Image par défaut
 $og_url = "https://cahierdor.sternaafrica.org/";
 
 if (!empty($_GET['jour'])) {

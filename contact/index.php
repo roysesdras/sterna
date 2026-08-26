@@ -35,7 +35,7 @@
             <div class="lg:w-1/3 space-y-8">
                 <!-- Mascotte 3 qui dit bonjour -->
                 <div class="relative bg-white rounded-3xl p-8 shadow-xl text-center border border-gray-100 overflow-visible mt-12">
-                    <img src="https://i.postimg.cc/fL7z8sKy/Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte Sterna" class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 object-contain drop-shadow-xl animate-[bounce_3s_infinite]">
+                    <img src="/assets/img/external/8497d6acd9_Whats-App-Image-2026-08-15-at-5-15-13-PM-removebg-preview.png" alt="Mascotte Sterna" class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 object-contain drop-shadow-xl animate-[bounce_3s_infinite]">
                     <div class="mt-16">
                         <h3 class="text-2xl font-black text-sterna-blue mb-2">Besoin d'aide ?</h3>
                         <p class="text-gray-500 text-sm mb-6">Notre équipe est là pour vous écouter et vous accompagner dans toutes vos démarches de solidarité.</p>

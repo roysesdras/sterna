@@ -111,7 +111,7 @@ if ($result_count) {
                     ?>
                 </tbody>
             </table>
-        </div> <?php if ($total_actualites > 1): ?>
+        </div> <?php if ($total_actualites > 5): ?>
             <div class="mb-4 text-left">
                 <a id="load-more" style="cursor:pointer;">Afficher plus d'actualités</a>
             </div>
@@ -125,17 +125,18 @@ if ($result_count) {
         </div>
 
         <script>
-            let offset = 3;
+            let offset = 5;
+            let limit = 5;
             document.addEventListener("DOMContentLoaded", function() {
                 let loadMoreBtn = document.getElementById("load-more");
                 if (loadMoreBtn) {
                     loadMoreBtn.addEventListener("click", function() {
-                        fetch(`load_more_actualites.php?offset=${offset}`)
+                        fetch(`load_more_actualites.php?offset=${offset}&limit=${limit}`)
                             .then(response => response.text())
                             .then(data => {
                                 if (data.trim() !== "") {
                                     document.querySelector("tbody").insertAdjacentHTML("beforeend", data);
-                                    offset += 1; // Attention, ton script PHP semble renvoyer 1 ligne par 1 ligne ? Sinon ajuste l'offset.
+                                    offset += limit;
                                 } else {
                                     loadMoreBtn.style.display = "none";
                                     loadMoreBtn.parentElement.innerHTML = "<span class='text-muted'>Fin des résultats</span>";

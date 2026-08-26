@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] === UPLOAD_ERR_OK) {
             $fileName = time() . '_' . preg_replace("/[^a-zA-Z0-9\.\-_]/", "", basename($_FILES[$fileInputName]['name']));
             if (move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $uploadDir . $fileName)) {
+                require_once $_SERVER['DOCUMENT_ROOT'] . '/config/image_helper.php';
+                compress_uploaded_image($uploadDir . $fileName);
                 return $fileName;
             }
         }

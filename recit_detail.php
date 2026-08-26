@@ -32,7 +32,7 @@ $images_exp = !empty($volontaire['images_experience']) ? explode(',', $volontair
     <!-- Banner -->
     <section class="py-12 md:py-16 bg-sterna-blue text-white relative overflow-hidden">
         <!-- Background image of the respondent -->
-        <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>" 
+        <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>?v=<?php echo @filemtime($_SERVER['DOCUMENT_ROOT'] . $volontaire['photo_volontaire']); ?>" 
              alt="" 
              class="absolute inset-0 w-full h-full object-cover opacity-30 blur-md pointer-events-none z-0" aria-hidden="true">
 
@@ -45,11 +45,11 @@ $images_exp = !empty($volontaire['images_experience']) ? explode(',', $volontair
                 <!-- Photo du volontaire -->
                 <div class="w-40 h-56 md:w-48 md:h-64 rounded-2xl overflow-hidden border-4 border-sterna-yellow shadow-2xl shrink-0 relative bg-gray-900 flex items-center justify-center">
                     <!-- Image Floue de fond pour remplir l'espace -->
-                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>" 
+                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>?v=<?php echo @filemtime($_SERVER['DOCUMENT_ROOT'] . $volontaire['photo_volontaire']); ?>" 
                          class="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" aria-hidden="true">
                     
                     <!-- Image Principale Entière -->
-                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>" 
+                    <img src="<?php echo htmlspecialchars($volontaire['photo_volontaire']); ?>?v=<?php echo @filemtime($_SERVER['DOCUMENT_ROOT'] . $volontaire['photo_volontaire']); ?>" 
                          alt="<?php echo htmlspecialchars($volontaire['nom_complet']); ?>" 
                          class="relative z-10 w-full h-full object-contain">
                 </div>

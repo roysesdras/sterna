@@ -53,8 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Ajouter une Question et ses Réponses</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Favicons -->
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="icon">
-    <link href="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" rel="apple-touch-icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="icon">
+    <link href="/assets/img/external/84e554fe99_sternaofficiel-2.png" rel="apple-touch-icon">
 
     <script>
         function addReponseField() {

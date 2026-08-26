@@ -16,15 +16,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v22.0"></script>
 
-<footer class="relative overflow-hidden pb-10" style="background: #034890;">
+<?php include 'impact.php'; ?>
+
+<?php include 'temoignage.php'; ?>
+
+<?php include 'partenaire.php'; ?>
+
+<footer class="relative overflow-hidden pt-16 md:pt-24 pb-10" style="background: #034890;">
+
+<!-- SVG de séparation en haut de la section -->
+    <div class="absolute -top-0 md:top-0 left-0 w-full overflow-hidden leading-none">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-12 md:h-20 text-gray-100 fill-current">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
     
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
             
             <div class="space-y-2 relative">
-                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Logo" class="h-32 w-auto brightness-0 invert relative z-10">
-                <img src="https://i.postimg.cc/fyFx5Y5z/mascotte2.png" alt="Mascotte Sterna" class="absolute bottom-4 left-32 w-16 h-16 object-contain rotate-12 drop-shadow-md opacity-90 animate-pulse">
+                <img src="/assets/img/external/84e554fe99_sternaofficiel-2.png" alt="Sterna Logo" class="h-32 w-auto relative z-10">
+                <!-- <img src="/assets/img/external/baf0f05e37_mascotte2.png" alt="Mascotte Sterna" class="absolute bottom-4 left-32 w-16 h-16 object-contain rotate-12 drop-shadow-md opacity-90 animate-pulse"> -->
                 <p class="text-sm font-black text-white/80 tracking-[0.3em] uppercase relative z-10">Wherever Needed</p>
             </div>
 
@@ -88,12 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
     </div>
 </footer>
 
-<?php include 'impact.php'; ?>
-<?php include 'temoignage.php'; ?>
-
 <!-- Bouton Back to Top avec la Mascotte -->
 <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-y-12 group focus:outline-none" aria-label="Retour en haut">
-    <img src="https://i.postimg.cc/HnKQ3b3p/mascort1.png" alt="Remonter" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_8px_15px_rgba(0,0,0,0.2)] group-hover:-translate-y-4 group-hover:scale-110 transition-all duration-300 animate-[bounce_3s_infinite]">
+    <img src="/assets/img/external/478a9bc9cc_mascort1.png" alt="Remonter" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_8px_15px_rgba(0,0,0,0.2)] group-hover:-translate-y-4 group-hover:scale-110 transition-all duration-300 animate-[bounce_3s_infinite]">
 </button>
 
 <script>
@@ -118,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['your-name'])) {
 <div id="cookiePopup" class="fixed bottom-4 left-4 right-4 md:bottom-24 md:right-6 md:left-auto z-40 bg-white shadow-2xl rounded-3xl p-6 max-w-sm transform translate-y-full opacity-0 pointer-events-none transition-all duration-700 hidden border border-gray-100">
     <div class="flex items-start gap-4">
         <div class="shrink-0">
-            <img src="https://i.postimg.cc/fyFx5Y5z/mascotte2.png" alt="Mascotte Cookies" class="w-16 h-16 object-contain">
+            <img src="/assets/img/external/baf0f05e37_mascotte2.png" alt="Mascotte Cookies" class="w-16 h-16 object-contain">
         </div>
         <div>
             <h4 class="font-bold text-gray-900 mb-2">Respect de votre vie privée</h4>

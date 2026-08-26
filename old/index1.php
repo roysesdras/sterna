@@ -73,7 +73,7 @@ if ($result_actualites->num_rows > 0) {
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
             
             <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna" class="h-6 w-auto brightness-0 invert opacity-80 mb-2 md:mb-0">
+                <img src="/assets/img/external/84e554fe99_sternaofficiel-2.png" alt="Sterna" class="h-6 w-auto brightness-0 invert opacity-80 mb-2 md:mb-0">
                 <p class="text-[11px] font-bold text-white/40 uppercase tracking-[0.2em]">
                     © 2026 Sterna Africa — <span class="text-white/80">Wherever Needed</span>
                 </p>

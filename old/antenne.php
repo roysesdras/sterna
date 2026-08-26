@@ -282,7 +282,7 @@ if (isset($conn)) {
     <footer class="mt-5 py-4" style="background-color: #0f277e; border-top: 5px solid #ea750f;">
         <div class="container text-center">
             <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mb-3">
-                <img src="https://i.postimg.cc/ZqS0t5js/sternaofficiel-2.png" alt="Sterna Africa" style="height: 30px; filter: brightness(0) invert(1); opacity: 0.9;">
+                <img src="/assets/img/external/84e554fe99_sternaofficiel-2.png" alt="Sterna Africa" style="height: 30px; filter: brightness(0) invert(1); opacity: 0.9;">
                 <span class="fw-bold text-uppercase d-none d-md-inline" style="color: rgba(255,255,255,0.2);">|</span>
                 <span class="fw-bold text-uppercase" style="letter-spacing: 1.5px; font-size: 12px; color: rgba(255, 255, 255, 0.9);">
                     Sterna Africa — Antenne <?= !empty($antenne['nom']) ? htmlspecialchars($antenne['nom']) : ''; ?>

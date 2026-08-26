@@ -41,6 +41,8 @@
                         <?php $title_for_alt = htmlspecialchars(html_entity_decode($actualite['title'])); ?>
                         <img src="images/<?php echo $actualite['image']; ?>" 
                              alt="<?php echo $title_for_alt; ?>" 
+                             loading="lazy"
+                             decoding="async"
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-urunani-blue opacity-0 group-hover:opacity-20 transition-opacity shadow-lg"></div>
                     </div>

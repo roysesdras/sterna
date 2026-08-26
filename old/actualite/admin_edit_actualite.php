@@ -104,6 +104,8 @@ if (isset($_POST['submit'])) {
 
     if ($image) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/config/image_helper.php';
+            compress_uploaded_image($target);
             $image_uploaded = true;
         } else {
             echo "Erreur lors du téléchargement de l'image.";

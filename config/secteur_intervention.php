@@ -33,7 +33,7 @@
                 <div class="flex flex-col lg:flex-row h-full">
                     <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
                         <!-- Image illustrative -->
-                        <img src="https://i.postimg.cc/QxgwdDJc/4(1).png" class="absolute inset-0 w-full h-full object-cover" alt="Éducation Populaire">
+                        <img src="/assets/img/external/08faa183b4_4_1_.png" class="absolute inset-0 w-full h-full object-cover" alt="Éducation Populaire">
                         <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
                     <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">
@@ -113,7 +113,7 @@
             <div id="content-volontariat" class="secteur-content transition-all duration-500 opacity-0 hidden">
                 <div class="flex flex-col lg:flex-row h-full">
                     <div class="lg:w-2/5 relative h-64 lg:h-auto min-h-[300px]">
-                        <img src="https://i.postimg.cc/jd6mST4P/3(1).png" class="absolute inset-0 w-full h-full object-cover" alt="Volontariat">
+                        <img src="/assets/img/external/0aea6ec811_3_1_.png" class="absolute inset-0 w-full h-full object-cover" alt="Volontariat">
                         <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent hidden lg:block"></div>
                     </div>
                     <div class="lg:w-3/5 p-6 sm:p-8 md:p-12">

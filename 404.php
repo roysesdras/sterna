@@ -18,7 +18,7 @@ http_response_code(404);
         <div class="max-w-2xl w-full text-center">
             <!-- Mascotte 4 (surprise) -->
             <div class="relative w-48 h-48 mx-auto mb-8">
-                <img src="https://i.postimg.cc/26dk0Yw3/Whats-App-Image-2026-08-15-at-5-15-14-PM-removebg-preview.png" alt="Mascotte Perdue" class="absolute inset-0 w-full h-full object-contain drop-shadow-2xl hover:scale-110 transition-transform duration-300">
+                <img src="/assets/img/external/cd698b6f73_Whats-App-Image-2026-08-15-at-5-15-14-PM-removebg-preview.png" alt="Mascotte Perdue" class="absolute inset-0 w-full h-full object-contain drop-shadow-2xl hover:scale-110 transition-transform duration-300">
             </div>
             
             <h1 class="text-6xl md:text-8xl font-black text-sterna-blue mb-4">404</h1>
